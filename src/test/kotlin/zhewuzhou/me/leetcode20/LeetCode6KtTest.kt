@@ -2,7 +2,6 @@ package zhewuzhou.me.leetcode20
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class LeetCode6KtTest {
@@ -45,9 +44,7 @@ class LeetCode6KtTest {
 
     @Test
     fun `Should get correct index for 2 zigzag`() {
-        Assertions.assertThrows(IllegalStateException::class.java) {
-            val index = 2.zigzagIndex()
-            assertThat(index, `is`(listOf(0, 1)))
-        }
+        val index = 2.zigzagIndex()
+        assertThat(index, `is`(listOf(0, 1)))
     }
 }

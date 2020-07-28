@@ -1,7 +1,5 @@
 package zhewuzhou.me.leetcode240
 
-import java.util.*
-
 fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean {
     if (matrix.isEmpty() || matrix[0].isEmpty()) {
         return false
@@ -12,8 +10,7 @@ fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean {
         if (target == matrix[row][col]) {
             return true
         } else if (target < matrix[row][col]) {
-            val inRow = Arrays.binarySearch(matrix[row], target)
-            if (inRow >= 0) return true else row
+            col--
         } else if (target > matrix[row][col]) {
             row++
         }
