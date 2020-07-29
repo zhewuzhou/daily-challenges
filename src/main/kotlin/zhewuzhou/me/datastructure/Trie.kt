@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.datastructure
 
 class Trie() {
     private data class TrieNode(val value: Char) {
