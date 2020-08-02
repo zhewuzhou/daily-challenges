@@ -16,3 +16,28 @@ fun canPartitionRecur(nums: IntArray): Boolean {
     }
     return partition(0, sum)
 }
+
+fun canPartition(nums: IntArray): Boolean {
+    if (nums.isEmpty() || nums.size < 2) return false
+    var sum = nums.sum()
+    if (sum.and(1) == 1) return false
+    sum /= 2
+    val metrics = Array(nums.size + 1) {
+        BooleanArray(sum + 1) {
+            false
+        }
+    }
+    for (i in 1..metrics.lastIndex) {
+        metrics[i][0] = true
+    }
+    metrics[0][0] = true
+    for (i in 1..metrics.lastIndex) {
+        for (j in 1..metrics[0].lastIndex) {
+            metrics[i][j] = metrics[i - 1][j]
+            if (j >= nums[i - 1]) {
+                metrics[i][j] = (metrics[i][j] || metrics[i - 1][j - nums[i - 1]])
+            }
+        }
+    }
+    return metrics[nums.lastIndex][sum]
+}

@@ -23,6 +23,6 @@ internal class PartitionSubset416KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should know if can partition the array`(case: Pair<IntArray, Boolean>) {
-        assertThat(canPartitionRecur(case.first), `is`(case.second))
+        assertThat(canPartition(case.first), `is`(case.second))
     }
 }
