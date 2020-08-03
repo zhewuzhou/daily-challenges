@@ -11,14 +11,14 @@ internal class ArithmeticSlices413And446KtTest {
         @JvmStatic
         fun continuousCase() = Arrays.stream(
             arrayOf(
-//                Pair(intArrayOf(1, 2, 3, 4), 3),
-//                Pair(intArrayOf(1, 2), 0),
-//                Pair(intArrayOf(1), 0),
-//                Pair(intArrayOf(), 0),
-//                Pair(intArrayOf(1, 3, 5, 7, 9, 11, 13), 15),
-//                Pair(intArrayOf(1, 3, 5, 7, 9, 11, 13, 15, 18, 21, 24, 26, 28, 30, 32), 30),
-//                Pair(intArrayOf(1, 3, 5, 7, 9, 15, 16, 18, 17), 6),
-                Pair(intArrayOf(1, 3, 5, 7, 9, 11, 13, 15, 17), 6)
+                Pair(intArrayOf(1, 2, 3, 4), 3),
+                Pair(intArrayOf(1, 2), 0),
+                Pair(intArrayOf(1), 0),
+                Pair(intArrayOf(), 0),
+                Pair(intArrayOf(1, 3, 5, 7, 9, 11, 13), 15),
+                Pair(intArrayOf(1, 3, 5, 7, 9, 11, 13, 15, 18, 21, 24, 26, 28, 30, 32), 30),
+                Pair(intArrayOf(1, 3, 5, 7, 9, 15, 16, 18, 17), 6),
+                Pair(intArrayOf(1, 3, 5, 7, 9, 11, 13, 15, 17), 28)
             )
         )
 
