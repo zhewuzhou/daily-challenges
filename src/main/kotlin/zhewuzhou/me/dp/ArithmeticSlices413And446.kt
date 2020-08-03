@@ -1,6 +1,6 @@
 package zhewuzhou.me.dp
 
-fun numberOfArithmeticSlices(nums: IntArray): Int {
+fun numberOfArithmeticSlicesC(nums: IntArray): Int {
     var cur = 2
     var curMaxLen = 2
     var total = 0
@@ -23,14 +23,31 @@ fun numberOfArithmeticSlicesDP(nums: IntArray): Int {
     if (nums.size < 3) return 0
     val metrics = IntArray(nums.size)
     var total = 0
-    if (nums[2] - nums[1] == nums[1] - nums[0]) {
-        metrics[2] = 1
-        total += 1
-    }
-    for (i in 3..nums.lastIndex) {
+    for (i in 2..nums.lastIndex) {
         if (nums[i] - nums[i - 1] == nums[i - 1] - nums[i - 2]) {
             metrics[i] = metrics[i - 1] + 1
             total += metrics[i]
+        }
+    }
+    return total
+}
+
+fun numberOfArithmeticSlices(nums: IntArray): Int {
+    if (nums.size < 3) return 0
+    val maxDiff = (nums.last() - nums[0]) / 2
+    val metrics = Array(nums.size) {
+        IntArray(maxDiff + 1)
+    }
+    var total = 0
+    for (i in 2..metrics.lastIndex) {
+        for (j in 1 until i) {
+            for (k in 0 until j) {
+                if (nums[i] - nums[j] == nums[j] - nums[k]) {
+                    val diff = nums[i] - nums[j]
+                    metrics[i][diff] += metrics[j][diff] + 1
+                    total += metrics[i][diff]
+                }
+            }
         }
     }
     return total
