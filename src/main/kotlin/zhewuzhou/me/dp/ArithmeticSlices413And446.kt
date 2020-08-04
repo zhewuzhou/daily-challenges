@@ -1,5 +1,6 @@
 package zhewuzhou.me.dp
 
+
 fun numberOfArithmeticSlicesC(nums: IntArray): Int {
     var cur = 2
     var curMaxLen = 2
@@ -33,21 +34,19 @@ fun numberOfArithmeticSlicesDP(nums: IntArray): Int {
 }
 
 fun numberOfArithmeticSlices(nums: IntArray): Int {
-    if (nums.size < 3) return 0
-    val maxDiff = (nums.last() - nums[0]) / 2
-    val metrics = Array(nums.size) {
-        IntArray(maxDiff + 1)
-    }
     var total = 0
-    for (i in 2..metrics.lastIndex) {
-        for (j in 1 until i) {
-            for (k in 0 until j) {
-                if (nums[i] - nums[j] == nums[j] - nums[k]) {
-                    val diff = nums[i] - nums[j]
-                    metrics[i][diff] += metrics[j][diff] + 1
-                    total += metrics[i][diff]
-                }
-            }
+    val metrics = Array(nums.size) {
+        mutableMapOf<Int, Int>()
+    }
+    for (i in nums.indices) {
+        for (j in 0 until i) {
+            val diff = nums[i].toLong() - nums[j].toLong()
+            if (diff <= Int.MIN_VALUE || diff > Int.MAX_VALUE) continue
+            val d = diff.toInt()
+            val current = metrics[i].getOrDefault(d, 0)
+            val pre = metrics[j].getOrDefault(d, 0)
+            total += pre
+            metrics[i][d] = current + pre + 1
         }
     }
     return total

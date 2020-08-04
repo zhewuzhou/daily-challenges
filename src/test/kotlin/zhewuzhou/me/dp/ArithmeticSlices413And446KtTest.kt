@@ -30,6 +30,10 @@ internal class ArithmeticSlices413And446KtTest {
                 Pair(intArrayOf(1), 0),
                 Pair(intArrayOf(), 0),
                 Pair(intArrayOf(1, 3, 5, 7, 9, 11, 13), 20),
+                Pair(intArrayOf(2, 2, 3, 4), 2),
+                Pair(intArrayOf(1, 3, 5, 7, 9, 20, 21, 22, 9, 11, 13), 36),
+                Pair(intArrayOf(0, 2000000000, -294967296), 0),
+                Pair(intArrayOf(1, 1, 1, 1), 5),
                 Pair(intArrayOf(1, 3, 5, 7, 9), 7)
             )
         )
