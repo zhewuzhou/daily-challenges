@@ -161,3 +161,6 @@ gradle-app.setting
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,java,intellij,gradle,kotlin
+
+# Ignore Gradle build output directory
+build
