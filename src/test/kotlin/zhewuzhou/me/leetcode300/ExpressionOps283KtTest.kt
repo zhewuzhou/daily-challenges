@@ -2,6 +2,7 @@ package zhewuzhou.me.leetcode300
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
@@ -25,7 +26,8 @@ internal class ExpressionOps283KtTest {
                 Triple("12", 12, listOf("12")),
                 Triple("10009", 9, listOf("1*0*0*0+9", "1*0*0+0+9", "1*0*0-0+9", "1*0+0*0+9", "1*0+0+0+9", "1*0+0-0+9",
                     "1*0-0*0+9", "1*0-0+0+9", "1*0-0-0+9", "10*0*0+9", "10*0+0+9", "10*0-0+9",
-                    "100*0+9"))
+                    "100*0+9")),
+                Triple("2147483648", -2147483648, listOf())
             )
         )
 
@@ -43,12 +45,17 @@ internal class ExpressionOps283KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should return all possible expression`(case: Triple<String, Int, List<String>>) {
-        assertThat(addOperators(case.first, case.second).sorted(), `is`(case.third.sorted()))
+        assertThat(addOperatorsSlow(case.first, case.second).sorted(), `is`(case.third.sorted()))
     }
 
     @ParameterizedTest
     @MethodSource("validExps")
     fun `Should know if the exp is valid`(case: Pair<String, Boolean>) {
         assertThat(isValidExp(case.first), `is`(case.second))
+    }
+
+    @Test
+    fun `Should eval max int`() {
+        assertThat(eval("2147483648"), `is`(2147483648L))
     }
 }
