@@ -45,7 +45,7 @@ internal class ExpressionOps283KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should return all possible expression`(case: Triple<String, Int, List<String>>) {
-        assertThat(addOperatorsSlow(case.first, case.second).sorted(), `is`(case.third.sorted()))
+        assertThat(addOperators(case.first, case.second).sorted(), `is`(case.third.sorted()))
     }
 
     @ParameterizedTest
