@@ -12,6 +12,7 @@ internal class LeetCode227KtTest {
         fun cases() = Arrays.stream(
             arrayOf(
                 Pair("3+2*2", 7),
+                Pair("30+2*2", 34),
                 Pair("3/2", 1),
                 Pair("3", 3),
                 Pair("", 0),
