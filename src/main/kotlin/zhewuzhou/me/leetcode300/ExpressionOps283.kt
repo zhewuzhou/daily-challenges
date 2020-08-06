@@ -1,18 +1,22 @@
 package zhewuzhou.me.leetcode300
 
 fun addOperators(nums: String, target: Int): List<String> {
+    val cache = mutableMapOf<String, List<String>>()
     fun calculateExp(s: String): List<String> {
-        if (s.length == 1) {
-            return listOf(s)
-        }
-        val exps = calculateExp(s.substring(1))
-        val first = s[0].toString()
+        if (cache.contains(s)) return cache[s]!!
         val res = mutableSetOf<String>()
-        for (op in listOf("", "+", "-", "*")) {
-            if (first == "0" && op == "") continue
-            res.addAll(exps.map { first + op + it })
+        if (s.length == 1) {
+            res.add(s)
+        } else {
+            val exps = calculateExp(s.substring(1))
+            val first = s[0].toString()
+            for (op in listOf("", "+", "-", "*")) {
+                if (first == "0" && op == "") continue
+                res.addAll(exps.map { first + op + it })
+            }
         }
-        return res.toList()
+        cache[s] = res.toList()
+        return cache[s]!!
     }
 
     return calculateExp(nums).filter { eval(it) == target }
