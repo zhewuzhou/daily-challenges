@@ -1,26 +1,36 @@
 package zhewuzhou.me.leetcode300
 
 fun addOperators(nums: String, target: Int): List<String> {
-    val cache = mutableMapOf<String, List<String>>()
+    if (nums.isEmpty()) return listOf()
+    val validOps = listOf("", "+", "-", "*")
     fun calculateExp(s: String): List<String> {
-        if (cache.contains(s)) return cache[s]!!
-        val res = mutableSetOf<String>()
-        if (s.length == 1) {
-            res.add(s)
-        } else {
-            val exps = calculateExp(s.substring(1))
-            val first = s[0].toString()
-            for (op in listOf("", "+", "-", "*")) {
-                if (first == "0" && op == "") continue
-                res.addAll(exps.map { first + op + it })
-            }
+        if (s.length == 1) return listOf(s)
+        val res = mutableListOf<String>()
+        val exps = calculateExp(s.substring(1))
+        val first = s[0].toString()
+        for (op in validOps) {
+            res.addAll(exps.map { first + op + it })
         }
-        cache[s] = res.toList()
-        return cache[s]!!
+        return res
     }
 
-    return calculateExp(nums).filter { eval(it) == target }
+    val allValidExp = calculateExp(nums)
+        .filter { isValidExp(it) }
+    return allValidExp.filter { eval(it) == target }
 
+}
+
+fun isValidExp(s: String): Boolean {
+    var start = 0
+    val validOps = listOf('+', '-', '*')
+    for (i in s.indices) {
+        if (s[i] in '0'..'9') {
+            if (i > start && s[start] == '0') return false
+        } else {
+            start = i + 1
+        }
+    }
+    return true
 }
 
 private fun eval(s: String): Int {

@@ -19,7 +19,23 @@ internal class ExpressionOps283KtTest {
                     "0+0+0", "0+0-0", "0+0*0",
                     "0*0+0", "0*0-0", "0*0*0",
                     "0-0+0", "0-0-0", "0-0*0")),
-                Triple("3456237490", 9191, listOf())
+                Triple("3456237490", 9191, listOf()),
+                Triple("", 0, listOf()),
+                Triple("1", 1, listOf("1")),
+                Triple("12", 12, listOf("12")),
+                Triple("10009", 9, listOf("1*0*0*0+9", "1*0*0+0+9", "1*0*0-0+9", "1*0+0*0+9", "1*0+0+0+9", "1*0+0-0+9",
+                    "1*0-0*0+9", "1*0-0+0+9", "1*0-0-0+9", "10*0*0+9", "10*0+0+9", "10*0-0+9",
+                    "100*0+9"))
+            )
+        )
+
+        @JvmStatic
+        fun validExps() = Arrays.stream(
+            arrayOf(
+                Pair("100*0+9", true),
+                Pair("0*0", true),
+                Pair("10*00+9", false),
+                Pair("10*05", false)
             )
         )
     }
@@ -28,5 +44,11 @@ internal class ExpressionOps283KtTest {
     @MethodSource("cases")
     fun `Should return all possible expression`(case: Triple<String, Int, List<String>>) {
         assertThat(addOperators(case.first, case.second).sorted(), `is`(case.third.sorted()))
+    }
+
+    @ParameterizedTest
+    @MethodSource("validExps")
+    fun `Should know if the exp is valid`(case: Pair<String, Boolean>) {
+        assertThat(isValidExp(case.first), `is`(case.second))
     }
 }
