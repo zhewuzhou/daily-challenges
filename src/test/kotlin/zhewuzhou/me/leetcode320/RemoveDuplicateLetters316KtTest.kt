@@ -16,7 +16,9 @@ internal class RemoveDuplicateLetters316KtTest {
                 Pair("", ""),
                 Pair("a", "a"),
                 Pair("cbacdcbc", "acdb"),
-                Pair("abcdabcdabcdabcdabcd", "abcd")
+                Pair("abcdabcdabcdabcdabcd", "abcd"),
+                Pair("adcbabcdabcdabcdabcd", "abcd"),
+                Pair("adcbabcdabcdabcdadcb", "abcd")
             )
         )
     }
