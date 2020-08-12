@@ -13,19 +13,24 @@ fun removeDuplicateLetters(s: String): String {
                 charPos[s[i]] = i
             }
         }
-        var chosen = letters.first()
+        var chosenChar = letters.first()
+        var chosenPos = -1
         for (c in charPos.keys) {
-            val leftChars = s.substring(charPos[c]!!)
-                .toList()
-                .filter { letters.contains(it) }
-                .toSet()
+            val pos = charPos[c]!!
+            val leftChars = mutableSetOf(c)
+            for (i in (pos + 1)..s.lastIndex) {
+                if (letters.contains(s[i])) {
+                    leftChars.add(s[i])
+                }
+            }
             if (leftChars == letters) {
                 letters.remove(c)
-                chosen = c
+                chosenChar = c
+                chosenPos = pos + 1
                 break
             }
         }
-        return "$chosen" + remove(charPos[chosen]!! + 1, letters)
+        return "$chosenChar" + remove(chosenPos, letters)
     }
     return remove(0, s.toList().toMutableSet())
 }
