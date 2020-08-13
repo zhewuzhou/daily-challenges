@@ -4,10 +4,10 @@ package zhewuzhou.me.leetcode320
 fun countSmaller(nums: IntArray): List<Int> {
     if (nums.isEmpty()) return listOf()
     val length = nums.size
-    val arr = Array(length) { IntArray(2) }
-    val aux = Array(length) { IntArray(2) }
+    val sortedArr = Array(length) { IntArray(2) }
+    val mergeSpace = Array(length) { IntArray(2) }
     for (i in 0 until length) {
-        arr[i] = intArrayOf(nums[i], i)
+        sortedArr[i] = intArrayOf(nums[i], i)
     }
     val count = IntArray(length)
     fun sort(lower: Int, high: Int) {
@@ -16,18 +16,28 @@ fun countSmaller(nums: IntArray): List<Int> {
         sort(lower, mid)
         sort(mid + 1, high)
         for (i in lower..high) {
-            aux[i] = arr[i]
+            mergeSpace[i] = sortedArr[i]
         }
-        var i = lower
-        var j = mid + 1
+        var left = lower
+        var right = mid + 1
         for (k in lower..high) {
-            if (i == mid + 1) {
-                arr[k] = aux[j++]
-            } else if (j == high + 1 || aux[i][0] <= aux[j][0]) {
-                count[aux[i][1]] += j - (mid + 1)
-                arr[k] = aux[i++]
+            if (left == mid + 1) {//the left part is finished
+                sortedArr[k] = mergeSpace[right++]
+            } else if (right == high + 1 || mergeSpace[left][0] <= mergeSpace[right][0]) {
+                //1. current left is large than all right part, pretty hard to understand
+                //2. left is smaller, that also mean current left is larger than all pre right
+                //5,6,7,8  || 4,6,8,10
+                /*
+                4,                 r=5, l=0
+                4, 6               r=5, l=1 and count[0] = 5-4 = 1
+                4, 6, 6            r=6, l=1
+                4, 6, 6, 7         r=6, l=2 and count[7] = 6-4 = 2
+                 */
+                count[mergeSpace[left][1]] += right - (mid + 1)
+                sortedArr[k] = mergeSpace[left++]
             } else {
-                arr[k] = aux[j++]
+                //Jump from right to left
+                sortedArr[k] = mergeSpace[right++]
             }
         }
     }
