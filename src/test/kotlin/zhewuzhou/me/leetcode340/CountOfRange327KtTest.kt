@@ -17,7 +17,8 @@ internal class CountOfRange327KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
-                CountOfRangeCase(listOf(-2, 5, -1), -2, 2, 3)
+//                CountOfRangeCase(listOf(-2, 5, -1), -2, 2, 3),
+                CountOfRangeCase(listOf(2), -2, 2, 1)
             )
         )
     }

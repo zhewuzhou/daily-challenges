@@ -1,12 +1,15 @@
 package zhewuzhou.me.leetcode340
 
+/*
+1. Why start from 0 and sortedSum[0] = 0?
+ */
 fun countRangeSum(nums: IntArray, lower: Int, upper: Int): Int {
-    val sortedSum = LongArray(nums.size + 1)
-    val sortingSpace = LongArray(nums.size + 1)
+    val merging = LongArray(nums.size + 1)
+    val merged = LongArray(nums.size + 1)
     var count = 0
-    sortedSum[0] = 0
+    merging[0] = 0
     for (i in 1..nums.size) {
-        sortedSum[i] = sortedSum[i - 1] + nums[i - 1].toLong()
+        merging[i] = merging[i - 1] + nums[i - 1].toLong()
     }
     fun mergesort(start: Int, end: Int) {
         if (start >= end) {
@@ -20,26 +23,26 @@ fun countRangeSum(nums: IntArray, lower: Int, upper: Int): Int {
         var low = mid + 1
         var high = mid + 1
         for (left in start..mid) {
-            while (low <= end && sortedSum[low] - sortedSum[left] < lower) {
+            while (low <= end && merging[low] - merging[left] < lower) {
                 low++
             }
-            while (high <= end && sortedSum[high] - sortedSum[left] <= upper) {
+            while (high <= end && merging[high] - merging[left] <= upper) {
                 high++
             }
-            while (right <= end && sortedSum[right] < sortedSum[left]) {
-                sortingSpace[index++] = sortedSum[right++]
+            while (right <= end && merging[right] < merging[left]) {
+                merged[index++] = merging[right++]
             }
-            sortingSpace[index++] = sortedSum[left]
+            merged[index++] = merging[left]
             count += high - low
         }
         while (right <= end) {
-            sortingSpace[index++] = sortedSum[right++]
+            merged[index++] = merging[right++]
         }
         for (i in start..end) {
-            sortedSum[i] = sortingSpace[i]
+            merging[i] = merged[i]
         }
     }
-    mergesort(0, sortedSum.size - 1)
+    mergesort(0, merging.size - 1)
     return count
 }
 
