@@ -51,7 +51,8 @@ internal class WiggleSort324KtTest {
                 intArrayOf(1, 5, 1, 1, 6, 4),
                 intArrayOf(1, 3, 2, 2, 3, 1),
                 intArrayOf(1, 3, 1, 2, 2, 4),
-                intArrayOf(1, 2, 1, 4, 4, 6)
+                intArrayOf(1, 2, 1, 4, 4, 6),
+                intArrayOf(1, 3, 2, 2, 2, 1, 1, 3, 1, 1, 2)
             )
         )
     }

@@ -1,40 +1,30 @@
 package zhewuzhou.me.leetcode340
 
-fun wiggleSort(nums: IntArray): Unit {
-    makePairsOfSmallLarge(nums)
-    var cur = 1
-    while (cur < nums.lastIndex) {
-        if (nums[cur] < nums[cur + 1]) {
-            swap(nums, cur, cur + 1)
-        } else if (nums[cur] == nums[cur + 1]) {
-            swap(nums, cur - 1, cur + 1)
-            swap(nums, cur, cur + 2)
-            if (cur >= 3 && nums[cur - 2] < nums[cur - 1]) {
-                swap(nums, cur - 3, cur - 1)
-                swap(nums, cur - 2, cur)
+import zhewuzhou.me.leetcode220.findKthLargest
+
+fun wiggleSort(nums: IntArray) {
+    val median = findKthLargest(nums, (nums.size + 1) / 2)
+    val n = nums.size
+    var left = 0
+    var i = 0
+    var right = n - 1
+    while (i <= right) {
+        when {
+            nums[placeTo(i, n)] > median -> {
+                swap(nums, placeTo(left++, n), placeTo(i++, n))
+            }
+            nums[placeTo(i, n)] < median -> {
+                swap(nums, placeTo(right--, n), placeTo(i, n))
+            }
+            else -> {
+                i++
             }
         }
-        cur += 2
     }
 }
 
-private fun makePairsOfSmallLarge(nums: IntArray) {
-    var cur = 0
-    while (cur < nums.lastIndex) {
-        if (nums[cur] > nums[cur + 1]) {
-            swap(nums, cur, cur + 1)
-        } else if (nums[cur] == nums[cur + 1]) {
-            var i = cur + 2
-            while (i <= nums.lastIndex && nums[i] == nums[cur]) {
-                i += 1
-            }
-            swap(nums, cur + 1, i)
-            if (nums[cur] > nums[cur + 1]) {
-                swap(nums, cur, cur + 1)
-            }
-        }
-        cur += 2
-    }
+private fun placeTo(index: Int, n: Int): Int {
+    return (1 + 2 * index) % (n.or(1))
 }
 
 private fun swap(nums: IntArray, i: Int, j: Int) {
