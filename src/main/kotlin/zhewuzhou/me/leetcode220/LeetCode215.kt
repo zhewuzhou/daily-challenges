@@ -1,65 +1,29 @@
 package zhewuzhou.me.leetcode220
 
-import java.util.*
-
 
 fun findKthLargest(nums: IntArray, k: Int): Int {
-    val numsList = nums.toMutableList()
-    numsList.shuffle()
-    val kth = nums.size - k
-    var lo = 0
-    var hi = nums.size - 1
-    while (lo < hi) {
-        val j = partition(numsList, lo, hi)
-        if (j < kth) {
-            lo = j + 1
-        } else if (j > kth) {
-            hi = j - 1
-        } else {
-            break
+    return quickSelect(nums, 0, nums.lastIndex, k)
+}
+
+fun quickSelect(nums: IntArray, low: Int, high: Int, k: Int): Int {
+    var pivot = low
+    for (j in low until high) {
+        if (nums[j] <= nums[high]) {
+            swap(nums, pivot, j)
+            pivot += 1
         }
     }
-    return numsList[kth]
+    swap(nums, pivot, high)
+    val count = high - pivot + 1
+    if (count == k) return nums[pivot]
+    return if (count > k)
+        quickSelect(nums, pivot + 1, high, k)
+    else
+        quickSelect(nums, low, pivot - 1, k - count)
 }
 
-private fun partition(a: MutableList<Int>, lo: Int, hi: Int): Int {
-    var start = lo
-    var end = hi + 1
-    while (true) {
-        do {
-            start += 1
-        } while (start < hi && isLessThan(a[start], a[lo]))
-
-        do {
-            end -= 1
-        } while (end > lo && isLessThan(a[lo], a[end]))
-
-        if (start >= end) {
-            break
-        }
-        swap(a, start, end)
-    }
-    swap(a, lo, end)
-    return end
-}
-
-private fun swap(a: MutableList<Int>, i: Int, j: Int) {
-    val tmp = a[i]
-    a[i] = a[j]
-    a[j] = tmp
-}
-
-private fun isLessThan(v: Int, w: Int): Boolean {
-    return v < w
-}
-
-fun findKthLargestQueue(nums: IntArray, k: Int): Int {
-    val pq = PriorityQueue<Int>()
-    for (v in nums) {
-        pq.offer(v)
-        if (pq.size > k) {
-            pq.poll()
-        }
-    }
-    return pq.peek()
+private fun swap(nums: IntArray, i: Int, j: Int) {
+    val t = nums[i]
+    nums[i] = nums[j]
+    nums[j] = t
 }
