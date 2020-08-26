@@ -1,11 +1,14 @@
 package zhewuzhou.me.leetcode340
 
 fun longestIncreasingPath(matrix: Array<IntArray>): Int {
+    if (matrix.isEmpty() || matrix[0].isEmpty()) return 0
+    val caches = mutableMapOf<Pair<Int, Int>, Int>()
 
     fun validCoordinate(r: Int, c: Int) =
         r in 0..matrix.lastIndex && c in 0..matrix[0].lastIndex
 
     fun doDfs(path: MutableList<Pair<Int, Int>>): Int {
+        if (caches.containsKey(path.first())) return caches[path.first()]!!
         val cur = path.last()
         val possibleMoves = listOf(
             Pair(cur.first - 1, cur.second),
@@ -22,10 +25,9 @@ fun longestIncreasingPath(matrix: Array<IntArray>): Int {
         }
         var result = 1
         for (m in possibleMoves) {
-            path.add(m)
-            result = Math.max(doDfs(path), result)
-            path.remove(path.last())
+            result = Math.max(doDfs(mutableListOf(m)) + path.size, result)
         }
+        caches[path.first()] = result
         return result
     }
 
