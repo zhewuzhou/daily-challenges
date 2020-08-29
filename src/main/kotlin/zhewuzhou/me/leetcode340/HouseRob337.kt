@@ -4,12 +4,19 @@ import zhewuzhou.me.leetcode100.TreeNode
 
 
 fun rob(root: TreeNode?): Int {
-    if (root == null) return 0
-    val robRoot = root.`val` +
-        rob(root.left?.left) +
-        rob(root.left?.right) +
-        rob(root.right?.left) +
-        rob(root.right?.right)
-    val skipRoot = rob(root.left) + rob(root.left)
-    return if (robRoot > skipRoot) robRoot else skipRoot
+    val cache = mutableMapOf<TreeNode, Int>()
+    fun robInternal(root: TreeNode?): Int {
+        if (cache.containsKey(root)) return cache[root]!!
+        if (root == null) return 0
+        val robRoot = root.`val` +
+            robInternal(root.left?.left) +
+            robInternal(root.left?.right) +
+            robInternal(root.right?.left) +
+            robInternal(root.right?.right)
+        val skipRoot = robInternal(root.left) + robInternal(root.right)
+        val result = if (robRoot > skipRoot) robRoot else skipRoot
+        cache[root] = result
+        return result
+    }
+    return robInternal(root)
 }

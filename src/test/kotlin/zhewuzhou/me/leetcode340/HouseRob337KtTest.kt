@@ -16,7 +16,7 @@ internal class HouseRob337KtTest {
     @Test
     fun `Should rob maximum num of money large middle tree`() {
         val root = largeMiddleTree()
-        assertThat(rob(root), `is`(10))
+        assertThat(rob(root), `is`(9))
     }
 
     private fun normalTree(): TreeNode? {
