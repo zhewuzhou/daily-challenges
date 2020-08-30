@@ -19,7 +19,8 @@ internal class PalindromePairsKtTest {
                 ),
                 Pair(arrayOf("a", ""),
                     listOf(listOf(0, 1), listOf(1, 0))
-                )
+                ),
+                Pair(arrayOf(), listOf())
             )
         )
     }
