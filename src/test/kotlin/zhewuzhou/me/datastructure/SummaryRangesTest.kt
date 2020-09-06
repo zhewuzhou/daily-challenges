@@ -8,6 +8,7 @@ internal class SummaryRangesTest {
     @Test
     fun `Should show ranges when numbers keep adding`() {
         val sr = SummaryRanges()
+        assertThat(toList(sr.getIntervals()), `is`(listOf()))
         sr.addNum(1)
         assertThat(toList(sr.getIntervals()), `is`(listOf(listOf(1, 1))))
         sr.addNum(3)
