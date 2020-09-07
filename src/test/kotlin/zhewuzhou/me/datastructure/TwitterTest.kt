@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 internal class TwitterTest {
     @Test
     fun `Should find all possible tweets`() {
-        val t = Twitter()
+        val t = TwitterOOP()
         t.postTweet(1, 5)
         assertThat(t.getNewsFeed(1), `is`(listOf(5)))
         t.follow(1, 2)
