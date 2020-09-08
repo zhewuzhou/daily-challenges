@@ -2,6 +2,12 @@ package zhewuzhou.me.leetcode340
 
 import java.util.*
 
+/*
+Solution 2
+1. HashMap<Int, Int> element -> count
+2. TreeMap<Int, List<Int>> count -> elements
+ */
+
 class CountableElement(val count: Int, val ele: Int) : Comparable<CountableElement> {
     override fun compareTo(other: CountableElement): Int {
         return this.count.compareTo(other.count)
