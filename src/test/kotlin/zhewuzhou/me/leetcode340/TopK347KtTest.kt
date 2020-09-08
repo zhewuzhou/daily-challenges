@@ -12,7 +12,9 @@ internal class TopK347KtTest {
         fun cases() = Arrays.stream(
             arrayOf(
                 Triple(intArrayOf(1, 1, 1, 2, 2, 3), 2, listOf(1, 2)),
-                Triple(intArrayOf(1), 1, listOf(1))
+                Triple(intArrayOf(1), 1, listOf(1)),
+                Triple(intArrayOf(), 0, listOf()),
+                Triple(intArrayOf(1, 1, 1, 1, 2, 2, 3, 3, 1, 1, 3, 3, 3, 2, 2), 2, listOf(1, 3))
             )
         )
     }
