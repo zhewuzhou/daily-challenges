@@ -26,7 +26,29 @@ internal class WordLadderKtTest {
                 WordLadderCase("hit",
                     "cog",
                     listOf("hot", "dot", "dog", "lot", "log"),
-                    0)
+                    0),
+                WordLadderCase("hit",
+                    "cog",
+                    listOf(),
+                    0),
+                WordLadderCase("a",
+                    "z",
+                    listOf("a", "b", "z"),
+                    2),
+                WordLadderCase("hit",
+                    "logg",
+                    listOf("hot", "dot", "dog", "lot", "log"),
+                    0),
+                WordLadderCase("lost",
+                    "miss",
+                    listOf("most", "mist", "miss", "lost", "fist", "fish"),
+                    4
+                ),
+                WordLadderCase("leet",
+                    "code",
+                    listOf("lest", "leet", "lose", "code", "lode", "robe", "lost"),
+                    6
+                )
             )
         )
     }
@@ -42,5 +64,7 @@ internal class WordLadderKtTest {
         assertThat(ifOneCharDiff("hit", "hot"), `is`(true))
         assertThat(ifOneCharDiff("log", "cog"), `is`(true))
         assertThat(ifOneCharDiff("hit", "hog"), `is`(false))
+        assertThat(ifOneCharDiff("mist", "miss"), `is`(true))
+        assertThat(ifOneCharDiff("aaabbbc", "aaabbbd"), `is`(true))
     }
 }

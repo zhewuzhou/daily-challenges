@@ -36,14 +36,11 @@ fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): In
 }
 
 fun ifOneCharDiff(s: String, t: String): Boolean {
-    val charsArr = IntArray(26) { 0 }
-    for (c in s) {
-        charsArr[c - 'a'] += 1
+    var diff = 0
+    for (i in s.indices) {
+        if (s[i] != t[i]) diff += 1
     }
-    for (c in t) {
-        charsArr[c - 'a'] += 1
-    }
-    return charsArr.filter { it == 1 }.size == 2
+    return diff == 1
 }
 
 fun nextStep(b: String, wordDic: Map<String, Boolean>): Set<String> {
