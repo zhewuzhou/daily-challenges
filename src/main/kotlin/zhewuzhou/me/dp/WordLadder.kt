@@ -1,6 +1,11 @@
 package zhewuzhou.me.dp
 
-
+/*
+1. One word should only be consumed once, otherwise it's not the shortest
+2. Backing tracking is really the king to discover all possible combinations
+3. When path is larger than minSteps there is no need to go further
+4. The really fast way to tell if strings have one char diff is to use IntArray(26) and see if there is two 1s
+ */
 fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): Int {
     val wordsWithStatus = mutableMapOf<String, Boolean>()
     var minSteps = Int.MAX_VALUE
