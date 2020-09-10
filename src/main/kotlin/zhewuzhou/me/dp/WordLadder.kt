@@ -8,7 +8,7 @@ package zhewuzhou.me.dp
  */
 fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): Int {
     val wordUsed = mutableMapOf<String, Boolean>()
-    var minSteps = Int.MAX_VALUE
+    var minSteps = wordList.size + 1
     for (w in wordList) {
         wordUsed[w] = false
     }
