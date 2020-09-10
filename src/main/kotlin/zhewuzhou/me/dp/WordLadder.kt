@@ -7,11 +7,31 @@ package zhewuzhou.me.dp
 4. The really fast way to tell if strings have one char diff is to use IntArray(26) and see if there is two 1s
  */
 fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): Int {
-    val wordsWithStatus = mutableMapOf<String, Boolean>()
+    val wordUsed = mutableMapOf<String, Boolean>()
     var minSteps = Int.MAX_VALUE
     for (w in wordList) {
-        wordsWithStatus[w] = false
+        wordUsed[w] = false
     }
+
+    fun nextStep(s: String): List<String> {
+        val res = mutableListOf<String>()
+        val source = s.toCharArray()
+        for (i in source.indices) {
+            val origin = source[i]
+            for (c in 'a'..'z') {
+                if (c != origin) {
+                    source[i] = c
+                    val generated = source.joinToString("")
+                    if (wordUsed.containsKey(generated) && !wordUsed[generated]!!) {
+                        res.add(generated)
+                    }
+                }
+            }
+            source[i] = origin
+        }
+        return res
+    }
+
     fun findLadder(path: MutableList<String>) {
         if (path.size > minSteps) {
             return
@@ -21,13 +41,15 @@ fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): In
             minSteps = Math.min(minSteps, path.size)
             return
         }
-        val steps = nextStep(cur, wordsWithStatus)
+        val steps = nextStep(cur)
         for (s in steps) {
-            path.add(s)
-            wordsWithStatus[s] = true
-            findLadder(path)
-            path.removeAt(path.lastIndex)
-            wordsWithStatus[s] = false
+            if (wordUsed.containsKey(s) && !wordUsed[s]!!) {
+                path.add(s)
+                wordUsed[s] = true
+                findLadder(path)
+                path.removeAt(path.lastIndex)
+                wordUsed[s] = false
+            }
         }
     }
     if (!wordList.contains(endWord)) return 0
@@ -35,19 +57,6 @@ fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): In
     return if (minSteps == Int.MAX_VALUE) 0 else minSteps
 }
 
-fun ifOneCharDiff(s: String, t: String): Boolean {
-    var diff = 0
-    for (i in s.indices) {
-        if (s[i] != t[i]) diff += 1
-    }
-    return diff == 1
-}
 
-fun nextStep(b: String, wordDic: Map<String, Boolean>): Set<String> {
-    return wordDic
-        .filter { !it.value }
-        .filter { ifOneCharDiff(b, it.key) }
-        .keys
-}
 
 
