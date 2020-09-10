@@ -4,15 +4,7 @@ import java.util.*
 
 fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): Int {
     val wordLen = beginWord.length
-    val allComboDict = mutableMapOf<String, MutableList<String>>()
-    wordList.forEach {
-        for (i in 0 until wordLen) {
-            val newWord = it.substring(0, i) + '*' + it.substring(i + 1, wordLen)
-            val transforms = allComboDict.getOrDefault(newWord, mutableListOf())
-            transforms.add(it)
-            allComboDict[newWord] = transforms
-        }
-    }
+    val allComboDict = possibleMoveAsWildcard(wordList, wordLen)
     val queue = LinkedList<Pair<String, Int>>()
     queue.add(Pair(beginWord, 1))
     val visited = mutableMapOf<String, Boolean>()
@@ -35,6 +27,19 @@ fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): In
         }
     }
     return 0
+}
+
+private fun possibleMoveAsWildcard(words: List<String>, wordLen: Int): MutableMap<String, MutableList<String>> {
+    val res = mutableMapOf<String, MutableList<String>>()
+    words.forEach {
+        for (i in 0 until wordLen) {
+            val wildcard = it.substring(0, i) + '*' + it.substring(i + 1, wordLen)
+            val transforms = res.getOrDefault(wildcard, mutableListOf())
+            transforms.add(it)
+            res[wildcard] = transforms
+        }
+    }
+    return res
 }
 
 
