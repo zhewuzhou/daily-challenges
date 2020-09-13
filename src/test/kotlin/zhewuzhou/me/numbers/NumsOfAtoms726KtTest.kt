@@ -33,6 +33,15 @@ internal class NumsOfAtoms726KtTest {
                 Pair("Mg2", Pair("Mg", 2))
             )
         )
+
+        @JvmStatic
+        fun simpleFormulaCases() = Arrays.stream(
+            arrayOf(
+                Pair("H", mapOf("H" to 1)),
+                Pair("HO", mapOf("H" to 1, "O" to 1)),
+                Pair("H2MgO2H2Mg2", mapOf("H" to 4, "O" to 2, "Mg" to 3))
+            )
+        )
     }
 
     @ParameterizedTest
@@ -47,5 +56,14 @@ internal class NumsOfAtoms726KtTest {
         val result = handleSingleAtom(case.first)
         assertThat(result.first, `is`(case.second.first))
         assertThat(result.second, `is`(case.second.second))
+    }
+
+    @ParameterizedTest
+    @MethodSource("simpleFormulaCases")
+    fun `Should handle simple formula`(case: Pair<String, Map<String, Int>>) {
+        val res = handleSimpleFormula(case.first)
+        for (key in case.second.keys) {
+            assertThat(res[key], `is`(case.second[key]))
+        }
     }
 }
