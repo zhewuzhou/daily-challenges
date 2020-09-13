@@ -4,6 +4,11 @@ fun countOfAtoms(formula: String): String {
     return ""
 }
 
-fun handleSingleAtom(atomFormula: String): Pair<String, Int> {
-    return Pair("", 0)
+fun handleSingleAtom(atom: String): Pair<String, Int> {
+    for (i in atom.indices) {
+        if (atom[i].isDigit()) {
+            return Pair(atom.substring(0, i), atom.substring(i).toInt())
+        }
+    }
+    return Pair(atom, 1)
 }
