@@ -2,6 +2,13 @@ package zhewuzhou.me.dp
 
 import java.util.*
 
+/*
+* In this Case BFS guide to shortest path:
+* 1. If you have found solution in the early level, there is no need to go further
+* 2. Each of char could be used only once, or else there is shorter path
+* 3. DFS is not effective in this situation, for a pattern such as x->y->z that have no path,
+*    DFS can not tell is has been visited
+*/
 fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): Int {
     val wordLen = beginWord.length
     val allComboDict = possibleMoveAsWildcard(wordList, wordLen)
