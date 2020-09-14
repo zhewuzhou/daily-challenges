@@ -22,8 +22,8 @@ internal class NumsOfAtoms726KtTest {
                 Pair("H2O", "H2O"),
                 Pair("Mg(OH)2", "H2MgO2"),
                 Pair("K4(ON(SO3)2)2", "K4N2O14S4"),
-                Pair("K4(ON(SO3)2(Na2O)3)2", "K4N2Na12O20S4"),
-                Pair("((N42)24(OB40Li30CHe3O48LiNN26)33(C12Li48N30H13HBe31)21(BHN30Li26BCBe47N40)15(H5)16)14", "B18900Be18984C4200H5446He1386Li33894N50106O22638")
+                Pair("((N42)24(OB40Li30CHe3O48LiNN26)33(C12Li48N30H13HBe31)21(BHN30Li26BCBe47N40)15(H5)16)14", "B18900Be18984C4200H5446He1386Li33894N50106O22638"),
+                Pair("K4(ON(SO3)2(Na2O)3)2", "K4N2Na12O20S4")
             )
         )
 
@@ -50,22 +50,5 @@ internal class NumsOfAtoms726KtTest {
     @MethodSource("formulaCases")
     fun `Should find all the numbers of atoms`(case: Pair<String, String>) {
         assertThat(countOfAtoms(case.first), `is`(case.second))
-    }
-
-    @ParameterizedTest
-    @MethodSource("atomCases")
-    fun `Should count single atoms`(case: Pair<String, Pair<String, Int>>) {
-        val result = handleSingleAtom(case.first)
-        assertThat(result.first, `is`(case.second.first))
-        assertThat(result.second, `is`(case.second.second))
-    }
-
-    @ParameterizedTest
-    @MethodSource("simpleFormulaCases")
-    fun `Should handle simple formula`(case: Pair<String, Map<String, Int>>) {
-        val res = handleSimpleFormula(case.first)
-        for (key in case.second.keys) {
-            assertThat(res[key], `is`(case.second[key]))
-        }
     }
 }

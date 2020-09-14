@@ -2,77 +2,67 @@ package zhewuzhou.me.numbers
 
 import java.util.*
 
-fun handleSingleAtom(atom: String): Pair<String, Int> {
-    for (i in atom.indices) {
-        if (atom[i].isDigit()) {
-            return Pair(atom.substring(0, i), atom.substring(i).toInt())
-        }
-    }
-    return Pair(atom, 1)
-}
-
-
-fun handleSimpleFormula(simple: String): Map<String, Int> {
-    val res = TreeMap<String, Int>()
-    val stack = Stack<Int>()
-    fun processAtom(start: Int, i: Int) {
-        val atom = handleSingleAtom(simple.substring(start, i))
-        if (res.containsKey(atom.first)) {
-            res[atom.first] = res[atom.first]!! + atom.second
-        } else {
-            res[atom.first] = atom.second
-        }
-    }
-    for (i in simple.indices) {
-        if (simple[i].isUpperCase()) {
-            if (stack.isNotEmpty()) {
-                processAtom(stack.pop(), i)
-            }
-            stack.push(i)
-        }
-        if (i == simple.lastIndex) {
-            processAtom(stack.pop(), i + 1)
-        }
-    }
-    return res
-}
 
 fun countOfAtoms(f: String): String {
-    val stack = Stack<Char>()
+    val len = f.length
+    val stack = Stack<TreeMap<String, Int>>()
+    stack.push(TreeMap())
     var cur = 0
-    val res = StringBuilder()
-    while (cur <= f.length) {
-        if (cur == f.length) {
-            val atoms = handleSimpleFormula(stack.toCharArray().joinToString(""))
-            for (key in atoms.keys) {
-                res.append(key)
-                if (atoms[key]!! > 1) {
-                    res.append(atoms[key]!!)
+    while (cur < len) {
+        when {
+            f[cur] == '(' -> {
+                stack.push(TreeMap())
+            }
+            f[cur] == ')' -> {
+                val top: Map<String, Int> = stack.pop()
+                val factor = extractMultiplicity(cur, f)
+                val multiplicity = factor.first
+                cur = factor.second
+                for (k in top.keys) {
+                    val v = top[k] ?: error("Impossible")
+                    stack.peek()!![k] = stack.peek()!!.getOrDefault(k, 0) + v * multiplicity
                 }
             }
-        } else if (f[cur] == ')') {
-            if (cur != f.lastIndex) {
-                val start = cur
-                while (cur + 1 < f.length && f[cur + 1].isDigit()) {
-                    cur += 1
-                }
-                val factor = if (cur > start) f.substring(start + 1, cur + 1).toInt() else 1
-                val simple = LinkedList<Char>()
-                while (stack.peek() != '(') {
-                    simple.addFirst(stack.pop())
-                }
-                stack.pop()
-                val simpleFormula = simple.joinToString("")
-                for (n in 1..factor) {
-                    for (c in simpleFormula) {
-                        stack.push(c)
-                    }
-                }
+            else -> {
+                val namePair = extractName(cur, f)
+                val name = namePair.first
+                cur = namePair.second
+                val factor = extractMultiplicity(cur, f)
+                stack.peek()[name] = stack.peek().getOrDefault(name, 0) + factor.first
+                cur = factor.second
             }
-        } else {
-            stack.push(f[cur])
         }
         cur += 1
     }
-    return res.toString()
+    return atomsToString(stack.peek())
+}
+
+private fun extractName(lowerCaseBefore: Int, f: String): Pair<String, Int> {
+    val len = f.length
+    var lowerCaseEnd = lowerCaseBefore
+    while (lowerCaseEnd + 1 < len && f[lowerCaseEnd + 1].isLowerCase()) {
+        lowerCaseEnd += 1
+    }
+    val name = f.substring(lowerCaseBefore, lowerCaseEnd + 1)
+    return Pair(name, lowerCaseEnd)
+}
+
+private fun extractMultiplicity(digitBefore: Int, f: String): Pair<Int, Int> {
+    val len = f.length
+    var digitEnd = digitBefore
+    while (digitEnd + 1 < len && f[digitEnd + 1].isDigit()) {
+        digitEnd += 1
+    }
+    val multiplicity = if (digitEnd > digitBefore) f.substring(digitBefore + 1, digitEnd + 1).toInt() else 1
+    return Pair(multiplicity, digitEnd)
+}
+
+private fun atomsToString(atoms: TreeMap<String, Int>): String {
+    val ans = StringBuilder()
+    for (name in atoms.keys) {
+        ans.append(name)
+        val multiplicity = atoms[name]!!
+        if (multiplicity > 1) ans.append("" + multiplicity)
+    }
+    return ans.toString()
 }
