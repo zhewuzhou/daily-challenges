@@ -12,7 +12,7 @@ fun handleSingleAtom(atom: String): Pair<String, Int> {
 }
 
 
-fun handleSimpleFormula(simple: String): TreeMap<String, Int> {
+fun handleSimpleFormula(simple: String): Map<String, Int> {
     val res = TreeMap<String, Int>()
     val stack = Stack<Int>()
     fun processAtom(start: Int, i: Int) {
@@ -37,54 +37,42 @@ fun handleSimpleFormula(simple: String): TreeMap<String, Int> {
     return res
 }
 
-fun merge(current: TreeMap<String, Int>, factor: Int, total: TreeMap<String, Int>) {
-    for (key in current.keys) {
-        if (total.containsKey(key)) {
-            total[key] = total[key]!! + current[key]!!
-        } else {
-            total[key] = current[key]!!
-        }
-    }
-    if (factor > 1) {
-        total.keys.forEach {
-            total[it] = total[it]!! * factor
-        }
-    }
-}
-
-fun countOfAtoms(formula: String): String {
-    val f = "($formula)"
+fun countOfAtoms(f: String): String {
     val stack = Stack<Char>()
     var cur = 0
-    val atoms = TreeMap<String, Int>()
-    while (cur < f.length) {
-        if (f[cur] == ')') {
-            val start = cur
-            while (cur + 1 < f.length && f[cur + 1].isDigit()) {
-                cur += 1
+    val res = StringBuilder()
+    while (cur <= f.length) {
+        if (cur == f.length) {
+            val atoms = handleSimpleFormula(stack.toCharArray().joinToString(""))
+            for (key in atoms.keys) {
+                res.append(key)
+                if (atoms[key]!! > 1) {
+                    res.append(atoms[key]!!)
+                }
             }
-            val factor = if (cur > start) f.substring(start + 1, cur + 1).toInt() else 1
-            val simple = LinkedList<Char>()
-            while (stack.peek() != '(') {
-                simple.addFirst(stack.pop())
+        } else if (f[cur] == ')') {
+            if (cur != f.lastIndex) {
+                val start = cur
+                while (cur + 1 < f.length && f[cur + 1].isDigit()) {
+                    cur += 1
+                }
+                val factor = if (cur > start) f.substring(start + 1, cur + 1).toInt() else 1
+                val simple = LinkedList<Char>()
+                while (stack.peek() != '(') {
+                    simple.addFirst(stack.pop())
+                }
+                stack.pop()
+                val simpleFormula = simple.joinToString("")
+                for (n in 1..factor) {
+                    for (c in simpleFormula) {
+                        stack.push(c)
+                    }
+                }
             }
-            stack.pop()
-            merge(handleSimpleFormula(simple.joinToString("")), factor, atoms)
         } else {
             stack.push(f[cur])
         }
         cur += 1
-    }
-    return atomMapToString(atoms)
-}
-
-private fun atomMapToString(atoms: TreeMap<String, Int>): String {
-    val res = StringBuilder()
-    for (key in atoms.keys) {
-        res.append(key)
-        if (atoms[key]!! > 1) {
-            res.append(atoms[key])
-        }
     }
     return res.toString()
 }

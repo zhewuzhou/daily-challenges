@@ -21,7 +21,9 @@ internal class NumsOfAtoms726KtTest {
             arrayOf(
                 Pair("H2O", "H2O"),
                 Pair("Mg(OH)2", "H2MgO2"),
-                Pair("K4(ON(SO3)2)2", "K4N2O14S4")
+                Pair("K4(ON(SO3)2)2", "K4N2O14S4"),
+                Pair("K4(ON(SO3)2(Na2O)3)2", "K4N2Na12O20S4"),
+                Pair("((N42)24(OB40Li30CHe3O48LiNN26)33(C12Li48N30H13HBe31)21(BHN30Li26BCBe47N40)15(H5)16)14", "B18900Be18984C4200H5446He1386Li33894N50106O22638")
             )
         )
 
