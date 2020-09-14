@@ -25,7 +25,12 @@ internal class ReversePair493KtTest {
         fun cases() = Arrays.stream(
             arrayOf(
                 Pair(intArrayOf(1, 3, 2, 3, 1), 2),
-                Pair(intArrayOf(2, 4, 3, 5, 1), 3)
+                Pair(intArrayOf(2, 4, 3, 5, 1), 3),
+                Pair((100 downTo 50).toList().toIntArray(), 0),
+                Pair(intArrayOf(3, 1), 1),
+                Pair((100 downTo 49).toList().toIntArray(), 2),
+                Pair(intArrayOf(), 0),
+                Pair(intArrayOf(2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647), 0)
             )
         )
     }
