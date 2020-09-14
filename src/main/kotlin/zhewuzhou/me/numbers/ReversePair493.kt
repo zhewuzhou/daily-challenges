@@ -1,26 +1,25 @@
 package zhewuzhou.me.numbers
 
+import java.util.*
+
+/*
+TODO: Decouple count with sort
+ */
 fun reversePairs(nums: IntArray): Int {
     fun sort(start: Int, end: Int): Int {
         if (start >= end) return 0
         val mid = start + (end - start) / 2
-        val mergeSpace = IntArray(nums.size)
         var count = sort(start, mid) + sort(mid + 1, end)
-        for (i in start..end) {
-            mergeSpace[i] = nums[i]
-        }
         var left = start
         var right = mid + 1
-        for (i in start..end) {
-            if (left == mid + 1) {
-                nums[i] = mergeSpace[right++]
-            } else if (right == end + 1 || mergeSpace[left] <= mergeSpace[right]) {
-                count += (mid + 1..end).filter { mergeSpace[left].toLong() > 2L * mergeSpace[it].toLong() }.count()
-                nums[i] = mergeSpace[left++]
-            } else {
-                nums[i] = mergeSpace[right++]
+        while (left <= mid) {
+            while (right <= end && nums[left] / 2.0 > nums[right]) {
+                right += 1
             }
+            count += right - (mid + 1)
+            left += 1
         }
+        Arrays.sort(nums, start, end + 1)
         return count
     }
     return sort(0, nums.lastIndex)
