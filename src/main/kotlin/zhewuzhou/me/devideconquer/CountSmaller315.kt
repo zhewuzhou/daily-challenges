@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode320
+package zhewuzhou.me.devideconquer
 
 
 fun countSmaller(nums: IntArray): List<Int> {

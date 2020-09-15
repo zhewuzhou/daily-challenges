@@ -1,9 +1,10 @@
-package zhewuzhou.me.leetcode320
+package zhewuzhou.me.devideconquer
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.devideconquer.countSmaller
 import java.util.*
 
 internal class LeetCode315KtTest {

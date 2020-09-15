@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.devideconquer
 
 /*
 1. Why start from 0 and sortedSum[0] = 0?
