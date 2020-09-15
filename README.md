@@ -13,4 +13,18 @@ During the time of solve all those problems, I have found those tips really usef
 
 3. Whenever you find there are situations your solution missed, step back & and rethink if the direction is right.
 
-4. Try best to reduce the problem into some well-know categories, it is normally pretty hard to implement an algorithm from ground. 
+4. Try best to reduce the problem into some well-know categories, it is normally pretty hard to implement an algorithm from ground.
+
+# Problem Category
+
+## Divide And Conquer 
+1. ReversePair493
+2. CountOfRnage327
+3. CountSmaller315
+
+All of those challenges shares common stuff:
+1. N^2 algorithm is exist and easy to do
+2. NlgN algorithm are much harder
+    - Stable sort with merge sort(NlgN)
+    - Do count during the merge phase
+    - It is always easier to separate the concerns by split the sort with count 
