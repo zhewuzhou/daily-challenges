@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.me.devideconquer.countSmaller
 import java.util.*
 
-internal class LeetCode315KtTest {
+internal class CountSmaller315KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
