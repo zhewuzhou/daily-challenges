@@ -26,8 +26,60 @@ data class LineSweeper(val xAxis: Int,
     }
 }
 
-
 fun isRectangleCover(rectangles: Array<IntArray>): Boolean {
+    var leftMost = Int.MAX_VALUE
+    var rightMost = Int.MIN_VALUE
+    var upMost = Int.MIN_VALUE
+    var bottomMost = Int.MAX_VALUE
+    var areaSum = 0L
+    val pointsCount = mutableMapOf<Pair<Int, Int>, Int>()
+    for (r in rectangles) {
+        leftMost = Math.min(leftMost, r[0])
+        rightMost = Math.max(rightMost, r[2])
+        bottomMost = Math.min(bottomMost, r[1])
+        upMost = Math.max(upMost, r[3])
+        areaSum += (r[3] - r[1]) * (r[2] - r[0])
+        addCount(pointsCount, Pair(r[0], r[1]))
+        addCount(pointsCount, Pair(r[0], r[3]))
+        addCount(pointsCount, Pair(r[2], r[1]))
+        addCount(pointsCount, Pair(r[2], r[3]))
+    }
+    if (areaSum != (rightMost - leftMost).toLong() * (upMost - bottomMost).toLong()) {
+        return false
+    }
+    if (notCountOne(pointsCount, Pair(leftMost, bottomMost)) ||
+        notCountOne(pointsCount, Pair(rightMost, upMost)) ||
+        notCountOne(pointsCount, Pair(leftMost, upMost)) ||
+        notCountOne(pointsCount, Pair(rightMost, bottomMost))) {
+        return false
+    }
+    for (key in pointsCount.keys) {
+        if (key.first in (leftMost + 1) until rightMost ||
+            key.second in (bottomMost + 1) until upMost) {
+            if (pointsCount[key]!! != 2 && pointsCount[key]!! != 4) {
+                return false
+            }
+        }
+    }
+    return true
+}
+
+private fun notCountOne(pointsCount: MutableMap<Pair<Int, Int>, Int>, key: Pair<Int, Int>): Boolean {
+    if (!pointsCount.containsKey(key) || pointsCount[key]!! != 1) {
+        return true
+    }
+    return false
+}
+
+private fun addCount(pointsCount: MutableMap<Pair<Int, Int>, Int>, leftBottom: Pair<Int, Int>) {
+    if (pointsCount.containsKey(leftBottom)) {
+        pointsCount[leftBottom] = pointsCount[leftBottom]!! + 1
+    } else {
+        pointsCount[leftBottom] = 1
+    }
+}
+
+fun isRectangleCoverSweep(rectangles: Array<IntArray>): Boolean {
     if (rectangles.isEmpty() || rectangles[0].size != 4) return false
     val queue = PriorityQueue<LineSweeper>()
     var lowestBottom = rectangles[0][1]
