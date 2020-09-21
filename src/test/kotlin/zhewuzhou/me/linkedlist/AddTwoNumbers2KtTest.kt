@@ -12,7 +12,9 @@ internal class AddTwoNumbers2KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
-                Triple(listOf(2, 4, 3).toListNode(), listOf(5, 6, 4).toListNode(), listOf(7, 0, 8).toListNode())
+                Triple(listOf(2, 4, 3).toListNode(), listOf(5, 6, 4).toListNode(), listOf(7, 0, 8).toListNode()),
+                Triple(listOf(0).toListNode(), listOf(0, 0, 4).toListNode(), listOf(0, 0, 4).toListNode()),
+                Triple(listOf(0, 0, 4).toListNode(), listOf<Int>().toListNode(), listOf(0, 0, 4).toListNode())
             )
         )
     }
