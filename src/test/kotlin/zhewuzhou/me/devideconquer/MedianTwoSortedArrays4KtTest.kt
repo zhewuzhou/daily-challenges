@@ -4,8 +4,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.jupiter.api.Test
 
-class LeetCode4KtTest {
-
+internal class MedianTwoSortedArrays4KtTest {
     @Test
     fun `should calculate medium for 2 lists`() {
         assertThat(kth(listOf(1, 2).toIntArray(), 0, listOf(3, 4).toIntArray(), 0, 3), `is`(3))
