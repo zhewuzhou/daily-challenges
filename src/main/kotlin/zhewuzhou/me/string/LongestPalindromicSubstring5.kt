@@ -2,6 +2,7 @@ package zhewuzhou.me.string
 
 /*
 DP Solution
+However There is another algorithm called Manacher's algorithm, instead of N^2 it provide linear performance
  */
 
 fun longestPalindrome(s: String): String {
