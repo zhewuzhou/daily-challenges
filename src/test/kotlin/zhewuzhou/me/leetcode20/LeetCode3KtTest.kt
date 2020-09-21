@@ -3,6 +3,7 @@ package zhewuzhou.me.leetcode20
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.jupiter.api.Test
+import zhewuzhou.me.slidingwindow.lengthOfLongestSubstring
 
 class LeetCode3KtTest {
 

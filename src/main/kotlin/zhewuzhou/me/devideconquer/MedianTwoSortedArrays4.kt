@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.devideconquer
 
 /*
 A[a, b, c .. x]: median is the middle elem m
