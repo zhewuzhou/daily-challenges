@@ -1,12 +1,11 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.slidingwindow
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class LeetCode11KtTest {
-
+internal class ContainerWithMostWater11KtTest {
     @Test
     fun `Should calculate area for valid list`() {
         assertThat(maxArea(listOf(1, 8, 6, 2, 5, 4, 8, 3, 7).toIntArray()), `is`(49))
