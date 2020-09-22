@@ -1,11 +1,11 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.numbers
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class LeetCode12KtTest {
+internal class IntegerRomanKtTest {
 
     @Test
     fun `Should convert small number to Roman number`() {
