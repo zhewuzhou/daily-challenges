@@ -1,11 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.dp
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode10KtTest {
-
+internal class RegularExpressionMatching10KtTest {
     @Test
     fun `Should match for normal string`() {
         assertThat(isMatchRecursive("aa", "a"), `is`(false))

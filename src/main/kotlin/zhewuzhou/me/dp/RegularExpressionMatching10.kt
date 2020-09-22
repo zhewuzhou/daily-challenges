@@ -1,8 +1,7 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.dp
 
 fun isMatchRecursive(s: String, p: String): Boolean =
-    //match(s, 0, p, 0)
-    isMatch(s, p)
+    match(s, 0, p, 0)
 
 /*
 if sp==src.length && pp==pattern.length then true
