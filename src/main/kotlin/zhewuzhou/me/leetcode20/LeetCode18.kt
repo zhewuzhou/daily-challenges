@@ -1,5 +1,7 @@
 package zhewuzhou.me.leetcode20
 
+import zhewuzhou.me.slidingwindow.threeSum
+
 fun fourSum(nums: IntArray, target: Int): List<List<Int>> {
     val result = mutableListOf<MutableList<Int>>()
     nums.sort()
@@ -10,7 +12,7 @@ fun fourSum(nums: IntArray, target: Int): List<List<Int>> {
         val min3Sum = nums[pos + 1] + nums[pos + 2] + nums[pos + 3]
         val curTarget = target - nums[pos]
         if (curTarget in min3Sum..max3Sum) {
-            val possibleThree = threeSum(nums, pos + 1, curTarget)
+            val possibleThree = threeSum(nums, curTarget)
             if (possibleThree.isNotEmpty()) {
                 possibleThree.map { it.add(0, nums[pos]) }
             }

@@ -1,10 +1,11 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.slidingwindow
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode15KtTest {
+
+internal class ThreeSum15KtTest {
 
     @Test
     fun `Should works for normal small case`() {
