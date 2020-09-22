@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.numbers
 
 fun isPalindrome(x: Int): Boolean {
     if (x < 0) return false

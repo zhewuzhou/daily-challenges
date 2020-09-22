@@ -1,11 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.numbers
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode9KtTest {
-
+internal class PalindromeNumber9KtTest {
     @Test
     fun `Should judge if palindrome`() {
         assertThat(isPalindrome(121), `is`(true))
