@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.string
 
 fun myAtoi(str: String): Int {
     val validStr = extractInt(str)

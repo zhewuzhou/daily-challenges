@@ -1,15 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.string
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.junit.jupiter.api.Test
 
-class LeetCode8KtTest {
-
-    @Test
-    fun myAtoi() {
-    }
-
+internal class StringToInteger8KtTest {
     @Test
     fun `Should extract valid integer from string`() {
         assertThat(extractInt("            -42"), `is`("-42"))
