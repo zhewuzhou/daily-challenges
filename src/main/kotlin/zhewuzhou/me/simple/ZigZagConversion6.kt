@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.simple
 
 /*
 Given String consider mod then:
