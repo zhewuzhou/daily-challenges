@@ -1,11 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.numbers
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.jupiter.api.Test
 
-class LeetCode7KtTest {
-
+internal class ReverseInteger7KtTest {
     @Test
     fun `Should reverse integer for normal cases`() {
         assertThat(reverse(123), `is`(321))

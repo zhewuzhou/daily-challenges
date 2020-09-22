@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.numbers
 
 fun reverse(x: Int): Int {
     var div = x
