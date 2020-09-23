@@ -1,11 +1,10 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.linkedlist
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
-import zhewuzhou.me.linkedlist.toListNode
 
-class LeetCode24KtTest {
+internal class SwapNodesPairs24KtTest {
 
     @Test
     fun `Should swap every pair of 1-2-3-4-5-6-7`() {
