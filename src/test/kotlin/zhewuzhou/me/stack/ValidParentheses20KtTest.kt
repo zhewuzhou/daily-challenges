@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.stack
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode20KtTest {
+internal class ValidParentheses20KtTest {
 
     @Test
     fun `Valid Parentheses ()`() {
