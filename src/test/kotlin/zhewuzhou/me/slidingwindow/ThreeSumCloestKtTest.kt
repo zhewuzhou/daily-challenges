@@ -1,11 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.slidingwindow
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode16KtTest {
-
+internal class ThreeSumCloestKtTest {
     @Test
     fun `Should calculate the closest value of target for three sum`() {
         val arr = listOf(-1, 2, 1, -4).toIntArray()
