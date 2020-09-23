@@ -1,11 +1,10 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.linkedlist
 
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
-import zhewuzhou.me.linkedlist.toListNode
 
-class LeetCode23KtTest {
+internal class MergeKSortedLists23KtTest {
 
     @Test
     fun `Should merge k list for normal case`() {
@@ -17,7 +16,7 @@ class LeetCode23KtTest {
         var result = mergeKLists(toMerge);
 
         listOf(1, 1, 2, 3, 4, 4, 5, 6).forEach {
-            MatcherAssert.assertThat(result?.`val`, CoreMatchers.`is`(it))
+            assertThat(result?.`val`, `is`(it))
             result = result?.next
         }
 
