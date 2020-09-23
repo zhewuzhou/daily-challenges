@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.linkedlist
 
-import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
 import org.junit.jupiter.api.Test
 
-class LeetCode19KtTest {
+internal class RemoveNthNodeFromEndList19KtTest {
 
     @Test
     fun `Should remove the n element from tail`() {
@@ -13,8 +13,8 @@ class LeetCode19KtTest {
         var li = 1
         while (li < 5) {
             when (li == 4) {
-                true -> assertThat(newHead?.`val`, `is`(li + 1))
-                false -> assertThat(newHead?.`val`, `is`(li))
+                true -> MatcherAssert.assertThat(newHead?.`val`, CoreMatchers.`is`(li + 1))
+                false -> MatcherAssert.assertThat(newHead?.`val`, CoreMatchers.`is`(li))
             }
             li++
             newHead = newHead?.next
@@ -25,20 +25,20 @@ class LeetCode19KtTest {
     fun `Should remove the n element from tail edge case remove head`() {
         val head = createTestList()
         val newHead = removeNthFromEnd(head, 5)
-        assertThat(newHead?.`val`, `is`(2))
+        MatcherAssert.assertThat(newHead?.`val`, CoreMatchers.`is`(2))
     }
 
     @Test
     fun `Should remove the n element from tail edge case null`() {
         val newHead = removeNthFromEnd(null, 0)
-        assertThat(newHead?.`val` == null, `is`(true))
+        MatcherAssert.assertThat(newHead?.`val` == null, CoreMatchers.`is`(true))
     }
 
     @Test
     fun `Should remove the n element from tail edge case single element`() {
         val head = ListNode(1)
         val newHead = removeNthFromEnd(head, 1)
-        assertThat(newHead?.`val` == null, `is`(true))
+        MatcherAssert.assertThat(newHead?.`val` == null, CoreMatchers.`is`(true))
     }
 
     private fun createTestList(): ListNode {
