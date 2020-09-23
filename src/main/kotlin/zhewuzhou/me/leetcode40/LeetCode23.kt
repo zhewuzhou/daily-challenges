@@ -1,6 +1,7 @@
 package zhewuzhou.me.leetcode40
 
 import zhewuzhou.me.linkedlist.ListNode
+import zhewuzhou.me.linkedlist.mergeTwoLists
 
 fun mergeKLists(lists: Array<ListNode?>): ListNode? {
     return when (val l = lists.size) {
