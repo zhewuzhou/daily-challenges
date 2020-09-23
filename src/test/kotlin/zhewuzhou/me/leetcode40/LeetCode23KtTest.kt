@@ -3,15 +3,16 @@ package zhewuzhou.me.leetcode40
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.jupiter.api.Test
+import zhewuzhou.me.linkedlist.toListNode
 
 class LeetCode23KtTest {
 
     @Test
     fun `Should merge k list for normal case`() {
         val toMerge = listOf(
-            convertToLinkedList(listOf(1, 4, 5)),
-            convertToLinkedList(listOf(1, 3, 4)),
-            convertToLinkedList(listOf(2, 6))
+            listOf(1, 4, 5).toListNode(),
+            listOf(1, 3, 4).toListNode(),
+            listOf(2, 6).toListNode()
         ).toTypedArray()
         var result = mergeKLists(toMerge);
 
@@ -20,13 +21,5 @@ class LeetCode23KtTest {
             result = result?.next
         }
 
-    }
-
-    private fun convertToLinkedList(l: List<Int>): ListNode? {
-        val nodes = l.map { ListNode(it) }
-        for (i in 0 until nodes.size - 1) {
-            nodes[i].next = nodes[i + 1]
-        }
-        return nodes[0]
     }
 }

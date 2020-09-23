@@ -1,11 +1,13 @@
 package zhewuzhou.me.leetcode40
 
+import zhewuzhou.me.linkedlist.ListNode
+
 fun reverseKGroup(head: ListNode?, k: Int): ListNode? {
     if (k == 1) return head
     val length = listNodeLength(head)
     if (k > length) return head
     var kRangeStart = head
-    var start = nthEleInList(head, k)
+    val start = nthEleInList(head, k)
     var preStartEnd: Pair<ListNode?, ListNode?>? = null
     var kRangeEndOneMore = nthEleInList(head, k + 1)
     var kTimes = k

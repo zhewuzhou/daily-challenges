@@ -1,5 +1,7 @@
 package zhewuzhou.me.leetcode40
 
+import zhewuzhou.me.linkedlist.ListNode
+
 fun swapPairs(head: ListNode?): ListNode? {
     var start = head
     var next = head?.next

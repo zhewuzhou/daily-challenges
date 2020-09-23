@@ -1,12 +1,7 @@
 package zhewuzhou.me.leetcode40
 
-class ListNode(var `val`: Int) {
-    var next: ListNode? = null
-}
+import zhewuzhou.me.linkedlist.ListNode
 
-/*
-1. TODO: what if l1 or l2 is empty
- */
 fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
     var lh = l1
     var rh = l2
