@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.slidingwindow
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode18KtTest {
+internal class FourSum18KtTest {
 
     @Test
     fun `Should calculate base case`() {
@@ -14,8 +14,8 @@ class LeetCode18KtTest {
     }
 
     @Test
-    fun `Should works for even edge cases`(){
-        val nums = listOf(0,4,-5,2,-2,4,2,-1,4).toIntArray()
+    fun `Should works for even edge cases`() {
+        val nums = listOf(0, 4, -5, 2, -2, 4, 2, -1, 4).toIntArray()
         val result = fourSum(nums, 12)
         assertThat(result.size, `is`(2))
 

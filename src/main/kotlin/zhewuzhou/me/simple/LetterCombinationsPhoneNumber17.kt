@@ -1,6 +1,6 @@
-package zhewuzhou.me.leetcode20
+package zhewuzhou.me.simple
 
-class Solution {
+fun letterCombinations(digits: String): List<String> {
     val mapping = mapOf(
         '0' to listOf(""),
         '1' to listOf(""),
@@ -16,18 +16,14 @@ class Solution {
 
     fun nextLetterCombination(r: List<String>, next: Char): List<String> =
         mapping[next]?.flatMap { c -> r.map { it + c } } ?: r
-
-    fun letterCombinations(digits: String): List<String> {
-        if (digits.isEmpty()) {
-            return listOf()
-        }
-        var result = mapping[digits[0]] ?: listOf()
-        var di = 1
-        while (di < digits.length) {
-            result = nextLetterCombination(result, digits[di])
-            di += 1
-        }
-        return result
+    if (digits.isEmpty()) {
+        return listOf()
     }
-
+    var result = mapping[digits[0]] ?: listOf()
+    var di = 1
+    while (di < digits.length) {
+        result = nextLetterCombination(result, digits[di])
+        di += 1
+    }
+    return result
 }
