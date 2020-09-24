@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.numbers
 
 fun removeElement(nums: IntArray, v: Int): Int {
     var left = 0

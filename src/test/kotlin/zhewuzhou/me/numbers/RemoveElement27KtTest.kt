@@ -1,11 +1,10 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.numbers
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode27KtTest {
-
+internal class RemoveElement27KtTest {
     @Test
     fun `Should remove 3 from 3-2-2-3`() {
         val nums = listOf(3, 2, 2, 3).toIntArray()
