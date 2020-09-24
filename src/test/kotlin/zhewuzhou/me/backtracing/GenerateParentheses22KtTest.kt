@@ -1,14 +1,13 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.backtracing
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.junit.jupiter.api.Test
 
-class LeetCode22KtTest {
-
+internal class GenerateParentheses22KtTest {
     @Test
     fun `Should generate all possible parentheses given 3`() {
-        assertThat(generateParenthesis(3),
+        assertThat(generateParenthesisBackTracing(3),
             containsInAnyOrder(
                 "((()))",
                 "(()())",
