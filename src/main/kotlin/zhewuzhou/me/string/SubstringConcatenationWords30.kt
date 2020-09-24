@@ -1,19 +1,4 @@
-package zhewuzhou.me.leetcode40
-
-
-fun findSubstringSlow(s: String, words: Array<String>): List<Int> =
-    allCombination(words).flatMap { allPositions(s, it) }.filter { it != -1 }
-
-inline fun allPositions(s: String, p: String): List<Int> {
-    if (s.indexOf(p) == -1) return listOf()
-    var match = s.indexOf(p)
-    var result = mutableListOf<Int>()
-    while (match != -1) {
-        result.add(match)
-        match = s.indexOf(p, startIndex = match + 1)
-    }
-    return result
-}
+package zhewuzhou.me.string
 
 fun findSubstring(s: String, words: Array<String>): List<Int> {
     if (s.isEmpty() || words.isEmpty()) {
@@ -42,13 +27,6 @@ fun isConcat(sub: String, count: Map<String, Int>, wordLen: Int): Boolean {
     return subCount == count
 }
 
-
-inline fun allCombination(words: Array<String>): List<String> =
-    allList(words.size)
-        .map { indexList -> indexList.map { words[it] } }
-        .map { strList -> strList.joinToString(separator = "") }
-        .distinct()
-
 fun allList(n: Int): List<List<Int>> {
     return when (n) {
         0 -> listOf()
@@ -60,10 +38,10 @@ fun allList(n: Int): List<List<Int>> {
     }
 }
 
-inline fun allPosition(l: List<Int>, num: Int): List<List<Int>> {
-    var result = mutableListOf<List<Int>>()
+fun allPosition(l: List<Int>, num: Int): List<List<Int>> {
+    val result = mutableListOf<List<Int>>()
     (0..l.size).forEach {
-        var nl = l.toMutableList()
+        val nl = l.toMutableList()
         nl.add(it, num)
         result.add(nl)
     }

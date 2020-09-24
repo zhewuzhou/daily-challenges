@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode60
 
-import zhewuzhou.me.leetcode40.allList
+import zhewuzhou.me.string.allList
 
 fun permute(nums: IntArray): List<List<Int>> =
     allList(nums.size)
