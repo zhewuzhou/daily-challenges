@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.simple
 
 fun isValidSudoku(board: Array<CharArray>): Boolean =
     validColumns(board) && validBlock(board) && validRows(board)

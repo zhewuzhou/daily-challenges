@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.simple
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.junit.jupiter.api.Test
 
-class LeetCode35KtTest {
+class ValidSudoku36KtTest {
     private val validBoard = arrayOf(
         arrayOf('5', '3', '.', '.', '7', '.', '.', '.', '.').toCharArray(),
         arrayOf('6', '.', '.', '1', '9', '5', '.', '.', '.').toCharArray(),
@@ -33,6 +33,16 @@ class LeetCode35KtTest {
     fun `Should be valid row and invalid rows`() {
         assertThat(validRows(validBoard), `is`(true))
         assertThat(validRows(invalidBoard), `is`(true))
+    }
+
+    @Test
+    fun `Should be valid board`() {
+        assertThat(isValidSudoku(validBoard), `is`(true))
+    }
+
+    @Test
+    fun `Should be invalid board`() {
+        assertThat(isValidSudoku(invalidBoard), `is`(false))
     }
 
     @Test
