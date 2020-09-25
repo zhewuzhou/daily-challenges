@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.numberssort
 
 fun search(nums: IntArray, target: Int): Int {
     if (nums.isEmpty()) return -1
