@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.numberssort
 
 fun searchRange(nums: IntArray, target: Int): IntArray {
     val notFound = listOf(-1, -1).toIntArray()
