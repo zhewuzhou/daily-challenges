@@ -1,4 +1,4 @@
-package zhewuzhou.me.numbers
+package zhewuzhou.me.numberssort
 
 fun divide(dividend: Int, divisor: Int): Int {
     if (dividend == Int.MIN_VALUE && divisor == -1) return Int.MAX_VALUE

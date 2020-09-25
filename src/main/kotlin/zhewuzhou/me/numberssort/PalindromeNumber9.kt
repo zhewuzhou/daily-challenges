@@ -1,4 +1,4 @@
-package zhewuzhou.me.numbers
+package zhewuzhou.me.numberssort
 
 fun isPalindrome(x: Int): Boolean {
     if (x < 0) return false

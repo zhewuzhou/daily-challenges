@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.numberssort
 
 fun nextPermutation(nums: IntArray): Unit {
     if (nums.isEmpty() || nums.size == 1) return

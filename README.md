@@ -28,3 +28,6 @@ All of those challenges shares common stuff:
     - Stable sort with merge sort(NlgN)
     - Do count during the merge phase
     - It is always easier to separate the concerns by split the sort with count 
+    
+## TODOS
+31

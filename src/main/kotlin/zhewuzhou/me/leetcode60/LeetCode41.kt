@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode60
 
-import zhewuzhou.me.leetcode40.swap
+import zhewuzhou.me.numberssort.swap
 
 fun firstMissingPositive(nums: IntArray): Int {
     if (nums.isEmpty()) return 1

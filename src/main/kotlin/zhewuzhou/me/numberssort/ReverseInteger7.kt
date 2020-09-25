@@ -1,4 +1,4 @@
-package zhewuzhou.me.numbers
+package zhewuzhou.me.numberssort
 
 fun reverse(x: Int): Int {
     var div = x

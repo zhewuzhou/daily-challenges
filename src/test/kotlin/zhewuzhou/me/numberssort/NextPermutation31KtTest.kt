@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode40
+package zhewuzhou.me.numberssort
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode31KtTest {
+internal class NextPermutation31KtTest {
 
     @Test
     fun `Should do debug`() {

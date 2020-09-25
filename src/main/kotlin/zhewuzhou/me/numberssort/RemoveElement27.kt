@@ -1,4 +1,4 @@
-package zhewuzhou.me.numbers
+package zhewuzhou.me.numberssort
 
 fun removeElement(nums: IntArray, v: Int): Int {
     var left = 0

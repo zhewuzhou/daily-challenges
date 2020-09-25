@@ -1,4 +1,4 @@
-package zhewuzhou.me.numbers
+package zhewuzhou.me.numberssort
 
 fun maxNumber(nums1: IntArray, nums2: IntArray, k: Int): IntArray {
     var lhs = nums1
