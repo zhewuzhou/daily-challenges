@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode60
+package zhewuzhou.me.simple
 
 fun multiply(num1: String, num2: String): String {
     val m = num1.length
