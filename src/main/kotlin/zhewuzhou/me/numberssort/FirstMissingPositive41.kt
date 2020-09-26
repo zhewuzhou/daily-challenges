@@ -1,7 +1,8 @@
-package zhewuzhou.me.leetcode60
+package zhewuzhou.me.numberssort
 
-import zhewuzhou.me.numberssort.swap
-
+/*
+    Try it with small numbers, get some hints
+ */
 fun firstMissingPositive(nums: IntArray): Int {
     if (nums.isEmpty()) return 1
     for (i in nums.indices) {
