@@ -1,7 +1,18 @@
-package zhewuzhou.me.leetcode60
+package zhewuzhou.me.stack
 
 import java.util.*
 
+/*
+Case driven:
+1 0 1 should works
+1 0 1 0 1 should works
+More complex case should works
+
+This is really a great question such that it can be solve in:
+1. DP
+2. Stack
+3. 2 Pointers/Sliding window
+ */
 
 fun trapDP(height: IntArray): Int {
     val rightMax = mutableMapOf<Int, Int>()
@@ -18,7 +29,7 @@ fun trapDP(height: IntArray): Int {
     return water
 }
 
-fun trap(height: IntArray): Int {
+fun trapStack(height: IntArray): Int {
     val stack: Stack<Int> = Stack()
     var totalWater = 0
     for (right in height.indices) { // Maintain heights in stack are decreasing
@@ -34,4 +45,27 @@ fun trap(height: IntArray): Int {
         stack.push(right)
     }
     return totalWater
+}
+
+fun trap(height: IntArray): Int {
+    var left = 0
+    var right = height.lastIndex
+    var result = 0
+    var leftMax = 0
+    var rightMax = 0
+    while (left < right) {
+        when (height[left].compareTo(height[right])) {
+            1 -> {
+                rightMax = Math.max(rightMax, height[right])
+                result += rightMax - height[right]
+                right -= 1
+            }
+            else -> {
+                leftMax = Math.max(leftMax, height[left])
+                result += leftMax - height[left]
+                left += 1
+            }
+        }
+    }
+    return result
 }
