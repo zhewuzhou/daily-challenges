@@ -7,26 +7,21 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
 class LeetCode45KtTest {
-    data class Test45Case(
-        val nums: List<Int>,
-        val expected: Int
-    )
-
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
-                Test45Case(listOf(2, 3, 1, 1, 4), 2),
-                Test45Case(listOf(2, 3, 0, 1, 4), 2),
-                Test45Case(listOf(1, 2, 1, 1, 1), 3),
-                Test45Case(listOf(3, 2, 1, 0, 4), 6)
+                Pair(intArrayOf(2, 3, 1, 1, 4), 2),
+                Pair(intArrayOf(2, 3, 0, 1, 4), 2),
+                Pair(intArrayOf(1, 2, 1, 1, 1), 3),
+                Pair(intArrayOf(3, 2, 1, 0, 4), 6)
             )
         )
     }
 
     @ParameterizedTest
     @MethodSource("cases")
-    fun `Should jump minimal steps to end`(case: Test45Case) {
-        assertThat(jump(case.nums.toIntArray()), `is`(case.expected))
+    fun `Should jump minimal steps to end`(case: Pair<IntArray, Int>) {
+        assertThat(jump(case.first), `is`(case.second))
     }
 }
