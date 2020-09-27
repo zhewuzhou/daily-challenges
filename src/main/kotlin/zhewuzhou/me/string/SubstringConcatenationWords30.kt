@@ -19,7 +19,7 @@ fun findSubstring(s: String, words: Array<String>): List<Int> {
 }
 
 fun isConcat(sub: String, count: Map<String, Int>, wordLen: Int): Boolean {
-    var subCount = mutableMapOf<String, Int>()
+    val subCount = mutableMapOf<String, Int>()
     for (i in sub.indices step wordLen) {
         val subWord = sub.substring(i, i + wordLen)
         subCount[subWord] = (subCount[subWord] ?: 0) + 1
