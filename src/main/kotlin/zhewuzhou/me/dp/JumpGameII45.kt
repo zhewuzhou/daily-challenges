@@ -1,7 +1,7 @@
 package zhewuzhou.me.dp
 
-fun jumpDP(nums: IntArray): Int {
-    if (nums.isEmpty()) return 0
+fun canJump(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return true
     val steps = IntArray(nums.size)
     for (i in (nums.size - 2) downTo 0) {
         when (nums[i] >= nums.lastIndex - i) {
@@ -15,7 +15,7 @@ fun jumpDP(nums: IntArray): Int {
             }
         }
     }
-    return steps[0]
+    return steps[0] < nums.size
 }
 
 fun jump(nums: IntArray): Int {
