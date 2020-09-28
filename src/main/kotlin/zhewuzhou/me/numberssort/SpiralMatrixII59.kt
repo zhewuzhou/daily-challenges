@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode60
+package zhewuzhou.me.numberssort
 
 fun generateMatrix(n: Int): Array<IntArray> {
     val nums = (1..n * n).toList()
