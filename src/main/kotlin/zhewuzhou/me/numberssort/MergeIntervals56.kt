@@ -1,8 +1,7 @@
-package zhewuzhou.me.leetcode60
+package zhewuzhou.me.numberssort
 
 import java.util.*
 import kotlin.Comparator
-
 
 fun merge(intervals: Array<IntArray>): Array<IntArray> {
     if (intervals.isEmpty()) return arrayOf()

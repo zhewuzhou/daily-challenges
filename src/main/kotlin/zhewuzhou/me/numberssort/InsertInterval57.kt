@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode60
+package zhewuzhou.me.numberssort
 
 fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
     val res = mutableListOf<IntArray>()
