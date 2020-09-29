@@ -1,8 +1,8 @@
 package zhewuzhou.me.linkedlist
 
 import addTwoNumbers2
+import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
-import org.hamcrest.Matchers
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
@@ -22,14 +22,8 @@ internal class AddTwoNumbers2KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun should_add_two_list(case: Triple<ListNode?, ListNode?, ListNode?>) {
-        var result = addTwoNumbers2(case.first, case.second)
-        var expect = case.third
-        while (result != null && expect != null) {
-            assertThat(result.`val`, Matchers.`is`(expect.`val`))
-            result = result.next
-            expect = expect.next
-        }
-        assertThat(expect == null, Matchers.`is`(true))
-        assertThat(result == null, Matchers.`is`(true))
+        val result = addTwoNumbers2(case.first, case.second)
+        val expect = case.third
+        assertThat(result?.equals(expect), `is`(true))
     }
 }
