@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode80
+package zhewuzhou.me.dp
 
 fun minPathSum(grid: Array<IntArray>): Int {
     if (grid.isEmpty() || grid[0].isEmpty()) return 0
     val row = grid.size
     val col = grid[0].size
-    val matrix = Array<IntArray>(row) {
+    val matrix = Array(row) {
         IntArray(col) {
             -1
         }
