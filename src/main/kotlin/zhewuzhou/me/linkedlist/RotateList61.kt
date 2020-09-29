@@ -2,20 +2,27 @@ package zhewuzhou.me.linkedlist
 
 
 fun rotateRight(head: ListNode?, k: Int): ListNode? {
-    if (head == null) return null
-    if (head?.next == null) return head
-    val mapping = mutableMapOf<Int, ListNode>()
+    if (head == null) return head
     var cur = head
-    var index = 0
+    var length = 0
     while (cur != null) {
-        mapping[index] = cur
+        length += 1
         cur = cur.next
-        index += 1
     }
-    mapping[mapping.size - 1]?.next = head
-    val total = mapping.size
-    val newEnd = (total - 1) - k % total
-    val newHead = mapping[newEnd]?.next
-    mapping[newEnd]?.next = null
+    var gap = k % length
+    if (gap == 0) return head
+    var fast = head
+    var slow = head
+    while (gap > 0) {
+        fast = fast?.next
+        gap -= 1
+    }
+    while (fast?.next != null) {
+        fast = fast.next
+        slow = slow?.next
+    }
+    val newHead = slow?.next
+    slow?.next = null
+    fast?.next = head
     return newHead
 }
