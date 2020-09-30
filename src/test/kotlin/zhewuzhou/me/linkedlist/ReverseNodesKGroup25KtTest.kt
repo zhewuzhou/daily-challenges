@@ -4,9 +4,6 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.linkedlist.ListNode
-import zhewuzhou.me.linkedlist.reverseKGroup
-import zhewuzhou.me.linkedlist.toListNode
 import java.util.*
 
 internal class ReverseNodesKGroup25KtTest {

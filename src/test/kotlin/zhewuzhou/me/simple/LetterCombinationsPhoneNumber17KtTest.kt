@@ -3,7 +3,6 @@ package zhewuzhou.me.simple
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.junit.jupiter.api.Test
-import zhewuzhou.me.simple.letterCombinations
 
 internal class LetterCombinationsPhoneNumber17KtTest {
     @Test
