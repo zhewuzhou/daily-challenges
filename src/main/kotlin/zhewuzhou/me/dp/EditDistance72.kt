@@ -1,9 +1,9 @@
-package zhewuzhou.me.leetcode80
+package zhewuzhou.me.dp
 
 fun minDistance(from: String, to: String): Int {
     val row = from.length + 1
     val col = to.length + 1
-    val dp = Array<IntArray>(row) {
+    val dp = Array(row) {
         IntArray(col)
     }
     for (i in 0 until col) {
