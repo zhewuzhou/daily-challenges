@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode80
+package zhewuzhou.me.stack
 
 import java.util.*
 
 fun simplifyPath(path: String): String {
     val folders = path.split("/").filter { it != "" && it != "." }
-    var s = Stack<String>()
+    val s = Stack<String>()
     for (i in folders.indices) {
         when (folders[i]) {
             ".." -> if (s.isNotEmpty()) s.pop()

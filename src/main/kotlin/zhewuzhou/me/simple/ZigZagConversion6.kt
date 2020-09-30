@@ -9,11 +9,11 @@ Given String consider mod then:
 fun convert(s: String, numRows: Int): String {
     val zigzagIndex = numRows.zigzagIndex()
     return s.indices
-            .groupBy { zigzagIndex[it % zigzagIndex.size] }
-            .mapValues { kv -> kv.value.map { s[it] } }
-            .mapValues { kv -> kv.value.joinToString(separator = "") }
-            .values
-            .joinToString(separator = "")
+        .groupBy { zigzagIndex[it % zigzagIndex.size] }
+        .mapValues { kv -> kv.value.map { s[it] } }
+        .mapValues { kv -> kv.value.joinToString(separator = "") }
+        .values
+        .joinToString(separator = "")
 }
 
 fun Int.zigzagIndex(): List<Int> {

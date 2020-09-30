@@ -4,6 +4,7 @@ import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.stack.simplifyPath
 import java.util.*
 
 internal class LeetCode71KtTest {

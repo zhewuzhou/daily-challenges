@@ -1,7 +1,5 @@
 package zhewuzhou.me.linkedlist
 
-import zhewuzhou.me.linkedlist.ListNode
-
 fun swapPairs(head: ListNode?): ListNode? {
     var left = head
     var right = head?.next
