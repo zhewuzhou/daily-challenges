@@ -1,4 +1,4 @@
-package zhewuzhou.me.numberssort
+package zhewuzhou.me.numberssort.matrix
 
 fun generateMatrix(n: Int): Array<IntArray> {
     val nums = (1..n * n).toList()

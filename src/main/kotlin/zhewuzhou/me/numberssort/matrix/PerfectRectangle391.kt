@@ -1,4 +1,4 @@
-package zhewuzhou.me.numberssort
+package zhewuzhou.me.numberssort.matrix
 
 import java.util.*
 

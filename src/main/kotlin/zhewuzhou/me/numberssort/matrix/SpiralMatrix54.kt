@@ -1,4 +1,4 @@
-package zhewuzhou.me.numberssort
+package zhewuzhou.me.numberssort.matrix
 
 fun spiralOrder(matrix: Array<IntArray>): List<Int> {
     if (matrix.isEmpty()) return listOf()

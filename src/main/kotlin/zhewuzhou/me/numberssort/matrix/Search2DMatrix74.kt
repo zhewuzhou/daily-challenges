@@ -1,4 +1,4 @@
-package zhewuzhou.me.numberssort
+package zhewuzhou.me.numberssort.matrix
 
 /**
  * Working solution but not the fastest

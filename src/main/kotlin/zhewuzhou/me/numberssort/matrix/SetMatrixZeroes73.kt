@@ -1,4 +1,4 @@
-package zhewuzhou.me.numberssort
+package zhewuzhou.me.numberssort.matrix
 
 fun setZeroes(matrix: Array<IntArray>) {
     var fr = false

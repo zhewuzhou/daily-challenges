@@ -1,4 +1,4 @@
-package zhewuzhou.me.numberssort
+package zhewuzhou.me.numberssort.matrix
 
 fun rotate(matrix: Array<IntArray>) {
     for (i in matrix.indices) {
