@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode80
+package zhewuzhou.me.slidingwindow
 
 import java.util.*
 
