@@ -8,7 +8,7 @@ TODO:
 2. Visualize the whole stuff
  */
 
-class Skiplist() {
+class Skiplist {
     internal class Node(var value: Int, var height: Int) {
         var count = 1
         var next = arrayOfNulls<Node>(33)

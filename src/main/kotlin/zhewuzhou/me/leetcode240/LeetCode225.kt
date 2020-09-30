@@ -2,7 +2,7 @@ package zhewuzhou.me.leetcode240
 
 import java.util.*
 
-class MyStack() {
+class MyStack {
     private val q = LinkedList<Int>()
 
     fun push(x: Int) {

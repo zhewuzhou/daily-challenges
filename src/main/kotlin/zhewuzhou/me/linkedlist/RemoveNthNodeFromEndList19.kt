@@ -1,5 +1,7 @@
 package zhewuzhou.me.linkedlist
 
+import zhewuzhou.utils.ListNode
+
 fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
     /*Pattern1: dummy act as the anchor given list node could be challenged*/
     val dummy: ListNode? = ListNode(1)

@@ -5,7 +5,7 @@ import java.util.*
 /*
 Set is not working because element could be duplicated
  */
-class MedianFinder() {
+class MedianFinder {
     private val large = PriorityQueue<Int>()
     private val small = PriorityQueue<Int>()
     fun addNum(num: Int) {

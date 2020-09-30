@@ -3,7 +3,7 @@ package zhewuzhou.me.datastructure
 import java.util.*
 
 
-class Twitter() {
+class Twitter {
     private val tweets: MutableList<Pair<Int, Int>> = mutableListOf()
     private val relationships = mutableMapOf<Int, MutableSet<Int>>()
     fun postTweet(userId: Int, tweetId: Int) {
@@ -44,7 +44,7 @@ class Twitter() {
     }
 }
 
-class TwitterOOP() {
+class TwitterOOP {
     private val userMap = mutableMapOf<Int, User>()
 
     data class Tweet(var id: Int) {

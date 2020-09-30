@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode220
 
-class WordDictionary() {
+class WordDictionary {
     private data class TrieNode(val v: Char) {
         val children: Array<TrieNode?> = Array(26) { null }
         var isWord = false

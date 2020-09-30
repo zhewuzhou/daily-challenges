@@ -22,9 +22,9 @@ fun numDistinct(s: String, t: String): Int {
     for (i in t.indices) {
         for (j in s.indices) {
             if (t[i] == s[j]) {
-                matrix[i + 1][j + 1] = matrix[i][j] + matrix[i + 1][j];
+                matrix[i + 1][j + 1] = matrix[i][j] + matrix[i + 1][j]
             } else {
-                matrix[i + 1][j + 1] = matrix[i + 1][j];
+                matrix[i + 1][j + 1] = matrix[i + 1][j]
             }
         }
     }

@@ -1,4 +1,4 @@
-package zhewuzhou.me.linkedlist
+package zhewuzhou.utils
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null

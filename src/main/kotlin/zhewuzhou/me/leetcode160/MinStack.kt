@@ -2,7 +2,7 @@ package zhewuzhou.me.leetcode160
 
 import java.util.*
 
-class MinStack() {
+class MinStack {
     private val stack = Stack<Int>()
     private val min = Stack<Int>()
 

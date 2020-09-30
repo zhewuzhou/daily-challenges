@@ -1,5 +1,7 @@
 package zhewuzhou.me.linkedlist
 
+import zhewuzhou.utils.ListNode
+
 
 fun rotateRight(head: ListNode?, k: Int): ListNode? {
     if (head == null) return head

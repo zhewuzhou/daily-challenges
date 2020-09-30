@@ -48,7 +48,7 @@ private fun hasCycle(g: DirectedGraph): Boolean {
         moveVertex(v, white, gray)
         for (n in g.adj(v)) {
             if (black.contains(n)) {
-                continue;
+                continue
             }
             if (gray.contains(n)) {
                 return true

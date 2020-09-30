@@ -3,6 +3,7 @@ package zhewuzhou.me.linkedlist
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
+import zhewuzhou.utils.toListNode
 
 internal class SwapNodesPairs24KtTest {
 

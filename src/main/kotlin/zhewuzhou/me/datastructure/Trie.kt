@@ -1,6 +1,6 @@
 package zhewuzhou.me.datastructure
 
-class Trie() {
+class Trie {
     private data class TrieNode(val value: Char) {
         val children: Array<TrieNode?> = Array(26) { null }
         var isWord: Boolean = false

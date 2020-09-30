@@ -2,7 +2,7 @@ package zhewuzhou.me.leetcode140
 
 fun longestConsecutive(nums: IntArray): Int {
     val container = mutableMapOf<Int, Int>()
-    var max = 1;
+    var max = 1
     for (n in nums) {
         if (!container.containsKey(n)) {
             val left = container.getOrDefault(n - 1, 0)

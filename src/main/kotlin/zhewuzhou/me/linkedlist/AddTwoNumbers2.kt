@@ -1,4 +1,4 @@
-import zhewuzhou.me.linkedlist.ListNode
+import zhewuzhou.utils.ListNode
 
 fun addTwoNumbers2(l1: ListNode?, l2: ListNode?): ListNode? {
     var carry = 0

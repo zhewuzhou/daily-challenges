@@ -1,5 +1,7 @@
 package zhewuzhou.me.linkedlist
 
+import zhewuzhou.utils.ListNode
+
 fun mergeTwoLists(left: ListNode?, right: ListNode?): ListNode? {
     val dummy: ListNode? = ListNode(1)
     var cur = dummy

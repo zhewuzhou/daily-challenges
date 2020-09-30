@@ -1,9 +1,11 @@
 package zhewuzhou.me.leetcode280
 
+import zhewuzhou.utils.swap
+
 fun missingNumber(nums: IntArray): Int {
     for (i in nums.indices) {
         while (nums[i] <= nums.lastIndex && nums[i] != i) {
-            swap(nums, i, nums[i])
+            nums.swap(i, nums[i])
         }
     }
     for (i in nums.indices) {
@@ -12,10 +14,4 @@ fun missingNumber(nums: IntArray): Int {
         }
     }
     return -1
-}
-
-private fun swap(nums: IntArray, i: Int, j: Int) {
-    val t = nums[i]
-    nums[i] = nums[j]
-    nums[j] = t
 }

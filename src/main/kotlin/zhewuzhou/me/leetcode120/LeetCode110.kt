@@ -4,8 +4,8 @@ import zhewuzhou.me.leetcode100.TreeNode
 
 fun isBalanced(root: TreeNode?): Boolean {
     if (root == null) return true
-    if (Math.abs(getDepth(root?.left) - getDepth(root?.right)) > 1) return false
-    return isBalanced(root?.left) && isBalanced(root?.right)
+    if (Math.abs(getDepth(root.left) - getDepth(root.right)) > 1) return false
+    return isBalanced(root.left) && isBalanced(root.right)
 }
 
 private fun getDepth(root: TreeNode?): Int {

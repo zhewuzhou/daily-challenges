@@ -8,8 +8,8 @@ package zhewuzhou.me.dp
     TODO: 5. Stop when feel not right
  */
 fun longestValidParentheses(s: String): Int {
-    if (s.length <= 1) return 0;
-    var curMax = 0;
+    if (s.length <= 1) return 0
+    var curMax = 0
     val metrics = IntArray(s.length)
     for (i in 1 until s.length) {
         if (s[i] == ')' &&
@@ -17,8 +17,8 @@ fun longestValidParentheses(s: String): Int {
             s[i - metrics[i - 1] - 1] == '(') {
             metrics[i] = metrics[i - 1] + 2
             metrics[i] += if (i - metrics[i - 1] - 2 >= 0) metrics[i - metrics[i - 1] - 2] else 0
-            curMax = Math.max(metrics[i], curMax);
+            curMax = Math.max(metrics[i], curMax)
         }
     }
-    return curMax;
+    return curMax
 }

@@ -4,6 +4,8 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.utils.ListNode
+import zhewuzhou.utils.toListNode
 import java.util.*
 
 internal class RemoveNthNodeFromEndList19KtTest {

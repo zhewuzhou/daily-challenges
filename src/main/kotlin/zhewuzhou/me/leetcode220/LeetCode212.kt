@@ -5,7 +5,7 @@ data class TNode(val v: Char) {
     var word: String? = null
 }
 
-class T() {
+class T {
     val root = TNode(' ')
     fun addWord(word: String) {
         var cur = root

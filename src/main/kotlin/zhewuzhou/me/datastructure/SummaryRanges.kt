@@ -2,7 +2,7 @@ package zhewuzhou.me.datastructure
 
 import java.util.*
 
-class SummaryRanges() {
+class SummaryRanges {
     private val ranges = TreeMap<Int, Pair<Int, Int>>()
     fun addNum(v: Int) {
         if (ranges.containsKey(v)) return

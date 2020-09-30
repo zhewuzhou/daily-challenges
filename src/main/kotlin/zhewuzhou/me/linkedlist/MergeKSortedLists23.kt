@@ -1,5 +1,7 @@
 package zhewuzhou.me.linkedlist
 
+import zhewuzhou.utils.ListNode
+
 fun mergeKLists(lists: Array<ListNode?>): ListNode? {
     return when (val l = lists.size) {
         0 -> null

@@ -7,10 +7,10 @@ fun binaryTreePathsS(root: TreeNode?): List<String> {
     if (root.left == null && root.right == null) return listOf(root.`val`.toString())
     val path = mutableListOf<String>()
     if (root.left != null) {
-        path.addAll(binaryTreePaths(root.left).map { "${root.`val`.toString()}->$it" })
+        path.addAll(binaryTreePaths(root.left).map { "${root.`val`}->$it" })
     }
     if (root.right != null) {
-        path.addAll(binaryTreePaths(root.right).map { "${root.`val`.toString()}->$it" })
+        path.addAll(binaryTreePaths(root.right).map { "${root.`val`}->$it" })
     }
     return path
 }

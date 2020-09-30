@@ -1,34 +1,32 @@
-package zhewuzhou.me.leetcode80
+package zhewuzhou.me.backtracing
 
 fun exist(board: Array<CharArray>, word: String): Boolean {
+    fun backtrace(res: MutableList<Pair<Int, Int>>): Boolean {
+        when (res.size == word.length) {
+            true -> return true
+            false -> {
+                val next = calculateNext(res, board, word)
+                if (next.isEmpty()) {
+                    return false
+                } else {
+                    for (pos in next) {
+                        res.add(pos)
+                        if (backtrace(res)) {
+                            return true
+                        }
+                        res.removeAt(res.lastIndex)
+                    }
+                    return false
+                }
+            }
+        }
+    }
     if (board.isEmpty() ||
         board[0].isEmpty() ||
         word.isEmpty() ||
         board.size * board[0].size < word.length)
         return false
-    return doSearch(mutableListOf(), board, word)
-}
-
-
-private fun doSearch(res: MutableList<Pair<Int, Int>>, board: Array<CharArray>, word: String): Boolean {
-    when (res.size == word.length) {
-        true -> return true
-        false -> {
-            val next = calculateNext(res, board, word)
-            if (next.isEmpty()) {
-                return false
-            } else {
-                for (pos in next) {
-                    res.add(pos)
-                    if (doSearch(res, board, word)) {
-                        return true
-                    }
-                    res.removeAt(res.lastIndex)
-                }
-                return false
-            }
-        }
-    }
+    return backtrace(mutableListOf())
 }
 
 private fun calculateNext(res: MutableList<Pair<Int, Int>>, board: Array<CharArray>, word: String): List<Pair<Int, Int>> {

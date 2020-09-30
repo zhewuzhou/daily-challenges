@@ -1,5 +1,7 @@
 package zhewuzhou.me.linkedlist
 
+import zhewuzhou.utils.ListNode
+
 fun reverseKGroup(head: ListNode?, k: Int): ListNode? {
     var curSecHead = head
     var nextSecHead = curSecHead

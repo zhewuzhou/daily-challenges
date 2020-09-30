@@ -3,6 +3,7 @@ package zhewuzhou.me.linkedlist
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
+import zhewuzhou.utils.toListNode
 
 internal class MergeKSortedLists23KtTest {
 
@@ -13,7 +14,7 @@ internal class MergeKSortedLists23KtTest {
             listOf(1, 3, 4).toListNode(),
             listOf(2, 6).toListNode()
         ).toTypedArray()
-        var result = mergeKLists(toMerge);
+        var result = mergeKLists(toMerge)
 
         listOf(1, 1, 2, 3, 4, 4, 5, 6).forEach {
             assertThat(result?.`val`, `is`(it))
