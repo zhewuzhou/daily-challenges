@@ -1,6 +1,32 @@
-package zhewuzhou.me.leetcode80
+package zhewuzhou.me.numberssort
+
+/**
+ * Working solution but not the fastest
+ */
 
 fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean {
+    if (matrix.isEmpty() || matrix[0].isEmpty()) {
+        return false
+    }
+    var start = 0
+    val rows = matrix.size
+    val cols: Int = matrix[0].size
+    var end = rows * cols - 1
+    while (start <= end) {
+        val mid = (start + end) / 2
+        if (matrix[mid / cols][mid % cols] == target) {
+            return true
+        }
+        if (matrix[mid / cols][mid % cols] < target) {
+            start = mid + 1
+        } else {
+            end = mid - 1
+        }
+    }
+    return false
+}
+
+fun searchMatrixBinarySearch(matrix: Array<IntArray>, target: Int): Boolean {
     if (matrix.isEmpty() || matrix[0].isEmpty()) return false
     val rowIndex = searchRowIndex(matrix, target)
     return if (rowIndex == -1)
