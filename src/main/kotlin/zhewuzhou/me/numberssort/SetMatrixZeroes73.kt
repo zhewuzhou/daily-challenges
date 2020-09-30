@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode80
+package zhewuzhou.me.numberssort
 
 fun setZeroes(matrix: Array<IntArray>) {
     var fr = false
