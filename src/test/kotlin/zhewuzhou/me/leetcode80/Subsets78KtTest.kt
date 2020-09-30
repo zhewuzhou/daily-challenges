@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-class LeetCode78KtTest {
+internal class Subsets78KtTest {
 
     @Test
     fun `Should return all subsets`() {
