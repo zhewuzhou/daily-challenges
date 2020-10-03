@@ -1,8 +1,7 @@
 package zhewuzhou.me.linkedlist
 
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 import java.util.*
-
 
 fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
     var l1Cur = l1

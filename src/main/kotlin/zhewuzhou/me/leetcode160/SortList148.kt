@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode160
 
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 
 fun sortList(head: ListNode?): ListNode? {
     if (head?.next == null) return head

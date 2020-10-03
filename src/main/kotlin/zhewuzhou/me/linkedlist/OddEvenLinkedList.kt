@@ -1,6 +1,6 @@
 package zhewuzhou.me.linkedlist
 
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 
 fun oddEvenList(head: ListNode?): ListNode? {
     if (head == null) return head

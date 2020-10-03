@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode240
 
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 
 fun isPalindrome(head: ListNode?): Boolean {
     if (head?.next == null) return true

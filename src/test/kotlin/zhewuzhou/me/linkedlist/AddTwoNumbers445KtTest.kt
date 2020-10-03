@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 import java.util.*
 
 internal class AddTwoNumbers445KtTest {

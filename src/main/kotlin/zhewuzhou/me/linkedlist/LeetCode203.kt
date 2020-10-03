@@ -1,6 +1,6 @@
 package zhewuzhou.me.linkedlist
 
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 
 fun removeElements(head: ListNode?, v: Int): ListNode? {
     val dummyHead = ListNode(v - 1)

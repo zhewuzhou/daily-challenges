@@ -1,6 +1,6 @@
 package zhewuzhou.me.linkedlist
 
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 
 fun getIntersectionNode(la: ListNode?, lb: ListNode?): ListNode? {
     if (la == null || lb == null) return null

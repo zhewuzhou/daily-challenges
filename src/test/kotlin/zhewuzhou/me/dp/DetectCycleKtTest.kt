@@ -3,9 +3,9 @@ package zhewuzhou.me.dp
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
-import zhewuzhou.me.leetcode100.ListNode
 import zhewuzhou.me.linkedlist.detectCycle
 import zhewuzhou.me.linkedlist.hasCycle
+import zhewuzhou.utils.ListNode
 
 internal class DetectCycleKtTest {
 

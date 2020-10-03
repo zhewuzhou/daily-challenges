@@ -1,6 +1,6 @@
 package zhewuzhou.me.linkedlist
 
-import zhewuzhou.me.leetcode100.ListNode
+import zhewuzhou.utils.ListNode
 
 fun splitListToParts(root: ListNode?, k: Int): Array<ListNode?> {
     val len = length(root)

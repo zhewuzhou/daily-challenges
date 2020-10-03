@@ -1,7 +1,7 @@
 package zhewuzhou.me.leetcode120
 
-import zhewuzhou.me.leetcode100.ListNode
 import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.ListNode
 
 fun pickNthElement(head: ListNode?, n: Int): Pair<ListNode?, Int> {
     var pc = 1
