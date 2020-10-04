@@ -1,10 +1,10 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.simple
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 
-internal class LeetCode88KtTest {
+internal class MergeSortedArray88KtTest {
     @Test
     fun `Should calculate sequence`() {
         grayCode(3)
