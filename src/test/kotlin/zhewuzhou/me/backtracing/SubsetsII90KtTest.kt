@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.backtracing
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode90KtTest {
+internal class SubsetsII90KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
