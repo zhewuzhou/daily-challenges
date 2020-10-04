@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode120
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun pathSum(root: TreeNode?, sum: Int): List<List<Int>> {
     val res = mutableListOf<List<Int>>()

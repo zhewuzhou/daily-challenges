@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode160
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 import java.util.*
 
 

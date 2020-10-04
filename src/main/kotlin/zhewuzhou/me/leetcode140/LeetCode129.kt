@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode140
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun sumNumbers(root: TreeNode?): Int {
     if (root == null) return 0

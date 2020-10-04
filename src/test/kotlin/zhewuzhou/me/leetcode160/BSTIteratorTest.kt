@@ -5,7 +5,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 import java.util.*
 
 internal class BSTIteratorTest {

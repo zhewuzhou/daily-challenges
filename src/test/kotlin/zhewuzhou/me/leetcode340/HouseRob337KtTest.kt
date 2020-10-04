@@ -3,7 +3,7 @@ package zhewuzhou.me.leetcode340
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 internal class HouseRob337KtTest {
 

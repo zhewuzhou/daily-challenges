@@ -1,12 +1,7 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.tree
 
+import zhewuzhou.utils.TreeNode
 import java.util.*
-
-
-class TreeNode(var `val`: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
-}
 
 fun recoverTree(root: TreeNode?): Unit {
     var first: TreeNode? = null

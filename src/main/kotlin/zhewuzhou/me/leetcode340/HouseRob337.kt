@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode340
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 
 fun rob(root: TreeNode?): Int {

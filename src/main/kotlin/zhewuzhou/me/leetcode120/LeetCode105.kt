@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode120
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
     if (preorder.isEmpty() || inorder.isEmpty() || preorder.sorted() != inorder.sorted()) return null

@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode240
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 import java.util.*
 
 fun kthSmallest(root: TreeNode?, k: Int): Int {

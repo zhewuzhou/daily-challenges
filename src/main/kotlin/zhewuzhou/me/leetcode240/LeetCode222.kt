@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode240
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun countNodes(root: TreeNode?): Int {
     val lh = heightL(root)

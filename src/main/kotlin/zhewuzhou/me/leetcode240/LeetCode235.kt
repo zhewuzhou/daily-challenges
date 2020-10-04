@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode240
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 //TODO: P or Q is root
 fun lowestCommonAncestorEB(root: TreeNode?, p: TreeNode?, q: TreeNode?): TreeNode? {

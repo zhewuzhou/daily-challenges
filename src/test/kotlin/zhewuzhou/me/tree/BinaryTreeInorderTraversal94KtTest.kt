@@ -1,14 +1,15 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.tree
 
-import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.utils.TreeNode
 import java.util.*
 import java.util.stream.Stream
 
-internal class LeetCode94KtTest {
+internal class BinaryTreeInorderTraversal94KtTest {
     private companion object {
         fun validTree(): TreeNode {
             val root = TreeNode(2)
@@ -41,7 +42,7 @@ internal class LeetCode94KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should validte the tree`(case: Pair<TreeNode, Boolean>) {
-        assertThat(isValidBST(case.first), `is`(case.second))
+        MatcherAssert.assertThat(isValidBST(case.first), CoreMatchers.`is`(case.second))
     }
 
     @Test

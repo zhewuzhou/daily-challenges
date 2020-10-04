@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode140
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun maxPathSum(root: TreeNode?): Int {
     var maxValue = Int.MIN_VALUE

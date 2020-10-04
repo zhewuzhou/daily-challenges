@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode200
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun rightSideView(root: TreeNode?): List<Int> {
     if (root == null) return listOf()

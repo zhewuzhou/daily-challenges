@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode120
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun isBalanced(root: TreeNode?): Boolean {
     if (root == null) return true

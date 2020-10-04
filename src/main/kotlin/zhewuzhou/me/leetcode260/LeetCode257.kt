@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode260
 
-import zhewuzhou.me.leetcode100.TreeNode
+import zhewuzhou.utils.TreeNode
 
 fun binaryTreePathsS(root: TreeNode?): List<String> {
     if (root == null) return listOf()
