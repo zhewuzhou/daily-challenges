@@ -11,17 +11,21 @@ internal class MaximalRectangle85KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
+//                Pair(arrayOf(
+//                    charArrayOf('1', '0', '1', '0', '0'),
+//                    charArrayOf('1', '0', '1', '1', '1'),
+//                    charArrayOf('1', '1', '1', '1', '1'),
+//                    charArrayOf('1', '0', '0', '1', '0')
+//                ), 6),
+//                Pair(arrayOf(charArrayOf()), 0),
+//                Pair(arrayOf(charArrayOf('0')), 0),
+//                Pair(arrayOf(charArrayOf('1')), 1),
+//                Pair(arrayOf(charArrayOf('0', '0')), 0),
+//                Pair(arrayOf(charArrayOf('1', '1', '1')), 3),
                 Pair(arrayOf(
-                    charArrayOf('1', '0', '1', '0', '0'),
-                    charArrayOf('1', '0', '1', '1', '1'),
-                    charArrayOf('1', '1', '1', '1', '1'),
-                    charArrayOf('1', '0', '0', '1', '0')
-                ), 6),
-                Pair(arrayOf(charArrayOf()), 0),
-                Pair(arrayOf(charArrayOf('0')), 0),
-                Pair(arrayOf(charArrayOf('1')), 1),
-                Pair(arrayOf(charArrayOf('0', '0')), 0),
-                Pair(arrayOf(charArrayOf('1', '1', '1')), 3)
+                    charArrayOf('0', '0', '1', '1', '0'),
+                    charArrayOf('1', '1', '1', '1', '1')
+                ), 5)
             )
         )
     }

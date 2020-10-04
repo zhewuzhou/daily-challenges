@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.string
 
 
 fun isScramble(s1: String, s2: String): Boolean {

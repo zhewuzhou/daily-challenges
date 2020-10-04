@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.string
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.string.isScramble
 import java.util.*
 
-internal class LeetCode87KtTest {
+internal class ScrambleString87KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
