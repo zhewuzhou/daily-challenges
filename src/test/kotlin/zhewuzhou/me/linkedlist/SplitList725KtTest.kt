@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.utils.ListNode
+import zhewuzhou.utils.toListNode
 import java.util.*
 
 internal class SplitList725KtTest {
@@ -49,8 +49,8 @@ internal class SplitList725KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should split the list into parts`(case: Triple<List<Int>, Int, List<List<Int>>>) {
-        val result = splitListToParts(convertToLinkedList(case.first), case.second)
-        val expected = case.third.map { convertToLinkedList(it) }
+        val result = splitListToParts((case.first.toListNode()), case.second)
+        val expected = case.third.map { it.toListNode() }
         assertThat(result.size, `is`(expected.size))
         for (i in expected.indices) {
             var le = expected[i]
@@ -61,14 +61,5 @@ internal class SplitList725KtTest {
                 lr = lr?.next
             }
         }
-    }
-
-    private fun convertToLinkedList(l: List<Int>): ListNode? {
-        if (l.isEmpty()) return null
-        val nodes = l.map { ListNode(it) }
-        for (i in 0 until nodes.lastIndex) {
-            nodes[i].next = nodes[i + 1]
-        }
-        return nodes.first()
     }
 }

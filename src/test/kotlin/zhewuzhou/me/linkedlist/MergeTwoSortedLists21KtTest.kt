@@ -29,14 +29,8 @@ internal class MergeTwoSortedLists21KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should merge 2 lists`(case: Triple<ListNode?, ListNode?, ListNode?>) {
-        var expect = case.third
-        var result = mergeTwoLists(case.first, case.second)
-        while (expect != null && result != null) {
-            assertThat(result.`val`, `is`(expect.`val`))
-            expect = expect.next
-            result = result.next
-        }
-        assertThat(result == null, `is`(true))
-        assertThat(result == null, `is`(true))
+        val expect = case.third
+        val result = mergeTwoLists(case.first, case.second)
+        assertThat(ListNode.listEqual(result, expect), `is`(true))
     }
 }

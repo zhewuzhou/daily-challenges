@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.utils.ListNode
+import zhewuzhou.utils.toListNode
 import java.util.*
 
 internal class LeetCode203KtTest {
@@ -22,7 +22,7 @@ internal class LeetCode203KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should remove all elements`(case: Triple<List<Int>, Int, List<Int>>) {
-        var head = removeElements(convertToLinkedList(case.first), case.second)
+        var head = removeElements(case.first.toListNode(), case.second)
         if (case.third.isEmpty()) {
             assertThat(head == null, `is`(true))
         }
@@ -30,14 +30,5 @@ internal class LeetCode203KtTest {
             assertThat(head!!.`val`, `is`(v))
             head = head.next
         }
-    }
-
-    private fun convertToLinkedList(l: List<Int>): ListNode? {
-        if (l.isEmpty()) return null
-        val nodes = l.map { ListNode(it) }
-        for (i in 0 until nodes.lastIndex) {
-            nodes[i].next = nodes[i + 1]
-        }
-        return nodes.first()
     }
 }

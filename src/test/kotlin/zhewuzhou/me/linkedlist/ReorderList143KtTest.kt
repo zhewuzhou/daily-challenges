@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.utils.ListNode
+import zhewuzhou.utils.toListNode
 import java.util.*
 
 internal class ReorderList143KtTest {
@@ -35,7 +35,7 @@ internal class ReorderList143KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should reorder list as given`(case: Pair<List<Int>, List<Int>>) {
-        var head = convertToList(case.first)
+        var head = case.first.toListNode()
         reorderList(head)
         for (v in case.second) {
             assertThat(head?.`val`, `is`(v))
@@ -46,20 +46,10 @@ internal class ReorderList143KtTest {
     @ParameterizedTest
     @MethodSource("removeDuplicatedCase")
     fun `Should remove duplicated element from list`(case: Pair<List<Int>, List<Int>>) {
-        var head = deleteDuplicates(convertToList(case.first))
+        var head = deleteDuplicates(case.first.toListNode())
         for (v in case.second) {
             assertThat(head?.`val`, `is`(v))
             head = head?.next
         }
-    }
-
-    private fun convertToList(l: List<Int>): ListNode? {
-        val nodes = l.map { ListNode(it) }
-        nodes.forEachIndexed { i, node ->
-            if (i < nodes.lastIndex) {
-                node.next = nodes[i + 1]
-            }
-        }
-        return if (nodes.isEmpty()) null else nodes.first()
     }
 }

@@ -57,7 +57,7 @@ internal class RemoveDuplicatesSortedListII82KtTest {
     fun `Should partition the linked list with given number`(case: Triple<ListNode?, Int, ListNode?>) {
         val expected = case.third
         val result = remover.partition(case.first, case.second)
-        assertThat(result?.listEquals(expected) ?: false, `is`(true))
+        assertThat(ListNode.listEqual(result, expected), `is`(true))
     }
 
     @ParameterizedTest
@@ -65,7 +65,7 @@ internal class RemoveDuplicatesSortedListII82KtTest {
     fun `Should reverse the list for given range`(case: Pair<Triple<ListNode?, Int, Int>, ListNode?>) {
         val expected = case.second
         val result = remover.reverseBetween(case.first.first, case.first.second, case.first.third)
-        assertThat(result?.listEquals(expected) ?: false, `is`(true))
+        assertThat(ListNode.listEqual(result, expected), `is`(true))
     }
 
     @ParameterizedTest
@@ -73,6 +73,6 @@ internal class RemoveDuplicatesSortedListII82KtTest {
     fun `Should delete duplication list nodes`(case: Pair<ListNode?, ListNode?>) {
         val expected = case.second
         val result = remover.deleteDuplicates(case.first)
-        assertThat(result?.listEquals(expected) ?: false, `is`(true))
+        assertThat(ListNode.listEqual(result, expected), `is`(true))
     }
 }

@@ -27,6 +27,7 @@ internal class RotateList61KtTest {
     @MethodSource("cases")
     fun `Should rotate the list`(case: Triple<ListNode?, Int, ListNode?>) {
         val result = rotateRight(case.first, case.second)
-        assertThat(result?.equals(case.third) ?: true, `is`(true))
+        val expect = case.third
+        assertThat(ListNode.listEqual(result, expect), `is`(true))
     }
 }

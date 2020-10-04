@@ -23,14 +23,8 @@ internal class ReverseNodesKGroup25KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should reverse k elements`(case: Triple<ListNode?, Int, ListNode?>) {
-        var result = reverseKGroup(case.first, case.second)
-        var expect = case.third
-        while (result != null && expect != null) {
-            assertThat(result.`val`, `is`(expect.`val`))
-            result = result.next
-            expect = expect.next
-        }
-        assertThat(result == null, `is`(true))
-        assertThat(expect == null, `is`(true))
+        val result = reverseKGroup(case.first, case.second)
+        val expect = case.third
+        assertThat(ListNode.listEqual(result, expect), `is`(true))
     }
 }

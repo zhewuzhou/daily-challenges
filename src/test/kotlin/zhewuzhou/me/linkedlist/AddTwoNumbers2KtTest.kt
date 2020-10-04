@@ -26,6 +26,6 @@ internal class AddTwoNumbers2KtTest {
     fun should_add_two_list(case: Triple<ListNode?, ListNode?, ListNode?>) {
         val result = addTwoNumbers2(case.first, case.second)
         val expect = case.third
-        assertThat(result?.equals(expect), `is`(true))
+        assertThat(ListNode.listEqual(result, expect), `is`(true))
     }
 }

@@ -5,6 +5,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.utils.ListNode
+import zhewuzhou.utils.toListNode
 import java.util.*
 
 internal class AddTwoNumbers445KtTest {
@@ -28,21 +29,8 @@ internal class AddTwoNumbers445KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should add 2 numbers in linked list`(case: Triple<List<Int>, List<Int>, List<Int>>) {
-        var result = addTwoNumbers(convertToLinkedList(case.first), convertToLinkedList(case.second))
-        var expected = convertToLinkedList(case.third)
-        while (expected != null) {
-            assertThat(result?.`val`, `is`(expected.`val`))
-            result = result?.next
-            expected = expected.next
-        }
-    }
-
-    private fun convertToLinkedList(l: List<Int>): ListNode? {
-        if (l.isEmpty()) return null
-        val nodes = l.map { ListNode(it) }
-        for (i in 0 until nodes.size - 1) {
-            nodes[i].next = nodes[i + 1]
-        }
-        return nodes[0]
+        val result = addTwoNumbers(case.first.toListNode(), case.second.toListNode())
+        val expected = case.third.toListNode()
+        assertThat(ListNode.listEqual(result, expected), `is`(true))
     }
 }

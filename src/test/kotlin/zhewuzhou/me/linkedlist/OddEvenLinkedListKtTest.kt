@@ -5,6 +5,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.utils.ListNode
+import zhewuzhou.utils.toListNode
 import java.util.*
 
 internal class OddEvenLinkedListKtTest {
@@ -24,23 +25,8 @@ internal class OddEvenLinkedListKtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should group the odd and even linked list node`(case: Pair<List<Int>, List<Int>>) {
-        var expected = convertToLinkedList(case.second)
-        var result = oddEvenList(convertToLinkedList(case.first))
-        while (expected != null) {
-            assertThat(expected.`val`, `is`(result?.`val`))
-            expected = expected.next
-            result = result?.next
-        }
-    }
-
-    private fun convertToLinkedList(l: List<Int>): ListNode? {
-        if (l.isEmpty()) return null
-        val nodes = l.map { ListNode(it) }
-        nodes.forEachIndexed { i, it ->
-            if (i < nodes.lastIndex) {
-                it.next = nodes[i + 1]
-            }
-        }
-        return nodes.first()
+        val expected = case.second.toListNode()
+        val result = oddEvenList(case.first.toListNode())
+        assertThat(ListNode.listEqual(result, expected), `is`(true))
     }
 }

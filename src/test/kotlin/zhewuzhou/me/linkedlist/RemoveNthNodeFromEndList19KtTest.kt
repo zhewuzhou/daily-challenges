@@ -24,14 +24,8 @@ internal class RemoveNthNodeFromEndList19KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should remove nth node from the end of the list`(case: Triple<ListNode?, Int, ListNode?>) {
-        var result = removeNthFromEnd(case.first, case.second)
-        var expect = case.third
-        while (result != null && expect != null) {
-            assertThat(result.`val`, `is`(expect.`val`))
-            result = result.next
-            expect = expect.next
-        }
-        assertThat(result == null, `is`(true))
-        assertThat(expect == null, `is`(true))
+        val result = removeNthFromEnd(case.first, case.second)
+        val expect = case.third
+        assertThat(ListNode.listEqual(result, expect), `is`(true))
     }
 }

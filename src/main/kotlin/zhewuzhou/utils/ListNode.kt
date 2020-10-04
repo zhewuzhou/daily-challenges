@@ -1,22 +1,25 @@
 package zhewuzhou.utils
 
 class ListNode(var `val`: Int) {
-    var next: ListNode? = null
-    fun listEquals(other: ListNode?): Boolean {
-        var lhs: ListNode? = this
-        var rhs = other
-        while (lhs != null && rhs != null) {
-            if (lhs.`val` != rhs.`val`) {
+    companion object {
+        fun listEqual(lhs: ListNode?, rhs: ListNode?): Boolean {
+            var l = lhs
+            var r = rhs
+            while (l != null && r != null) {
+                if (l.`val` != r.`val`) {
+                    return false
+                }
+                l = l.next
+                r = r.next
+            }
+            if (l != null || r != null) {
                 return false
             }
-            lhs = lhs.next
-            rhs = rhs.next
+            return true
         }
-        if (lhs != null || rhs != null) {
-            return false
-        }
-        return true
     }
+
+    var next: ListNode? = null
 }
 
 fun List<Int>.toListNode(): ListNode? {
