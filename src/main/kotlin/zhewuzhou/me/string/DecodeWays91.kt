@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.string
 
 fun numDecodings(s: String): Int {
     if (s.isEmpty() || s[0] == '0') return 0
