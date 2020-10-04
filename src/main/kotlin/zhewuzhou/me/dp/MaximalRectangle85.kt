@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.dp
 
 fun maximalRectangle(matrix: Array<CharArray>): Int {
     if (matrix.isEmpty() || matrix[0].isEmpty()) return 0

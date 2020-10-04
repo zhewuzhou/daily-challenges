@@ -1,6 +1,10 @@
-package zhewuzhou.me.leetcode100
+package zhewuzhou.me.stack
 
 import java.util.*
+
+/**
+ * DP/Stack/Sliding Window solutions exist
+ */
 
 fun largestRectangleAreaDivide(heights: IntArray): Int {
     if (heights.isEmpty()) return 0
