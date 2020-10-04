@@ -6,13 +6,9 @@ import org.junit.jupiter.api.Test
 
 internal class MergeSortedArray88KtTest {
     @Test
-    fun `Should calculate sequence`() {
-        grayCode(3)
-    }
-
-    @Test
-    fun `Should tell diff only 1 bit`() {
-        assertThat(isDiffInOneBit(6, 7), `is`(true))
-        assertThat(isDiffInOneBit(6, 3), `is`(false))
+    fun `Should merge sorted arrays`() {
+        val mergeTo = intArrayOf(1, 2, 3, 0, 0, 0)
+        merge(mergeTo, 3, intArrayOf(2, 5, 6), 3)
+        assertThat(mergeTo.toList(), `is`(listOf(1, 2, 2, 3, 5, 6)))
     }
 }
