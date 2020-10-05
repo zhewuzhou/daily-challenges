@@ -12,8 +12,8 @@ fun isSymmetric(root: TreeNode?): Boolean {
 }
 
 fun isSymmetric(lhs: TreeNode?, rhs: TreeNode?): Boolean {
-    val ls: Stack<TreeNode> = Stack<TreeNode>()
-    val rs: Stack<TreeNode> = Stack<TreeNode>()
+    val ls: Stack<TreeNode> = Stack()
+    val rs: Stack<TreeNode> = Stack()
     var lc = lhs
     var rc = rhs
     while ((lc != null || ls.isNotEmpty()) || (rc != null || rs.isNotEmpty())) {
