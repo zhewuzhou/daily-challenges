@@ -22,6 +22,7 @@ class TreeNode(var `val`: Int) {
 }
 
 fun List<Int>.toTree(): TreeNode? {
+    if (isEmpty()) return null
     var i = 0
     val root = TreeNode(this[0])
     val queue = LinkedList<TreeNode>()

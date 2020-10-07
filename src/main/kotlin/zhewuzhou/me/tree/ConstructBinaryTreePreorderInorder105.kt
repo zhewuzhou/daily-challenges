@@ -14,25 +14,16 @@ fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
     for (i in inorder.indices) {
         cache[inorder[i]] = i
     }
-    fun buildTreeByRange(start: Int, end: Int): TreeNode? {
-        if (start > end) return null
-        var rootVal: Int? = null
-        for (i in preorder.indices) {
-            for (j in start..end) {
-                if (preorder[i] == inorder[j] && rootVal == null) {
-                    rootVal = inorder[j]
-                }
-            }
-            if (rootVal != null) {
-                break
-            }
-        }
-        val root = TreeNode(rootVal!!)
-        val mid = cache[rootVal]!!
-        root.left = buildTreeByRange(start, mid - 1)
-        root.right = buildTreeByRange(mid + 1, end)
+    fun buildTreeByRange(preStart: Int, preEnd: Int, inStart: Int, inEnd: Int): TreeNode? {
+        if (preStart > preEnd || inStart > inEnd) return null
+        val rootVal = preorder[preStart]
+        val root = TreeNode(rootVal)
+        val inRoot = cache[rootVal]!!
+        val numOfLeft = inRoot - inStart
+        root.left = buildTreeByRange(preStart + 1, preStart + numOfLeft, inStart, inRoot - 1)
+        root.right = buildTreeByRange(preStart + numOfLeft + 1, preEnd, inRoot + 1, inEnd)
         return root
     }
-    return buildTreeByRange(0, inorder.lastIndex)
+    return buildTreeByRange(0, preorder.lastIndex, 0, inorder.lastIndex)
 }
 
