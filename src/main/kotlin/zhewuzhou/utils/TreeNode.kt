@@ -19,6 +19,57 @@ class TreeNode(var `val`: Int) {
 
     var left: TreeNode? = null
     var right: TreeNode? = null
+
+    fun preorderTraversal(): List<Int>? {
+        val result: MutableList<Int> = ArrayList()
+        val stack = Stack<TreeNode>()
+        var p: TreeNode? = this
+        while (!stack.isEmpty() || p != null) {
+            p = if (p != null) {
+                stack.push(p)
+                result.add(p.`val`) // Add before going to children
+                p.left
+            } else {
+                val node: TreeNode = stack.pop()
+                node.right
+            }
+        }
+        return result
+    }
+
+    fun inorderTraversal(): List<Int>? {
+        val result: MutableList<Int> = ArrayList()
+        val stack = Stack<TreeNode>()
+        var p: TreeNode? = this
+        while (!stack.isEmpty() || p != null) {
+            p = if (p != null) {
+                stack.push(p)
+                p.left
+            } else {
+                val node = stack.pop()
+                result.add(node.`val`) // Add after all left children
+                node.right
+            }
+        }
+        return result
+    }
+
+    fun postorderTraversal(): List<Int>? {
+        val result = LinkedList<Int>()
+        val stack = Stack<TreeNode>()
+        var p: TreeNode? = this
+        while (!stack.isEmpty() || p != null) {
+            p = if (p != null) {
+                stack.push(p)
+                result.addFirst(p.`val`) // Reverse the process of preorder
+                p.right // Reverse the process of preorder
+            } else {
+                val node = stack.pop()
+                node.left // Reverse the process of preorder
+            }
+        }
+        return result
+    }
 }
 
 fun List<Int>.toTree(): TreeNode? {
