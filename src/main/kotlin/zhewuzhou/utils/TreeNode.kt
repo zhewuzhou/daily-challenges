@@ -70,6 +70,35 @@ class TreeNode(var `val`: Int) {
         }
         return result
     }
+
+    fun treeToList(): List<Int> {
+        val res = mutableListOf<Int>()
+        var root: TreeNode? = this
+        val queue = LinkedList<TreeNode>()
+        queue.offer(root)
+        while (queue.isNotEmpty()) {
+            root = queue.poll()
+            res.add(root.`val`)
+            if (root.`val` != NullNode) {
+                if (root.left != null) {
+                    queue.offer(root.left)
+                } else {
+                    queue.offer(TreeNode(NullNode))
+                }
+                if (root.right != null) {
+                    queue.offer(root.left)
+                } else {
+                    queue.offer(TreeNode(NullNode))
+                }
+            }
+        }
+        var i = res.lastIndex
+        while (res[i] == NullNode) {
+            res.removeAt(i)
+            i -= 1
+        }
+        return res
+    }
 }
 
 fun List<Int>.toTree(): TreeNode? {
