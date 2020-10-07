@@ -10,14 +10,29 @@ import zhewuzhou.utils.TreeNode
  */
 
 fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
-    if (preorder.isEmpty() || inorder.isEmpty()) return null
-    if (preorder.size == 1) return TreeNode(preorder[0])
-    val root = TreeNode(preorder[0])
-    val mid = inorder.indexOf(root.`val`)
-    val inLeft = inorder.copyOfRange(0, mid)
-    val inRight = inorder.copyOfRange(mid + 1, inorder.size)
-    root.left = buildTree(preorder.filter { inLeft.contains(it) }.toIntArray(), inLeft)
-    root.right = buildTree(preorder.filter { inRight.contains(it) }.toIntArray(), inRight)
-    return root
+    val cache = mutableMapOf<Int, Int>()
+    for (i in inorder.indices) {
+        cache[inorder[i]] = i
+    }
+    fun buildTreeByRange(start: Int, end: Int): TreeNode? {
+        if (start > end) return null
+        var rootVal: Int? = null
+        for (i in preorder.indices) {
+            for (j in start..end) {
+                if (preorder[i] == inorder[j] && rootVal == null) {
+                    rootVal = inorder[j]
+                }
+            }
+            if (rootVal != null) {
+                break
+            }
+        }
+        val root = TreeNode(rootVal!!)
+        val mid = cache[rootVal]!!
+        root.left = buildTreeByRange(start, mid - 1)
+        root.right = buildTreeByRange(mid + 1, end)
+        return root
+    }
+    return buildTreeByRange(0, inorder.lastIndex)
 }
 
