@@ -3,6 +3,12 @@ package zhewuzhou.utils
 import zhewuzhou.utils.TreeNode.Companion.NullNode
 import java.util.*
 
+class Node(var `val`: Int) {
+    var left: Node? = null
+    var right: Node? = null
+    var next: Node? = null
+}
+
 class TreeNode(var `val`: Int) {
     companion object {
         const val NullNode = Int.MIN_VALUE
