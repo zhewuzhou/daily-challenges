@@ -6,7 +6,6 @@ import zhewuzhou.utils.TreeNode
  * 1. The 1st element should be root from pre-order
  * 2. Then we should know the left/right according to in-order
  * 3. No duplication in nodes
- * TODO: we could cache the index so that we can avoid the copy of arrays
  */
 
 fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
