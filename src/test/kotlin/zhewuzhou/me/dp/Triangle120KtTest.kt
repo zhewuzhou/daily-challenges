@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode120
+package zhewuzhou.me.dp
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.dp.minimumTotal
 import java.util.*
 
-internal class LeetCode120KtTest {
+internal class Triangle120KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
@@ -24,6 +25,6 @@ internal class LeetCode120KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should be able to follow the min steps`(case: Pair<List<List<Int>>, Int>) {
-        assertThat(minimumTotal(case.first), `is`(case.second))
+        assertThat(minimumTotalRecursive(case.first), `is`(case.second))
     }
 }
