@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.utils.TreeNode
 import zhewuzhou.utils.TreeNode.Companion.NullNode
-import zhewuzhou.utils.toTree
+import zhewuzhou.utils.toTreeNode
 import java.util.*
 
 internal class SymmetricTree101KtTest {
@@ -14,10 +14,10 @@ internal class SymmetricTree101KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
-                Pair(listOf(1, 2, 2, 3, 4, 4, 3).toTree(), true),
-                Pair(listOf(1, 2, 2, 3, 4, 4, 3, 5, 6, 7, 8, 8, 7, 6, 5).toTree(), true),
-                Pair(listOf(1, 2, 2, 3, 4, 4, 3, 5, 6, 7, 8, 8, 7, 5, 6).toTree(), false),
-                Pair(listOf(1, 2, 2, NullNode, 3, NullNode, 3).toTree(), false)
+                Pair(listOf(1, 2, 2, 3, 4, 4, 3).toTreeNode(), true),
+                Pair(listOf(1, 2, 2, 3, 4, 4, 3, 5, 6, 7, 8, 8, 7, 6, 5).toTreeNode(), true),
+                Pair(listOf(1, 2, 2, 3, 4, 4, 3, 5, 6, 7, 8, 8, 7, 5, 6).toTreeNode(), false),
+                Pair(listOf(1, 2, 2, NullNode, 3, NullNode, 3).toTreeNode(), false)
             )
         )
     }

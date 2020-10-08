@@ -101,7 +101,7 @@ class TreeNode(var `val`: Int) {
     }
 }
 
-fun List<Int>.toTree(): TreeNode? {
+fun List<Int>.toTreeNode(): TreeNode? {
     if (isEmpty()) return null
     var i = 0
     val root = TreeNode(this[0])
@@ -115,8 +115,9 @@ fun List<Int>.toTree(): TreeNode? {
                 cur.left = left
                 queue.add(left)
             }
-            if (this[2 * i + 2] != TreeNode.NullNode) {
-                val right = TreeNode(this[2 * i + 2])
+            val rightChild = 2 * i + 2
+            if (rightChild < this.size && this[rightChild] != TreeNode.NullNode) {
+                val right = TreeNode(this[rightChild])
                 cur.right = right
                 queue.add(right)
             }

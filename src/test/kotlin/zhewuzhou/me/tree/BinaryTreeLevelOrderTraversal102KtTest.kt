@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.utils.TreeNode
 import zhewuzhou.utils.TreeNode.Companion.NullNode
-import zhewuzhou.utils.toTree
+import zhewuzhou.utils.toTreeNode
 import java.util.*
 
 internal class BinaryTreeLevelOrderTraversal102KtTest {
@@ -14,12 +14,12 @@ internal class BinaryTreeLevelOrderTraversal102KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
-                Pair(listOf(3, 9, 20, NullNode, NullNode, 15, 7).toTree(), listOf(
+                Pair(listOf(3, 9, 20, NullNode, NullNode, 15, 7).toTreeNode(), listOf(
                     listOf(3),
                     listOf(9, 20),
                     listOf(15, 7)
                 )),
-                Pair(listOf(1, 2, 2, 3, 4, 4, 3).toTree(), listOf(
+                Pair(listOf(1, 2, 2, 3, 4, 4, 3).toTreeNode(), listOf(
                     listOf(1),
                     listOf(2, 2),
                     listOf(3, 4, 4, 3)
@@ -30,12 +30,12 @@ internal class BinaryTreeLevelOrderTraversal102KtTest {
         @JvmStatic
         fun zigzagCases() = Arrays.stream(
             arrayOf(
-                Pair(listOf(3, 9, 20, NullNode, NullNode, 15, 7).toTree(), listOf(
+                Pair(listOf(3, 9, 20, NullNode, NullNode, 15, 7).toTreeNode(), listOf(
                     listOf(3),
                     listOf(20, 9),
                     listOf(15, 7)
                 )),
-                Pair(listOf(1, 2, 2, 3, 4, 4, 3, 5, 6, 7, 8).toTree(), listOf(
+                Pair(listOf(1, 2, 2, 3, 4, 4, 3, 5, 6, 7, 8).toTreeNode(), listOf(
                     listOf(1),
                     listOf(2, 2),
                     listOf(3, 4, 4, 3),

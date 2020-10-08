@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.utils.TreeNode
 import zhewuzhou.utils.TreeNode.Companion.NullNode
 import zhewuzhou.utils.TreeNode.Companion.treeNodeEqual
-import zhewuzhou.utils.toTree
+import zhewuzhou.utils.toTreeNode
 import java.util.*
 
 internal class ConstructBinaryTreeInorderPostorder106KtTest {
@@ -17,7 +17,7 @@ internal class ConstructBinaryTreeInorderPostorder106KtTest {
             arrayOf(
                 Triple(intArrayOf(9, 3, 15, 20, 7),
                     intArrayOf(9, 15, 7, 20, 3),
-                    listOf(3, 9, 20, NullNode, NullNode, 15, 7).toTree())
+                    listOf(3, 9, 20, NullNode, NullNode, 15, 7).toTreeNode())
             )
         )
     }

@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode120
+package zhewuzhou.me.tree
 
 import zhewuzhou.utils.ListNode
 import zhewuzhou.utils.TreeNode
@@ -6,12 +6,15 @@ import zhewuzhou.utils.TreeNode
 fun pickNthElement(head: ListNode?, n: Int): Pair<ListNode?, Int> {
     var pc = 1
     var cur = head
+    var pre: ListNode? = null
     while (pc <= n && cur != null) {
+        pre = cur
         cur = cur.next
         pc += 1
     }
     val nh = cur?.next
     cur?.next = null
+    pre?.next = null
     return Pair(nh, cur?.`val`!!)
 }
 
