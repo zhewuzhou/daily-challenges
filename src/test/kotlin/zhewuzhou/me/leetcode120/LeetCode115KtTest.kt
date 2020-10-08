@@ -11,9 +11,9 @@ internal class LeetCode115KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
-                //Triple("rabbbit", "rabbit", 3),
-                Triple("babgbag", "bag", 5)
-                //Triple("aaaaaaaaaa", "aa", 45)
+                Triple("rabbbit", "rabbit", 3),
+                Triple("babgbag", "bag", 5),
+                Triple("aaaaaaaaaa", "aa", 45)
             )
         )
     }
@@ -21,6 +21,6 @@ internal class LeetCode115KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should calculate distinct sub sequence`(case: Triple<String, String, Int>) {
-        assertThat(numDistinct(case.first, case.second), `is`(case.third))
+        assertThat(numDistinctRecursive(case.first, case.second), `is`(case.third))
     }
 }
