@@ -1,5 +1,6 @@
 package zhewuzhou.utils
 
+import zhewuzhou.utils.TreeNode.Companion.NullNode
 import java.util.*
 
 class TreeNode(var `val`: Int) {
@@ -103,26 +104,18 @@ class TreeNode(var `val`: Int) {
 
 fun List<Int>.toTreeNode(): TreeNode? {
     if (isEmpty()) return null
-    var i = 0
-    val root = TreeNode(this[0])
-    val queue = LinkedList<TreeNode>()
-    queue.add(root)
-    while ((2 * i + 1) < this.size) {
-        if (queue.isNotEmpty()) {
-            val cur = queue.poll()
-            if (this[2 * i + 1] != TreeNode.NullNode) {
-                val left = TreeNode(this[2 * i + 1])
-                cur.left = left
-                queue.add(left)
+    val nodes = this.map { TreeNode(it) }
+    nodes.forEachIndexed { index, node ->
+        if (node.`val` != NullNode) {
+            val leftChild = 2 * index + 1
+            val rightChild = 2 * index + 2
+            if (leftChild < nodes.size && nodes[leftChild].`val` != NullNode) {
+                node.left = nodes[leftChild]
             }
-            val rightChild = 2 * i + 2
-            if (rightChild < this.size && this[rightChild] != TreeNode.NullNode) {
-                val right = TreeNode(this[rightChild])
-                cur.right = right
-                queue.add(right)
+            if (rightChild < nodes.size && nodes[rightChild].`val` != NullNode) {
+                node.right = nodes[rightChild]
             }
         }
-        i += 1
     }
-    return root
+    return nodes[0]
 }
