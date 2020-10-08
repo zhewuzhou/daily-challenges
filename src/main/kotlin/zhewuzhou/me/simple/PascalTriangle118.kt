@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode120
+package zhewuzhou.me.simple
 
 fun generateX(numRows: Int): List<List<Int>> {
     return when (numRows) {
