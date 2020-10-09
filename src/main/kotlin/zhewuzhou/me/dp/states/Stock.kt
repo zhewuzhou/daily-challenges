@@ -153,3 +153,25 @@ fun maxProfit188DP(k: Int, prices: IntArray): Int {
     }
     return dp[k][prices.size - 1]
 }
+
+/**
+ * No. 309
+ * 3 status:
+ * 1. 1 stock in hand
+ * 2. 0 stock in hand
+ * 3. cool-down
+ */
+
+fun maxProfit309(prices: IntArray): Int {
+    if (prices.isEmpty() || prices.size < 2) return 0
+    val t = Array(prices.size) { IntArray(3) }
+    for (status in 0..2) {
+        t[0][status] = -prices[0] * status
+    }
+    for (day in 1..t.lastIndex) {
+        t[day][0] = Math.max(t[day - 1][0], t[day - 1][2])
+        t[day][1] = Math.max(t[day - 1][1], t[day - 1][0] - prices[day])
+        t[day][2] = t[day - 1][1] + prices[day]
+    }
+    return Math.max(t.last()[0], t.last()[2])
+}

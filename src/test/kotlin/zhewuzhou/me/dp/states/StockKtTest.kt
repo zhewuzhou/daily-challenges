@@ -53,6 +53,16 @@ internal class StockKtTest {
                 Triple(intArrayOf(1, 4, 2, 7), 2, 8)
             )
         )
+
+        @JvmStatic
+        fun cases309() = Arrays.stream(
+            arrayOf(
+                Pair(intArrayOf(1, 2, 3, 0, 2), 3),
+                Pair(intArrayOf(1, 2, 3, 100, 2), 99),
+                Pair(intArrayOf(1, 2, 4, 2, 5, 7, 2, 4, 9, 0), 11),
+                Pair(intArrayOf(6, 1, 6, 4, 3, 0, 2), 7)
+            )
+        )
     }
 
     @ParameterizedTest
@@ -79,5 +89,11 @@ internal class StockKtTest {
     fun `Should calculate max profit for 188`(case: Triple<IntArray, Int, Int>) {
         assertThat(maxProfit188(case.second, case.first), `is`(case.third))
         assertThat(maxProfit188DP(case.second, case.first), `is`(case.third))
+    }
+
+    @ParameterizedTest
+    @MethodSource("cases309")
+    fun `Should calculate max profit for 309`(case: Pair<IntArray, Int>) {
+        assertThat(maxProfit309(case.first), `is`(case.second))
     }
 }
