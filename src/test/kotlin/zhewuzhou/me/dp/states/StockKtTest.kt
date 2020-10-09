@@ -9,17 +9,32 @@ import java.util.*
 internal class StockKtTest {
     private companion object {
         @JvmStatic
-        fun cases1T() = Arrays.stream(
+        fun cases121() = Arrays.stream(
             arrayOf(
                 Pair(intArrayOf(7, 1, 5, 3, 6, 4), 5),
+                Pair(intArrayOf(7, 6, 4, 3, 1), 0)
+            )
+        )
+
+        @JvmStatic
+        fun cases122() = Arrays.stream(
+            arrayOf(
+                Pair(intArrayOf(7, 1, 5, 3, 6, 4), 7),
+                Pair(intArrayOf(1, 2, 3, 4, 5), 4),
                 Pair(intArrayOf(7, 6, 4, 3, 1), 0)
             )
         )
     }
 
     @ParameterizedTest
-    @MethodSource("cases1T")
-    fun `Should `(case: Pair<IntArray, Int>) {
+    @MethodSource("cases121")
+    fun `Should calculate max profit for 121`(case: Pair<IntArray, Int>) {
         assertThat(maxProfit121(case.first), `is`(case.second))
+    }
+
+    @ParameterizedTest
+    @MethodSource("cases122")
+    fun `Should calculate max profit for 122`(case: Pair<IntArray, Int>) {
+        assertThat(maxProfit122(case.first), `is`(case.second))
     }
 }
