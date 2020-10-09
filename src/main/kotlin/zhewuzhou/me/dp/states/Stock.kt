@@ -102,9 +102,13 @@ fun maxProfit123Rec(prices: IntArray): Int {
 }
 
 fun maxProfit123(prices: IntArray): Int {
-    val t = Array(prices.size) { Array(3) { IntArray(2) } }
+    return maxProfitWithinKTx(prices, 2)
+}
+
+private fun maxProfitWithinKTx(prices: IntArray, k: Int): Int {
+    val t = Array(prices.size) { Array(k + 1) { IntArray(2) } }
     for (day in t.indices) {
-        for (tx in 0..2) {
+        for (tx in 0..k) {
             for (stock in 0..1) {
                 if (tx == 0 || day == 0) {
                     t[day][tx][stock] = -prices[day] * stock
@@ -113,10 +117,39 @@ fun maxProfit123(prices: IntArray): Int {
         }
     }
     for (day in 1..t.lastIndex) {
-        for (tx in 1..2) {
+        for (tx in 1..k) {
             t[day][tx][0] = Math.max(t[day - 1][tx][0], t[day - 1][tx][1] + prices[day])
             t[day][tx][1] = Math.max(t[day - 1][tx][1], t[day - 1][tx - 1][0] - prices[day])
         }
     }
-    return t.last()[2][0]
+    return t.last()[k][0]
+}
+
+/**
+ * No.188
+ * This is cause memory error
+ */
+
+fun maxProfit188(k: Int, prices: IntArray): Int {
+    return maxProfitWithinKTx(prices, k)
+}
+
+fun maxProfit188DP(k: Int, prices: IntArray): Int {
+    if (prices.size < 2) return 0
+    if (k > prices.size / 2) {
+        var res = 0
+        for (i in 1 until prices.size) {
+            res += Math.max(0, prices[i] - prices[i - 1])
+        }
+        return res
+    }
+    val dp = Array(k + 1) { IntArray(prices.size) { 0 } }
+    for (i in 1..k) {
+        var maxDiff = -prices[0]
+        for (j in 1 until prices.size) {
+            dp[i][j] = Math.max(dp[i][j - 1], maxDiff + prices[j])
+            maxDiff = Math.max(maxDiff, dp[i - 1][j - 1] - prices[j])
+        }
+    }
+    return dp[k][prices.size - 1]
 }
