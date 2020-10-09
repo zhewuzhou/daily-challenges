@@ -8,26 +8,29 @@ import zhewuzhou.utils.TreeNode
 import zhewuzhou.utils.TreeNode.Companion.NullNode
 import zhewuzhou.utils.toTreeNode
 import java.util.*
+import java.util.stream.Stream
 
 internal class PathSum112KtTest {
     private companion object {
         @JvmStatic
-        fun cases() = Arrays.stream(
-            arrayOf(
-                Triple(listOf(5, 4, 8, 11, NullNode, 13, 4, 7, 2, NullNode, NullNode, NullNode, 1).toTreeNode(),
-                    22, true),
-                Triple(listOf(5, 4, 8, 11, NullNode, 13, 4, 7, 2, NullNode, NullNode, NullNode, 1).toTreeNode(),
-                    26, true),
-                Triple(listOf(5, 4, 8, 11, NullNode, 13, 4, 7, 2, NullNode, NullNode, NullNode, 1).toTreeNode(),
-                    18, true),
-                Triple(listOf(5, 4, 8, 11, NullNode, 13, 4, 7, 2, NullNode, NullNode, NullNode, 1).toTreeNode(),
-                    27, true),
-                Triple(listOf(5, 4, 8, 11, NullNode, 13, 4, 7, 2, NullNode, NullNode, NullNode, 1).toTreeNode(),
-                    28, false),
-                Triple(listOf(5, 4, 8, 11, NullNode, 13, 4, 7, 2, NullNode, NullNode, NullNode, 1).toTreeNode(),
-                    17, false)
+        fun cases(): Stream<Triple<TreeNode?, Int, Boolean>> {
+            val tree = listOf(
+                5,
+                4, 8,
+                11, NullNode, 13, 4,
+                7, 2, NullNode, NullNode, NullNode, NullNode, NullNode, 1)
+                .toTreeNode()
+            return Arrays.stream(
+                arrayOf(
+                    Triple(tree, 22, true),
+                    Triple(tree, 26, true),
+                    Triple(tree, 18, true),
+                    Triple(tree, 27, true),
+                    Triple(tree, 28, false),
+                    Triple(tree, 17, false)
+                )
             )
-        )
+        }
     }
 
     @ParameterizedTest

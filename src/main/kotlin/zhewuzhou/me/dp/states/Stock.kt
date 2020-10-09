@@ -175,3 +175,35 @@ fun maxProfit309(prices: IntArray): Int {
     }
     return Math.max(t.last()[0], t.last()[2])
 }
+
+/**
+ * NO.714
+ * 2 statuses with fee
+ */
+
+fun maxProfit714(prices: IntArray, fee: Int): Int {
+    if (prices.size < 2) return 0
+    var oneInHand = -prices[0]
+    var nonInHand = 0
+    for (i in 1..prices.lastIndex) {
+        val preOneInHand = oneInHand
+        val preNonInHand = nonInHand
+        oneInHand = Math.max(preNonInHand - prices[i], preOneInHand)
+        nonInHand = Math.max(preNonInHand, preOneInHand + prices[i] - fee)
+    }
+    return nonInHand
+}
+
+fun maxProfit714Status(prices: IntArray, fee: Int): Int {
+    if (prices.size < 2) return 0
+    val t = Array(prices.size) {
+        IntArray(2)
+    }
+    t[0][1] = -prices[0]
+    t[0][0] = 0
+    for (day in 1..prices.lastIndex) {
+        t[day][0] = Math.max(t[day - 1][0], t[day - 1][1] + prices[day] - fee)
+        t[day][1] = Math.max(t[day - 1][1], t[day - 1][0] - prices[day])
+    }
+    return t.last()[0]
+}
