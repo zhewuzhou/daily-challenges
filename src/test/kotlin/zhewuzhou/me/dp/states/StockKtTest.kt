@@ -21,7 +21,9 @@ internal class StockKtTest {
             arrayOf(
                 Pair(intArrayOf(7, 1, 5, 3, 6, 4), 7),
                 Pair(intArrayOf(1, 2, 3, 4, 5), 4),
-                Pair(intArrayOf(7, 6, 4, 3, 1), 0)
+                Pair(intArrayOf(7, 6, 4, 3, 1), 0),
+                Pair(intArrayOf(1, 2), 1),
+                Pair(intArrayOf(2, 1, 2, 0, 1), 2)
             )
         )
     }

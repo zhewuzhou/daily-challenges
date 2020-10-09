@@ -1,5 +1,7 @@
 package zhewuzhou.me.dp.states
 
+import java.util.*
+
 /**
  * No. 121, one transaction for max profit
  */
@@ -34,11 +36,31 @@ fun maxProfit121(prices: IntArray): Int {
  */
 
 fun maxProfit122(prices: IntArray): Int {
-    val matrix = Array(prices.size) { IntArray(2) }
-    matrix[0][1] = -prices[0]
+    var oneInHand = -prices[0]
+    var nonInHand = 0
     for (i in 1..prices.lastIndex) {
-        matrix[i][0] = Math.max(matrix[i - 1][0], matrix[i - 1][1] + prices[i])
-        matrix[i][1] = Math.max(matrix[i - 1][1], matrix[i - 1][0] - prices[i])
+        val preOneInHand = oneInHand
+        val preNonInHand = nonInHand
+        oneInHand = Math.max(preNonInHand - prices[i], preOneInHand)
+        nonInHand = Math.max(preNonInHand, preOneInHand + prices[i])
     }
-    return matrix.last()[0]
+    return nonInHand
+}
+
+fun maxProfit122Stack(prices: IntArray): Int {
+    if (prices.size < 2) return 0
+    val s = Stack<Int>()
+    var maxProfit = 0
+    for (p in prices) {
+        if (s.isEmpty() || p > s.peek()) {
+            s.push(p)
+        } else {
+            if (s.size >= 2) {
+                maxProfit += s.peek() - s[0]
+            }
+            s.clear()
+            s.push(p)
+        }
+    }
+    return if (s.isNotEmpty() && s.size >= 2) (maxProfit + (s.peek() - s[0])) else maxProfit
 }
