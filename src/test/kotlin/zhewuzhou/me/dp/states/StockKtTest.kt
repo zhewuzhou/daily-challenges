@@ -84,6 +84,7 @@ internal class StockKtTest {
     @MethodSource("cases122")
     fun `Should calculate max profit for 122`(case: Pair<IntArray, Int>) {
         assertThat(maxProfit122(case.first), `is`(case.second))
+        assertThat(maxProfit122Stack(case.first), `is`(case.second))
     }
 
     @ParameterizedTest

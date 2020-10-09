@@ -83,19 +83,17 @@ fun maxProfit123Rec(prices: IntArray): Int {
     val cache = mutableMapOf<Triple<Int, Int, Int>, Int>()
 
     //t stands for transactions
-    fun maxProfitInternal(d: Int, k: Int, s: Int): Int {
-        val key = Triple(d, k, s)
+    fun maxProfitInternal(day: Int, tx: Int, status: Int): Int {
+        val key = Triple(day, tx, status)
         if (cache.containsKey(key)) return cache[key]!!
-        var res = 0
-        if (d == 0 || k == 0) {
-            res = -prices[d] * s
+        cache[key] = if (day == 0 || tx == 0) {
+            -prices[day] * status
         } else {
-            res = when (s) {
-                0 -> Math.max(maxProfitInternal(d - 1, k, s), maxProfitInternal(d - 1, k, 1) + prices[d])
-                else -> Math.max(maxProfitInternal(d - 1, k, s), maxProfitInternal(d - 1, k - 1, 0) - prices[d])
+            when (status) {
+                0 -> Math.max(maxProfitInternal(day - 1, tx, status), maxProfitInternal(day - 1, tx, 1) + prices[day])
+                else -> Math.max(maxProfitInternal(day - 1, tx, status), maxProfitInternal(day - 1, tx - 1, 0) - prices[day])
             }
         }
-        cache[key] = res
         return cache[key]!!
     }
     return maxProfitInternal(prices.lastIndex, 2, 0)
