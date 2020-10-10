@@ -1,11 +1,7 @@
 package zhewuzhou.me.leetcode140
 
+import zhewuzhou.utils.Graph.Node
 import java.util.*
-import kotlin.collections.ArrayList
-
-data class Node(val `val`: Int) {
-    var neighbors: ArrayList<Node?> = ArrayList()
-}
 
 fun cloneGraphBFS(node: Node?): Node? {
     if (node == null) return null
