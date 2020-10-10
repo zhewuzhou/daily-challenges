@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.datastructure
 
 class UF(var count: Int) {
     private var size: IntArray = IntArray(0)
@@ -41,7 +41,6 @@ class UF(var count: Int) {
         count -= 1
     }
 }
-
 fun solve(board: Array<CharArray>): Unit {
     if (board.isEmpty() || board[0].isEmpty()) return
     val columnSize = board[0].size
@@ -70,7 +69,6 @@ fun solve(board: Array<CharArray>): Unit {
             }
         }
     }
-    println("Not works")
 }
 
 private fun indexInArray(i: Int, j: Int, columnSize: Int) = i * columnSize + j
