@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.tree
 
 import zhewuzhou.utils.TreeNode
 
@@ -13,13 +13,4 @@ fun maxPathSum(root: TreeNode?): Int {
     }
     maxPathDown(root)
     return maxValue
-}
-
-private fun isPalindrome(s: String): Boolean {
-    if (s.isEmpty()) return true
-    val ts = s.toCharArray()
-        .filter { (it in 'a'..'z') || (it in 'A'..'Z') || (it in '0'..'9') }
-        .map { it.toUpperCase() }
-        .joinToString("")
-    return ts.isEmpty() || ts == ts.reversed()
 }
