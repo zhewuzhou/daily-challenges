@@ -1,12 +1,14 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.numberssort
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode140.canCompleteCircuit
+import zhewuzhou.me.leetcode140.canCompleteCircuitFast
 import java.util.*
 
-internal class LeetCode134KtTest {
+internal class GasStation134KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
