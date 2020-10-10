@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.dp.string
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode140.minCut
 import java.util.*
 
-internal class LeetCode131KtTest {
+internal class PalindromePartitioningII132KtTest {
     private companion object {
         @JvmStatic
         fun minCutCases() = Arrays.stream(
