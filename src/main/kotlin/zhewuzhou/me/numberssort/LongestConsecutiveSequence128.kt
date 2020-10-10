@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.numberssort
 
 fun longestConsecutive(nums: IntArray): Int {
     val container = mutableMapOf<Int, Int>()
