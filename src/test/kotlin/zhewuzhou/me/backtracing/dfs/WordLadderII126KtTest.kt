@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.backtracing.dfs
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode126KtTest {
+internal class WordLadderII126KtTest{
     data class Test126Case(
         val begin: String,
         val end: String,
@@ -56,11 +56,14 @@ internal class LeetCode126KtTest {
         )
     }
 
+
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should find paths from begin to end`(case: Test126Case) {
         val result = findLadders(case.begin, case.end, case.wordList)
         assertThat(result.size, `is`(case.result.size))
-        listOf("aaa").toSet()
+        for (e in case.result) {
+            assertThat(result.contains(e), `is`(true))
+        }
     }
 }
