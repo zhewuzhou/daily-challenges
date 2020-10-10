@@ -9,13 +9,6 @@ import java.util.*
 internal class LeetCode131KtTest {
     private companion object {
         @JvmStatic
-        fun cases() = Arrays.stream(
-            arrayOf(
-                Pair("aab", listOf(listOf("a", "a", "b"), listOf("aa", "b")))
-            )
-        )
-
-        @JvmStatic
         fun minCutCases() = Arrays.stream(
             arrayOf(
                 Pair("aab", 1),
@@ -28,12 +21,6 @@ internal class LeetCode131KtTest {
             )
         )
     }
-
-//    @ParameterizedTest
-//    @MethodSource("cases")
-//    fun `Should partition the string with palindrome`(case: Pair<String, List<List<String>>>) {
-//        assertThat(partition(case.first).size, `is`(case.second.size))
-//    }
 
     @ParameterizedTest
     @MethodSource("minCutCases")
