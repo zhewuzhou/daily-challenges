@@ -25,5 +25,6 @@ internal class LeetCode134KtTest {
     @MethodSource("cases")
     fun `Should return the starting station for the circular travel`(case: Triple<IntArray, IntArray, Int>) {
         assertThat(canCompleteCircuit(case.first, case.second), `is`(case.third))
+        assertThat(canCompleteCircuitFast(case.first, case.second), `is`(case.third))
     }
 }
