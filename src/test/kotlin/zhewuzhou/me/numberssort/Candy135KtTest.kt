@@ -1,12 +1,15 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.numberssort
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode140.candy
+import zhewuzhou.me.leetcode140.candyDP
+import zhewuzhou.me.leetcode140.cutRatings
 import java.util.*
 
-internal class LeetCode135KtTest {
+internal class Candy135KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
@@ -42,6 +45,7 @@ internal class LeetCode135KtTest {
     @MethodSource("cases")
     fun `Should give minimal candy to children`(case: Pair<IntArray, Int>) {
         assertThat(candy(case.first), `is`(case.second))
+        assertThat(candyDP(case.first), `is`(case.second))
     }
 
     @ParameterizedTest

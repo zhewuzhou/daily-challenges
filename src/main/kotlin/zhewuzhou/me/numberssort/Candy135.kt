@@ -1,5 +1,35 @@
 package zhewuzhou.me.leetcode140
 
+/**
+ * The algorithm should be works as following:
+ * 1.Looking forward 0 -> n if candySeq[i] 1,2,3,4
+ * candiSeq[i]  = candiSeq[i-1]+1 when rating[i] > ratting[i-1]
+ * 2.Looking Backward n->0
+ * candiRev[i] = candiRev[i+1]+1 when rating[i-1]>ratting[i]
+ */
+fun candyDP(ratings: IntArray): Int {
+    val candySeq = IntArray(ratings.size) { 1 }
+    val candyRevSeq = IntArray(ratings.size) { 1 }
+    var res = 0
+    for (i in 1..ratings.lastIndex) {
+        if (ratings[i] > ratings[i - 1]) {
+            candySeq[i] = candySeq[i - 1] + 1
+        }
+    }
+    for (i in (ratings.lastIndex - 1) downTo 0) {
+        if (ratings[i] > ratings[i + 1]) {
+            candyRevSeq[i] = candyRevSeq[i + 1] + 1
+        }
+    }
+    for (i in ratings.indices) {
+        res += Math.max(candySeq[i], candyRevSeq[i])
+    }
+    return res
+}
+
+/**
+ * Native Solution
+ */
 fun candy(ratings: IntArray): Int {
     if (ratings.isEmpty()) return 0
     if (ratings.size == 1) return 1
