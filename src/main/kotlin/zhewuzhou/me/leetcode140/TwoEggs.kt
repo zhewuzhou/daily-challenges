@@ -1,58 +1,55 @@
 package zhewuzhou.me.leetcode140
 
-//egg not larger than log(l) or else lose meaning
-fun eggThrowDPRecur(egg: Int, level: Int): Int {
+fun superEggDropRecur(eggs: Int, levels: Int): Int {
     val caches = mutableMapOf<Pair<Int, Int>, Int>()
-    fun eggThrow(e: Int, l: Int): Int {
-        if (caches.containsKey(Pair(e, l))) {
-            return caches[Pair(e, l)]!!
-        }
-        var res = l
+    fun drop(egg: Int, lev: Int): Int {
+        val key = Pair(egg, lev)
+        if (caches.containsKey(key)) return caches[key]!!
+        var res = lev
         when {
-            e == 1 -> res = l
-            l == 1 -> res = 1
+            egg == 1 -> res = lev
+            (lev == 1 || lev == 0) -> res = 1
             else -> {
-                for (k in 1..l) {
-                    val possible = Math.max(eggThrow(e - 1, k), eggThrow(e, l - k)) + 1
-                    if (res > possible) {
-                        res = possible
+                var start = 1
+                var end = lev
+                while (start <= end) {
+                    var curMax = 0
+                    val mid = (start + end) / 2
+                    val broken = drop(egg - 1, mid - 1)
+                    val intact = drop(egg, lev - mid)
+                    curMax = Math.max(broken, intact) + 1
+                    if (broken < intact) {
+                        start = mid + 1
+                    } else {
+                        end = mid - 1
                     }
+                    res = Math.min(res, curMax)
                 }
             }
         }
-        caches[Pair(e, l)] = res
-        return res
+        caches[key] = res
+        return caches[key]!!
     }
-    return eggThrow(egg, level)
+    return drop(eggs, levels)
 }
 
-fun eggThrow(e: Int, l: Int): Int {
-    check(e > 0) {
-        "Egg can not be negative number."
+fun superEggDrop(eggs: Int, levels: Int): Int {
+    val throws = Array(eggs + 1) { IntArray(levels + 1) }
+    for (i in 1..levels) {
+        throws[1][i] = i
     }
-    check(l > 0) {
-        "Level can not be negative number."
+    for (i in 1..eggs) {
+        throws[i][1] = 1
     }
-    val metrics = Array(e + 1) {
-        IntArray(l + 1) {
-            -1
-        }
-    }
-    for (i in 1..l) {
-        metrics[1][i] = i
-    }
-    for (i in 1..e) {
-        metrics[i][1] = 1
-    }
-    for (i in 2..e) {
-        for (j in 2..l) {
+    for (i in 2..eggs) {
+        for (j in 2..levels) {
             var minTries = j
             for (k in 1 until j) {
-                val p = Math.max(metrics[i - 1][k], metrics[i][j - k]) + 1
+                val p = Math.max(throws[i - 1][k - 1], throws[i][j - k]) + 1
                 minTries = Math.min(minTries, p)
             }
-            metrics[i][j] = minTries
+            throws[i][j] = minTries
         }
     }
-    return metrics[e][l]
+    return throws[eggs][levels]
 }
