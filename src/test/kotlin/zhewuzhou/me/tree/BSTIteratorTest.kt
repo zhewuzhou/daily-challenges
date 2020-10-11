@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode160
+package zhewuzhou.me.tree
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.utils.TreeNode
+import zhewuzhou.utils.toTreeNode
 import java.util.*
 
 internal class BSTIteratorTest {
@@ -14,7 +15,7 @@ internal class BSTIteratorTest {
         fun cases() = Arrays.stream(
             arrayOf(
                 Pair(
-                    listOf(70, 30, 115, 20, 40, 90, 200, 10, 25, 35, 45, 80, 95, 150, 210),
+                    listOf(70, 30, 115, 20, 40, 90, 200, 10, 25, 35, 45, 80, 95, 150, 210).toTreeNode(),
                     listOf(10, 20, 25, 30, 35, 40, 45, 70, 80, 90, 95, 115, 150, 200, 210)
                 )
             )
@@ -23,9 +24,8 @@ internal class BSTIteratorTest {
 
     @ParameterizedTest
     @MethodSource("cases")
-    fun `Should iterator tree in ascending order `(case: Pair<List<Int>, List<Int>>) {
-        val treeNode = convertToTree(case.first)
-        val iterator = BSTIterator(treeNode)
+    fun `Should iterator tree in ascending order `(case: Pair<TreeNode?, List<Int>>) {
+        val iterator = BSTIterator(case.first)
         for (v in case.second) {
             assertThat(iterator.hasNext(), `is`(true))
             assertThat(iterator.next(), `is`(v))
@@ -39,16 +39,5 @@ internal class BSTIteratorTest {
         assertThat(iterator.hasNext(), `is`(true))
         assertThat(iterator.next(), `is`(0))
         assertThat(iterator.hasNext(), `is`(false))
-    }
-
-    fun convertToTree(l: List<Int>): TreeNode {
-        val nodes = l.map { TreeNode(it) }
-        var i = 0
-        while (2 * (i + 1) <= nodes.lastIndex) {
-            nodes[i].left = nodes[2 * i + 1]
-            nodes[i].right = nodes[2 * (i + 1)]
-            i += 1
-        }
-        return nodes[0]
     }
 }
