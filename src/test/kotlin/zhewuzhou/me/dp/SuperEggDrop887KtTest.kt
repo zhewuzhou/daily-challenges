@@ -1,12 +1,15 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.dp
 
-import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode140.superEggDrop
+import zhewuzhou.me.leetcode140.superEggDropMath
+import zhewuzhou.me.leetcode140.superEggDropRecur
 import java.util.*
 
-internal class TwoEggsKtTest {
+internal class SuperEggDrop887KtTest {
     private companion object {
         @JvmStatic
         fun eggCases() = Arrays.stream(
@@ -29,8 +32,8 @@ internal class TwoEggsKtTest {
     @ParameterizedTest
     @MethodSource("eggCases")
     fun `Throw egg problem solve with DP`(case: Triple<Int, Int, Int>) {
-        assertThat(superEggDrop(case.first, case.second), `is`(case.third))
-        assertThat(superEggDropMath(case.first, case.second), `is`(case.third))
-        assertThat(superEggDropRecur(case.first, case.second), `is`(case.third))
+        MatcherAssert.assertThat(superEggDrop(case.first, case.second), CoreMatchers.`is`(case.third))
+        MatcherAssert.assertThat(superEggDropMath(case.first, case.second), CoreMatchers.`is`(case.third))
+        MatcherAssert.assertThat(superEggDropRecur(case.first, case.second), CoreMatchers.`is`(case.third))
     }
 }
