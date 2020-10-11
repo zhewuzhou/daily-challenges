@@ -1,12 +1,14 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.simple
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode140.singleNumber
+import zhewuzhou.me.leetcode140.singleNumberTwo
 import java.util.*
 
-internal class LeetCode136KtTest {
+internal class SingleNumber136And137KtTest {
     private companion object {
         @JvmStatic
         fun twoCases() = Arrays.stream(
