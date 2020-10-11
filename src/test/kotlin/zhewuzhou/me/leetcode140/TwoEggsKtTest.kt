@@ -30,6 +30,7 @@ internal class TwoEggsKtTest {
     @MethodSource("eggCases")
     fun `Throw egg problem solve with DP`(case: Triple<Int, Int, Int>) {
         assertThat(superEggDrop(case.first, case.second), `is`(case.third))
+        assertThat(superEggDropMath(case.first, case.second), `is`(case.third))
         assertThat(superEggDropRecur(case.first, case.second), `is`(case.third))
     }
 }

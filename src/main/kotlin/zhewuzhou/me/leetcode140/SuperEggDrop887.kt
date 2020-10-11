@@ -1,5 +1,8 @@
 package zhewuzhou.me.leetcode140
 
+/**
+ * Don't understand why binary search works here
+ */
 fun superEggDropRecur(eggs: Int, levels: Int): Int {
     val caches = mutableMapOf<Pair<Int, Int>, Int>()
     fun drop(egg: Int, lev: Int): Int {
@@ -33,23 +36,48 @@ fun superEggDropRecur(eggs: Int, levels: Int): Int {
     return drop(eggs, levels)
 }
 
+/**
+ * TLE solution which means the selection of K is not effective enough
+ */
 fun superEggDrop(eggs: Int, levels: Int): Int {
-    val throws = Array(eggs + 1) { IntArray(levels + 1) }
-    for (i in 1..levels) {
-        throws[1][i] = i
+    val drop = Array(levels + 1) { IntArray(eggs + 1) }
+    var m = 0
+    while (drop[m][eggs] < levels) {
+        m += 1
+        for (k in 1..eggs) drop[m][k] = drop[m - 1][k - 1] + drop[m - 1][k] + 1
     }
-    for (i in 1..eggs) {
-        throws[i][1] = 1
+    return m
+}
+
+/**
+ * Math solution :)
+ */
+
+fun superEggDropMath(eggs: Int, levels: Int): Int {
+    val cache = mutableMapOf<Int, Int>()
+    fun calculate(curLevel: Int): Int {
+        if (cache.containsKey(curLevel)) return cache[curLevel]!!
+        var res = 0
+        var r = 1
+        for (i in 1..eggs) {
+            r *= (curLevel - i + 1)
+            r /= i
+            res += r
+            if (res > levels) break
+        }
+        cache[curLevel] = res
+        return cache[curLevel]!!
     }
-    for (i in 2..eggs) {
-        for (j in 2..levels) {
-            var minTries = j
-            for (k in 1 until j) {
-                val p = Math.max(throws[i - 1][k - 1], throws[i][j - k]) + 1
-                minTries = Math.min(minTries, p)
-            }
-            throws[i][j] = minTries
+
+    var start = 1
+    var end = levels
+    while (start < end) {
+        val mid = (start + end) / 2
+        if (calculate(mid) < levels) {
+            start = mid + 1
+        } else {
+            end = mid
         }
     }
-    return throws[eggs][levels]
+    return start
 }
