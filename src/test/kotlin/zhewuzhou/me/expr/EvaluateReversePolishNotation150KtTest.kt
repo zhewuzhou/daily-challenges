@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode160
+package zhewuzhou.me.expr
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode160.evalRPN
 import java.util.*
 
-internal class LeetCode150KtTest {
+internal class EvaluateReversePolishNotation150KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
