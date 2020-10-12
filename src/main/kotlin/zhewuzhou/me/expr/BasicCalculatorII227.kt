@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode240
+package zhewuzhou.me.expr
 
 fun calculateS(s: String): Int {
     val ops = mapOf(
