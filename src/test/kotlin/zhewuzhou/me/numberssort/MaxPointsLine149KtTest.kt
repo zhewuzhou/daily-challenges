@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode160
+package zhewuzhou.me.numberssort
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode160.maxPoints
 import java.util.*
 
-internal class LeetCode149KtTest {
+internal class MaxPointsLine149KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(

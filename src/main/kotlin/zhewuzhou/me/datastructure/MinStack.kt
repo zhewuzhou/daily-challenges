@@ -1,7 +1,10 @@
-package zhewuzhou.me.leetcode160
+package zhewuzhou.me.datastructure
 
 import java.util.*
 
+/**
+ * 155
+ */
 class MinStack {
     private val stack = Stack<Int>()
     private val min = Stack<Int>()

@@ -1,5 +1,8 @@
-package zhewuzhou.me.leetcode160
+package zhewuzhou.me.datastructure
 
+/**
+ * LeetCode 146
+ */
 
 class LRUCache(capacity: Int) {
     internal val cap = capacity
