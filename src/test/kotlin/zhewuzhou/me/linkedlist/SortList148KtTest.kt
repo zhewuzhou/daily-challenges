@@ -1,9 +1,10 @@
-package zhewuzhou.me.leetcode160
+package zhewuzhou.me.linkedlist
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode160.sortList
 import zhewuzhou.utils.ListNode
 import java.util.*
 
@@ -47,7 +48,7 @@ internal class SortList148KtTest {
     fun `Should merge 2 sorted list into 1`(case: Triple<List<Int>, List<Int>, List<Int>>) {
         val l1 = convertToList(case.first)
         val l2 = convertToList(case.second)
-        var head = merge(l1, l2)
+        var head = zhewuzhou.me.leetcode160.merge(l1, l2)
         for (v in case.third) {
             assertThat(head?.`val`, `is`(v))
             head = head?.next
