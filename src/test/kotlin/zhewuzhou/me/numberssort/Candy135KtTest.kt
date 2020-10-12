@@ -4,9 +4,6 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.leetcode140.candy
-import zhewuzhou.me.leetcode140.candyDP
-import zhewuzhou.me.leetcode140.cutRatings
 import java.util.*
 
 internal class Candy135KtTest {

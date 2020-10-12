@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.dp.string
 
 /*
 1. cut[i] is the minimum of cut[j - 1] + 1 (j <= i), if [j, i] is palindrome.

@@ -2,7 +2,7 @@ package zhewuzhou.me.numberssort.matrix
 
 fun generateMatrix(n: Int): Array<IntArray> {
     val nums = (1..n * n).toList()
-    val res = Array<IntArray>(n) {
+    val res = Array(n) {
         IntArray(n)
     }
     var round = 0

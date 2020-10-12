@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.graph
 
 import zhewuzhou.utils.Graph.Node
 import java.util.*
