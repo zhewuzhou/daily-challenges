@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.simple
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode180.findMin
 import java.util.*
 
-internal class LeetCode153KtTest {
+internal class FindMinimumRotatedSortedArray153KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
