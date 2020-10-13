@@ -1,12 +1,14 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.simple
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode180.convertToTitle
+import zhewuzhou.me.leetcode180.titleToNumber
 import java.util.*
 
-internal class LeetCode168KtTest {
+internal class ExcelSheetColumnTitle168KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
