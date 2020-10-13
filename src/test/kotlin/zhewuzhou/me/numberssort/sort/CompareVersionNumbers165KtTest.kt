@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.numberssort.sort
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode165KtTest {
+internal class CompareVersionNumbers165KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
