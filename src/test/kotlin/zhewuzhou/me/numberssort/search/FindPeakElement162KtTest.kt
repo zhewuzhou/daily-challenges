@@ -1,12 +1,12 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.numberssort.search
 
-import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode162KtTest {
+internal class FindPeakElement162KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
@@ -24,6 +24,6 @@ internal class LeetCode162KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should find the peak element from int array`(case: Pair<IntArray, Int>) {
-        assertThat(findPeakElement(case.first), `is`(case.second))
+        MatcherAssert.assertThat(findPeakElement(case.first), CoreMatchers.`is`(case.second))
     }
 }
