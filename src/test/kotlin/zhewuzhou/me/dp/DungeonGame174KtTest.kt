@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.d
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.dp.calculateMinimumHP
 import java.util.*
 
-internal class LeetCode174KtTest {
+internal class DungeonGame174KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(

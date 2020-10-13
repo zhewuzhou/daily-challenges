@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.dp
 
 fun calculateMinimumHP(dungeon: Array<IntArray>): Int {
     if (dungeon.isEmpty() || dungeon[0].isEmpty()) return 0

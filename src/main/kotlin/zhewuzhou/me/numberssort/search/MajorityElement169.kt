@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.numberssort.search
 
 fun majorityElement(nums: IntArray): Int {
     var count = 0
