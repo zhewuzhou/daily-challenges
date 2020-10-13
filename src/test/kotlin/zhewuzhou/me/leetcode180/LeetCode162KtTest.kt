@@ -12,7 +12,7 @@ internal class LeetCode162KtTest {
         fun cases() = Arrays.stream(
             arrayOf(
                 Pair(intArrayOf(1, 2, 3, 1), 2),
-                Pair(intArrayOf(1, 2, 1, 3, 5, 6, 4), 1),
+                Pair(intArrayOf(1, 2, 1, 3, 5, 6, 4), 5),
                 Pair(intArrayOf(1, 2), 1),
                 Pair(intArrayOf(2, 1), 0),
                 Pair(intArrayOf(1), 0),
