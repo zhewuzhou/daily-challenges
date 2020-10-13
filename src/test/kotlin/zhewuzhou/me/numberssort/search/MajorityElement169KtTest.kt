@@ -1,12 +1,13 @@
-package zhewuzhou.me.leetcode180
+package zhewuzhou.me.numberssort.search
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.leetcode180.majorityElement
 import java.util.*
 
-internal class LeetCode169KtTest {
+internal class MajorityElement169KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
