@@ -4,8 +4,6 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.leetcode140.canCompleteCircuit
-import zhewuzhou.me.leetcode140.canCompleteCircuitFast
 import java.util.*
 
 internal class GasStation134KtTest {

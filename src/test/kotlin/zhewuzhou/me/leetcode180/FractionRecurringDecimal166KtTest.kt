@@ -4,10 +4,10 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.numberssort.fractionToDecimal
 import java.util.*
 
-internal class LeetCode166KtTest {
-
+internal class FractionRecurringDecimal166KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
