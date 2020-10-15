@@ -1,10 +1,10 @@
 package zhewuzhou.me.expr
 
-class Fraction {
+class Fraction(numerator: Int, denominator: Int) {
     val numerator: Int
     val denominator: Int
 
-    constructor(numerator: Int, denominator: Int) {
+    init {
         val normal = normalize(numerator, denominator)
         this.numerator = normal.first
         this.denominator = normal.second
@@ -33,12 +33,24 @@ class Fraction {
     }
 
     operator fun plus(rhs: Fraction): Fraction {
+        return fractionOp(rhs, Int::plus)
+    }
+
+    operator fun minus(rhs: Fraction): Fraction {
+        return fractionOp(rhs, Int::minus)
+    }
+
+    private fun fractionOp(rhs: Fraction, op: (Int, Int) -> Int): Fraction {
         val lcm = lcm(this.denominator, rhs.denominator)
-        val newNumerator = (lcm / this.denominator) * numerator + (lcm / rhs.denominator) * rhs.numerator
+        val newNumerator = op(
+            (lcm / this.denominator) * numerator,
+            (lcm / rhs.denominator) * rhs.numerator
+        )
         return Fraction(newNumerator, lcm)
     }
 
     private fun normalize(numerator: Int, denominator: Int): Pair<Int, Int> {
+        if (numerator == 0) return Pair(0, 1)
         val gcd = gcd(numerator, denominator)
         val factor = if (denominator < 0) -1 else 1
         return Pair((numerator / gcd) * factor,
@@ -59,5 +71,41 @@ class Fraction {
 }
 
 fun fractionAddition(expression: String): String {
-    return ""
+    if (!expression.contains('/')) return Fraction(expression.toInt(), 1).toString()
+    var res: Fraction? = null
+    var curFraction: Fraction? = null
+    var numerator = 0
+    var denominator = 1
+    var cur = 1
+    val num = mutableListOf(expression[0])
+    while (cur <= expression.length) {
+        if (cur == expression.length) {
+            denominator = num.joinToString("").toInt()
+            curFraction = Fraction(numerator, denominator)
+        } else {
+            when (expression[cur]) {
+                '/' -> {
+                    numerator = num.joinToString("").toInt()
+                    num.clear()
+                }
+                in '0'..'9' -> num.add(expression[cur])
+                else -> {
+                    denominator = num.joinToString("").toInt()
+                    curFraction = Fraction(numerator, denominator)
+                    num.clear()
+                    num.add(expression[cur])
+                }
+            }
+        }
+        res = acc(curFraction, res)
+        curFraction = null
+        cur += 1
+    }
+    return res.toString()
+}
+
+private fun acc(acc: Fraction?, res: Fraction?): Fraction? {
+    if (acc == null) return res
+    if (res == null) return acc
+    return res + acc
 }

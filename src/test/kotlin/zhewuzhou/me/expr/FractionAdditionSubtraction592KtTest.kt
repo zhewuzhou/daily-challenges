@@ -14,8 +14,10 @@ internal class FractionAdditionSubtraction592KtTest {
             arrayOf(
                 Pair("-1/2+1/2", "0/1"),
                 Pair("-1/2+1/2+1/3", "1/3"),
+                Pair("5/3+1/3", "2/1"),
                 Pair("1/3-1/2", "-1/6"),
-                Pair("5/3+1/3", "2/1")
+                Pair("5", "5/1"),
+                Pair("-10", "-10/1")
             )
         )
     }
@@ -31,6 +33,7 @@ internal class FractionAdditionSubtraction592KtTest {
         assertThat(Fraction(1, -2).toString(), `is`("-1/2"))
         assertThat(Fraction(2, -4).toString(), `is`("-1/2"))
         assertThat(Fraction(-4, 2).toString(), `is`("-2/1"))
+        assertThat(Fraction(-0, 2).toString(), `is`("0/1"))
     }
 
     @Test
