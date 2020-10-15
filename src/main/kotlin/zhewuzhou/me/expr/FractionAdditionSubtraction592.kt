@@ -1,5 +1,7 @@
 package zhewuzhou.me.expr
 
+import java.util.*
+
 class Fraction(numerator: Int, denominator: Int) {
     val numerator: Int
     val denominator: Int
@@ -100,6 +102,20 @@ fun fractionAddition(expression: String): String {
         res = acc(curFraction, res)
         curFraction = null
         cur += 1
+    }
+    return res.toString()
+}
+
+fun fractionAdditionFast(expression: String): String {
+    if (!expression.contains('/')) return Fraction(expression.toInt(), 1).toString()
+    val sc = Scanner(expression).useDelimiter("/|(?=[-+])")
+    var res: Fraction? = null
+    var numerator = 0
+    var denominator = 1
+    while (sc.hasNext()) {
+        numerator = sc.nextInt()
+        denominator = sc.nextInt()
+        res = acc(Fraction(numerator, denominator), res)
     }
     return res.toString()
 }

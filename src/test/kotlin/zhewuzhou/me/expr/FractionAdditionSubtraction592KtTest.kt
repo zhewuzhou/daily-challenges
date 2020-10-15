@@ -26,6 +26,7 @@ internal class FractionAdditionSubtraction592KtTest {
     @MethodSource("cases")
     fun `Should calculate fractions correctly`(case: Pair<String, String>) {
         assertThat(fractionAddition(case.first), `is`(case.second))
+        assertThat(fractionAdditionFast(case.first), `is`(case.second))
     }
 
     @Test
