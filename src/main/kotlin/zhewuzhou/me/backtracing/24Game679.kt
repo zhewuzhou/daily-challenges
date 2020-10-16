@@ -58,9 +58,9 @@ fun judgePoint24Comb(nums: IntArray): List<String> {
                     val nextRoundStack = mutableListOf<Double>()
                     nextRoundStack.add(ops[key]!!(stack[i], stack[j]))
                     if (key.length == 1) {
-                        steps.add("Step: $stack: $i $key $j")
+                        steps.add(" Step: $stack: $i $key $j")
                     } else {
-                        steps.add("Step: $stack: $j ${key[0]} $i")
+                        steps.add(" Step: $stack: $j ${key[0]} $i")
                     }
                     for (k in stack.indices) {
                         if (k == j || k == i) continue
