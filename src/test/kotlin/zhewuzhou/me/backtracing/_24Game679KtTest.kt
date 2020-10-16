@@ -21,7 +21,9 @@ internal class _24Game679KtTest {
         fun combCases() = Arrays.stream(
             arrayOf(
                 Pair(intArrayOf(4, 1, 8, 7), 24),
-                Pair(intArrayOf(3, 8, 3, 8), 4))
+                Pair(intArrayOf(3, 8, 3, 8), 4),
+                Pair(intArrayOf(6, 6, 6, 6), 1)
+            )
         )
     }
 
