@@ -20,7 +20,8 @@ internal class _24Game679KtTest {
         @JvmStatic
         fun combCases() = Arrays.stream(
             arrayOf(
-                Pair(intArrayOf(4, 1, 8, 7), 100))
+                Pair(intArrayOf(4, 1, 8, 7), 24),
+                Pair(intArrayOf(3, 8, 3, 8), 4))
         )
     }
 
@@ -33,6 +34,6 @@ internal class _24Game679KtTest {
     @ParameterizedTest
     @MethodSource("combCases")
     fun `Should calculate possible paths`(case: Pair<IntArray, Int>) {
-        assertThat(judgePoint24Comb(case.first).size, `is`(24))
+        assertThat(judgePoint24Comb(case.first).size, `is`(case.second))
     }
 }
