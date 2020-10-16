@@ -4,8 +4,8 @@ package zhewuzhou.me.backtracing
 fun judgePoint24(nums: IntArray): Boolean {
     val EPSILON = 0.001
     val ops = listOf(
+        Double::plus,
         Double::minus,
-        Double::times,
         Double::div,
         Double::times,
         fun(a: Double, b: Double) = b - a,
