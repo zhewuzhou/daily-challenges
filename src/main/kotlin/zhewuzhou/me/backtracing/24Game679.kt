@@ -45,10 +45,11 @@ fun judgePoint24Comb(nums: IntArray): List<String> {
         "//" to fun(a: Double, b: Double) = b / a
     )
 
-    fun backtrace(stack: List<Double>, res: MutableList<String>, steps: MutableList<String>) {
+    fun backtrace(stack: List<Double>, res: MutableList<String>, exps: List<String>) {
         if (stack.size == 1) {
             if (Math.abs(stack[0] - 24.0) < EPSILON) {
-                res.add(steps.joinToString("->"))
+                println(exps)
+                res.add(exps[0])
             }
             return
         }
@@ -56,24 +57,27 @@ fun judgePoint24Comb(nums: IntArray): List<String> {
             for (j in (i + 1)..stack.lastIndex) {
                 for (key in ops.keys) {
                     val nextRoundStack = mutableListOf<Double>()
+                    val nextRoundExps = mutableListOf<String>()
                     nextRoundStack.add(ops[key]!!(stack[i], stack[j]))
-                    if (key.length == 1) {
-                        steps.add(" Step: $stack: $i $key $j")
-                    } else {
-                        steps.add(" Step: $stack: $j ${key[0]} $i")
-                    }
+                    nextRoundExps.add(
+                        if (key.length == 1) {
+                            "(${exps[i]} $key ${exps[j]})"
+                        } else {
+                            "(${exps[j]} ${key[0]} ${exps[i]})"
+                        }
+                    )
                     for (k in stack.indices) {
                         if (k == j || k == i) continue
                         nextRoundStack.add(stack[k])
+                        nextRoundExps.add(exps[k])
                     }
-                    backtrace(nextRoundStack, res, steps)
-                    steps.removeAt(steps.lastIndex)
+                    backtrace(nextRoundStack, res, nextRoundExps)
                 }
             }
         }
     }
 
     val res = mutableListOf<String>()
-    backtrace(nums.map { it.toDouble() }, res, mutableListOf())
+    backtrace(nums.map { it.toDouble() }, res, nums.map { it.toString() })
     return res
 }
