@@ -1,7 +1,7 @@
-package zhewuzhou.me.leetcode200
+package zhewuzhou.me.datastructure
 
 
-class UF(n: Int) {
+class IslandUF(n: Int) {
     private val parent: IntArray = IntArray(n)
     private val rank: ByteArray = ByteArray(n)
     private var count: Int = n
@@ -45,7 +45,7 @@ class UF(n: Int) {
 
 fun numIslands(grid: Array<CharArray>): Int {
     if (grid.isEmpty() || grid[0].isEmpty()) return 0
-    val uf = UF(grid.size * grid[0].size)
+    val uf = IslandUF(grid.size * grid[0].size)
     val columnSize = grid[0].size
     var zeros = 0
     for (i in grid.indices) {

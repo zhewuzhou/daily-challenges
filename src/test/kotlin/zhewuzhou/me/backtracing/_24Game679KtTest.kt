@@ -4,7 +4,6 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.expr.point24Expr
 import java.util.*
 
 internal class _24Game679KtTest {
@@ -23,11 +22,5 @@ internal class _24Game679KtTest {
     @MethodSource("cases")
     fun `Should judege if 24 can be made`(case: Pair<IntArray, Boolean>) {
         assertThat(judgePoint24(case.first), `is`(case.second))
-    }
-
-    @ParameterizedTest
-    @MethodSource("combCases")
-    fun `Should calculate possible paths`(case: Pair<IntArray, Int>) {
-        assertThat(point24Expr(case.first).size, `is`(case.second))
     }
 }
