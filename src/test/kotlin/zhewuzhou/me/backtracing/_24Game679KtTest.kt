@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.expr.judgePoint24Comb
+import zhewuzhou.me.expr.point24Expr
 import java.util.*
 
 internal class _24Game679KtTest {
@@ -15,15 +15,6 @@ internal class _24Game679KtTest {
                 Pair(intArrayOf(4, 1, 8, 7), true),
                 Pair(intArrayOf(1, 2, 1, 2), false),
                 Pair(intArrayOf(3, 8, 3, 8), true)
-            )
-        )
-
-        @JvmStatic
-        fun combCases() = Arrays.stream(
-            arrayOf(
-                Pair(intArrayOf(4, 1, 8, 7), 24),
-                Pair(intArrayOf(3, 8, 3, 8), 4),
-                Pair(intArrayOf(6, 6, 6, 6), 1)
             )
         )
     }
@@ -37,6 +28,6 @@ internal class _24Game679KtTest {
     @ParameterizedTest
     @MethodSource("combCases")
     fun `Should calculate possible paths`(case: Pair<IntArray, Int>) {
-        assertThat(judgePoint24Comb(case.first).size, `is`(case.second))
+        assertThat(point24Expr(case.first).size, `is`(case.second))
     }
 }

@@ -1,6 +1,6 @@
 package zhewuzhou.me.expr
 
-fun judgePoint24Comb(nums: IntArray): List<String> {
+fun point24Expr(nums: IntArray): List<String> {
     val EPSILON = 0.001
     val ops = mapOf(
         "+" to Double::plus,
