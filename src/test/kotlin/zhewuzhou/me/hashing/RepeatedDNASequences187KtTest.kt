@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode200
+package zhewuzhou.me.hashing
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode187KtTest {
+internal class RepeatedDNASequences187KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(

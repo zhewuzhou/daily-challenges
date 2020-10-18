@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode200
+package zhewuzhou.me.hashing
 
 fun findRepeatedDnaSequences(s: String): List<String> {
     val DNA = mapOf(
