@@ -1,51 +1,9 @@
 package zhewuzhou.me.datastructure
 
 
-class IslandUF(n: Int) {
-    private val parent: IntArray = IntArray(n)
-    private val rank: ByteArray = ByteArray(n)
-    private var count: Int = n
-
-    fun count(): Int {
-        return count
-    }
-
-    private fun find(num: Int): Int {
-        var p = num
-        while (p != parent[p]) {
-            parent[p] = parent[parent[p]]
-            p = parent[p]
-        }
-        return p
-    }
-
-    fun union(p: Int, q: Int) {
-        val rootP = find(p)
-        val rootQ = find(q)
-        if (rootP == rootQ) return
-
-        when {
-            rank[rootP] < rank[rootQ] -> parent[rootP] = rootQ
-            rank[rootP] > rank[rootQ] -> parent[rootQ] = rootP
-            else -> {
-                parent[rootQ] = rootP
-                rank[rootP]++
-            }
-        }
-        count--
-    }
-
-    init {
-        for (i in 0 until n) {
-            parent[i] = i
-            rank[i] = 0
-        }
-    }
-}
-
 fun numIslands(grid: Array<CharArray>): Int {
     if (grid.isEmpty() || grid[0].isEmpty()) return 0
-    val uf = IslandUF(grid.size * grid[0].size)
+    val uf = UF(grid.size * grid[0].size)
     val columnSize = grid[0].size
     var zeros = 0
     for (i in grid.indices) {

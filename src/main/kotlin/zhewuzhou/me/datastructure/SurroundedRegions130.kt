@@ -1,47 +1,6 @@
 package zhewuzhou.me.datastructure
 
-class UF(var count: Int) {
-    private var size: IntArray = IntArray(0)
-    private var parent: IntArray = IntArray(0)
-
-    init {
-        size = IntArray(count) { 1 }
-        parent = IntArray(count)
-        parent.forEachIndexed { index, _ -> parent[index] = index }
-    }
-
-    private fun validate(p: Int) {
-        val n = parent.size
-        require(p in 0 until n) { "index " + p + " is not between 0 and " + (n - 1) }
-    }
-
-    fun find(p: Int): Int {
-        var e = p
-        validate(e)
-        while (e != parent[e]) e = parent[e]
-        return e
-    }
-
-    fun connected(p: Int, q: Int): Boolean {
-        return find(p) == find(q)
-    }
-
-    fun union(p: Int, q: Int) {
-        val rootP = find(p)
-        val rootQ = find(q)
-        if (rootP == rootQ) return
-
-        if (size[rootP] < size[rootQ]) {
-            parent[rootP] = rootQ
-            size[rootQ] += size[rootP]
-        } else {
-            parent[rootQ] = rootP
-            size[rootP] += size[rootQ]
-        }
-        count -= 1
-    }
-}
-fun solve(board: Array<CharArray>): Unit {
+fun solve(board: Array<CharArray>) {
     if (board.isEmpty() || board[0].isEmpty()) return
     val columnSize = board[0].size
     val rowSize = board.size
