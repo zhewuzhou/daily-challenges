@@ -1,5 +1,4 @@
-package zhewuzhou.me.leetcode200
-
+package zhewuzhou.me.simple.bits
 
 fun reverseBits(n: Int): Int {
     var num = n

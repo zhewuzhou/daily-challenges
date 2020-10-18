@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode200
+package zhewuzhou.me.simple.bits
 
 fun hammingWeight(n: Int): Int {
     var num = n
