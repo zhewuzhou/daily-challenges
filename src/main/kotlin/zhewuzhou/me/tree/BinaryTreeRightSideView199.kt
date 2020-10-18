@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode200
+package zhewuzhou.me.tree
 
 import zhewuzhou.utils.TreeNode
 
