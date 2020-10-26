@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.hashing
 
 fun isIsomorphicSlow(s: String, t: String): Boolean {
     if (s.length != t.length) return false
