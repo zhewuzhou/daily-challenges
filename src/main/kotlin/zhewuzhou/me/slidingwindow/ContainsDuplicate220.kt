@@ -1,22 +1,6 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.slidingwindow
 
 import java.util.*
-
-
-fun containsNearbyAlmostDuplicateSlow(nums: IntArray, k: Int, t: Int): Boolean {
-    if (nums.isEmpty()
-        || k < 1
-        || t < 0
-        || nums.size == 1) return false
-    for (i in 0 until nums.lastIndex) {
-        for (j in (i + 1)..Math.min(i + k, nums.lastIndex)) {
-            if (Math.abs(nums[i] - nums[j]) <= t) {
-                return true
-            }
-        }
-    }
-    return false
-}
 
 fun containsNearbyAlmostDuplicate(nums: IntArray, k: Int, t: Int): Boolean {
     if (nums.isEmpty()

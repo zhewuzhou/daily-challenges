@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.slidingwindow
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode220KtTest {
+internal class ContainsDuplicate220KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(

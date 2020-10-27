@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.slidingwindow
 
 fun containsNearbyDuplicate(nums: IntArray, k: Int): Boolean {
     if (k < 1 || nums.isEmpty()) return false
