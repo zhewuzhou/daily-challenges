@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.backtracing
 
 fun combinationSum3(k: Int, target: Int): List<List<Int>> {
     if (k == 1) return if (target in 1..9) listOf(listOf(target)) else listOf()
@@ -6,10 +6,10 @@ fun combinationSum3(k: Int, target: Int): List<List<Int>> {
     val minKSum = minKSum(k)
     if (target > maxKSum || target < minKSum) return listOf()
 
-    fun doSearch(res: MutableSet<List<Int>>,
-                 comb: MutableList<Int>,
-                 space: List<Int>,
-                 start: Int) {
+    fun backtrace(res: MutableSet<List<Int>>,
+                  comb: MutableList<Int>,
+                  space: List<Int>,
+                  start: Int) {
         if (comb.size == k) {
             if (comb.sum() == target) {
                 res.add(comb.toList())
@@ -22,7 +22,7 @@ fun combinationSum3(k: Int, target: Int): List<List<Int>> {
         }
         for (i in start..(space.size - (k - comb.size))) {
             comb.add(space[i])
-            doSearch(res, comb, space, i + 1)
+            backtrace(res, comb, space, i + 1)
             comb.remove(comb.last())
         }
     }
@@ -30,7 +30,7 @@ fun combinationSum3(k: Int, target: Int): List<List<Int>> {
     val hi = upperBound(k, target)
     val lo = lowerBound(k, target)
     val result = mutableSetOf<List<Int>>()
-    doSearch(result, mutableListOf(), (lo..hi).toList(), 0)
+    backtrace(result, mutableListOf(), (lo..hi).toList(), 0)
     return result.toList()
 }
 
