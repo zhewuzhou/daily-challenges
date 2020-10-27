@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.simple
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat

@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.simple
 
 fun rangeBitwiseAnd(m: Int, n: Int): Int {
     var result = m

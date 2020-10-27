@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.simple
 
 fun isHappy(n: Int): Boolean {
     if (n <= 0) return false

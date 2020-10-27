@@ -1,9 +1,10 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.simple.bits
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.simple.rangeBitwiseAnd
 import java.util.*
 
 internal class LeetCode201KtTest {

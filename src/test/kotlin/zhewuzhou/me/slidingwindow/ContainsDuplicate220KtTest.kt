@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class ContainsDuplicate220KtTest {
+internal class LeetCode220KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
