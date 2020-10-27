@@ -1,6 +1,6 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.datastructure
 
-data class StringMatch(val pat: String) {
+data class KMPMatcher(val pat: String) {
     private val size = 256
     val dfa: Array<IntArray> = Array(size) { IntArray(pat.length) }
     val table = IntArray(pat.length)
@@ -66,20 +66,3 @@ data class StringMatch(val pat: String) {
         return if (status == pl) index - pl else tl
     }
 }
-
-fun shortestPalindromeV1(s: String): String {
-    if (s.isEmpty() || s.length == 1) return s
-    val kmp = StringMatch("$s|${s.reversed()}")
-    val maxLength = kmp.table[s.length * 2]
-    return s.substring(maxLength, s.length).reversed() + s
-}
-
-fun shortestPalindrome(txt: String): String {
-    val tl = txt.length
-    if (txt.isEmpty() || tl == 1) return txt
-    val reversed = txt.reversed()
-    val r = StringMatch(txt).search(reversed)
-    return if (r.first < tl) txt else reversed.substring(0, tl - r.second) + txt
-}
-
-
