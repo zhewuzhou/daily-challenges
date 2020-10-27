@@ -1,6 +1,6 @@
 package zhewuzhou.me.leetcode340
 
-import zhewuzhou.me.leetcode220.findKthLargest
+import zhewuzhou.me.numberssort.sort.findKthLargest
 import zhewuzhou.utils.swap
 
 fun wiggleSort(nums: IntArray) {
