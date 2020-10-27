@@ -1,30 +1,10 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.backtracing.dfs
 
-data class TNode(val v: Char) {
-    val children: Array<TNode?> = Array(26) { null }
-    var word: String? = null
-}
-
-class T {
-    val root = TNode(' ')
-    fun addWord(word: String) {
-        var cur = root
-        for (c in word) {
-            if (cur.children[c - 'a'] != null) {
-                cur = cur.children[c - 'a']!!
-            } else {
-                val t = TNode(c)
-                cur.children[c - 'a'] = t
-                cur = t
-            }
-        }
-        cur.word = word
-    }
-}
+import zhewuzhou.me.datastructure.WordDictionary
+import zhewuzhou.me.datastructure.WordDictionary.TrieNode
 
 fun findWords(board: Array<CharArray>, words: Array<String>): List<String> {
-
-    fun dfs(row: Int, col: Int, p: TNode, result: MutableSet<String>) {
+    fun dfs(row: Int, col: Int, p: TrieNode, result: MutableSet<String>) {
         val c = board[row][col]
         val n = (if (c == '#') null else p.children[c - 'a']) ?: return
         board[row][col] = '#'
@@ -40,7 +20,7 @@ fun findWords(board: Array<CharArray>, words: Array<String>): List<String> {
     }
 
     if (board.isEmpty() || board[0].isEmpty()) return listOf()
-    val trie = T()
+    val trie = WordDictionary()
     for (w in words) {
         trie.addWord(w)
     }
