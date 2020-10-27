@@ -1,4 +1,4 @@
-package zhewuzhou.me.stack
+package zhewuzhou.me.numberssort.graph
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -26,6 +26,7 @@ internal class LargestRectangleHistogram84KtTest {
     fun `Should calculate the max area of histogram`(case: Pair<List<Int>, Int>) {
         val heights = case.first.toIntArray()
         assertThat(largestRectangleArea(heights), `is`(case.second))
+        assertThat(largestRectangleAreaDivide(heights), `is`(case.second))
     }
 
     @Test

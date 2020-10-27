@@ -1,7 +1,6 @@
-package zhewuzhou.me.leetcode220
+package zhewuzhou.me.numberssort.graph
 
 import java.util.*
-
 
 fun getSkyline(buildings: Array<IntArray>): List<List<Int>> {
     val points = TreeMap<Int, MutableList<IntArray>>()

@@ -1,4 +1,4 @@
-package zhewuzhou.me.numberssort.matrix
+package zhewuzhou.me.numberssort.graph
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -34,5 +34,6 @@ internal class PerfectRectangle391KtTest {
     @MethodSource("cases")
     fun `Should determine if there is perfect rectangle`(case: Pair<Array<IntArray>, Boolean>) {
         assertThat(isRectangleCover(case.first), `is`(case.second))
+        assertThat(isRectangleCoverSweep(case.first), `is`(case.second))
     }
 }

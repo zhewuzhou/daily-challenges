@@ -1,4 +1,4 @@
-package zhewuzhou.me.stack
+package zhewuzhou.me.numberssort.graph
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -31,5 +31,7 @@ class TrappingRainWater42KtTest {
     fun `Should calculate trapped water`(case: Test42Case) {
         val heights = case.nums.toIntArray()
         assertThat(trap(heights), `is`(case.water))
+        assertThat(trapDP(heights), `is`(case.water))
+        assertThat(trapStack(heights), `is`(case.water))
     }
 }
