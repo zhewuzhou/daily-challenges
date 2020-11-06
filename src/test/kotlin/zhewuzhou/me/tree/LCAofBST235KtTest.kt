@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode240
+package zhewuzhou.me.tree
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -7,33 +7,41 @@ import org.junit.jupiter.params.provider.MethodSource
 import zhewuzhou.utils.TreeNode
 import java.util.*
 
-internal class LeetCode235KtTest {
+internal class LCAofBST235KtTest {
     private companion object {
         @JvmStatic
         fun casesE() = Arrays.stream(
-            arrayOf(
-                Triple(2, 8, 6),
-                Triple(2, 4, 2),
-                Triple(2, 4, 2)
-            )
+                arrayOf(
+                        Triple(2, 8, 6),
+                        Triple(2, 4, 2),
+                        Triple(2, 4, 2)
+                )
         )
 
         @JvmStatic
         fun casesM() = Arrays.stream(
-            arrayOf(
-                Triple(5, 1, 3),
-                Triple(5, 4, 5)
-            )
+                arrayOf(
+                        Triple(5, 1, 3),
+                        Triple(5, 4, 5)
+                )
+        )
+
+        val fns = listOf<(TreeNode?, TreeNode?, TreeNode?) -> TreeNode?>(
+                { t, p, q -> lowestCommonAncestor(t, p, q) },
+                { t, p, q -> lowestCommonAncestorEB(t, p, q) },
+                { t, p, q -> lowestCommonAncestorE(t, p, q) }
         )
     }
 
     @ParameterizedTest
     @MethodSource("casesM")
-    fun `Should `(case: Triple<Int, Int, Int>) {
+    fun `Should find lowest common ancestor`(case: Triple<Int, Int, Int>) {
         val bst = buildBSTM()
         val nodes = bst.second
-        val result = lowestCommonAncestorEB(nodes[bst.first], nodes[case.first], nodes[case.third])
-        assertThat(result?.`val`, `is`(case.third))
+        for (fn in fns) {
+            val result = fn(nodes[bst.first], nodes[case.first], nodes[case.third])
+            assertThat(result?.`val`, `is`(case.third))
+        }
     }
 
     @ParameterizedTest
@@ -41,8 +49,10 @@ internal class LeetCode235KtTest {
     fun `Should find LCA`(case: Triple<Int, Int, Int>) {
         val bst = buildBSTE()
         val nodes = bst.second
-        val result = lowestCommonAncestorEB(nodes[bst.first], nodes[case.first], nodes[case.second])
-        assertThat(result?.`val`, `is`(case.third))
+        for (fn in fns) {
+            val result = fn(nodes[bst.first], nodes[case.first], nodes[case.second])
+            assertThat(result?.`val`, `is`(case.third))
+        }
     }
 
     private fun buildBSTE(): Pair<Int, List<TreeNode>> {
