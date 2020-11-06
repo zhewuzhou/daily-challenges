@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode240
+package zhewuzhou.me.numberssort
 
 fun productExceptSelfR(nums: IntArray): IntArray {
     return doProduct(nums, 1)
@@ -26,7 +26,7 @@ private fun doProduct(nums: IntArray, factor: Int): IntArray {
     }
     val mid = nums.size / 2 - 1
     return doProduct(nums.copyOfRange(0, mid + 1), factor * product(nums, mid + 1, nums.lastIndex)) +
-        doProduct(nums.copyOfRange(mid + 1, nums.size), factor * product(nums, 0, mid))
+            doProduct(nums.copyOfRange(mid + 1, nums.size), factor * product(nums, 0, mid))
 }
 
 private fun product(nums: IntArray, s: Int, e: Int): Int {

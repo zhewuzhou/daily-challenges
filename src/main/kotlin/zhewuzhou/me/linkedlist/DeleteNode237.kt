@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode240
+package zhewuzhou.me.linkedlist
 
 import zhewuzhou.utils.ListNode
 
