@@ -18,10 +18,10 @@ fun isPalindrome(head: ListNode?): Boolean {
     val h2 = slow?.next
     slow?.next = null
     middle = slow
-    val l1 = reverseList(head)
+    val l1 = head.reverseList()
     val h1 = if (length % 2 == 1) l1?.next else l1
     val result = compareList(h1, h2)
-    reverseList(l1)
+    l1?.reverseList()
     middle?.next = l2
     return result
 }
@@ -40,17 +40,4 @@ private fun compareList(l1: ListNode?, l2: ListNode?): Boolean {
         }
     }
     return result
-}
-
-private fun reverseList(head: ListNode?): ListNode? {
-    var prev: ListNode? = null
-    var curr = head
-    var next: ListNode? = null
-    while (curr != null) {
-        next = curr.next
-        curr.next = prev
-        prev = curr
-        curr = next
-    }
-    return prev
 }

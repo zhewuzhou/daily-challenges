@@ -19,6 +19,19 @@ class ListNode(var `val`: Int) {
         }
     }
 
+    fun reverseList(): ListNode? {
+        var prev: ListNode? = null
+        var curr: ListNode? = this
+        var next: ListNode?
+        while (curr != null) {
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        return prev
+    }
+
     var next: ListNode? = null
 }
 
@@ -30,3 +43,4 @@ fun List<Int>.toListNode(): ListNode? {
     }
     return nodes.first()
 }
+

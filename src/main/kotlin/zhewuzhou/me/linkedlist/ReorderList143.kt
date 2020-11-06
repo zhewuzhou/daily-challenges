@@ -14,22 +14,9 @@ fun reorderList(head: ListNode?): Unit {
     val headOfL2 = slow?.next
     slow?.next = null
 
-    val l2 = reverseList(headOfL2)
+    val l2 = headOfL2?.reverseList()
     merge(head, l2)
 
-}
-
-fun reverseList(head: ListNode?): ListNode? {
-    var prev: ListNode? = null
-    var curr = head
-    var next: ListNode? = null
-    while (curr != null) {
-        next = curr.next
-        curr.next = prev
-        prev = curr
-        curr = next
-    }
-    return prev
 }
 
 fun merge(l1: ListNode?, l2: ListNode?): ListNode? {
