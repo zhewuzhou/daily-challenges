@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode240
+package zhewuzhou.me.datastructure
 
 import java.util.*
 
