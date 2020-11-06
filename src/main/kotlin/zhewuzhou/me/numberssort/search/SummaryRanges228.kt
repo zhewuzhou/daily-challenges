@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode240
+package zhewuzhou.me.numberssort.search
 
 fun summaryRanges(nums: IntArray): List<String> {
     val res = mutableListOf<String>()
