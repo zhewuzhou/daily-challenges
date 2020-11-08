@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode280
+package zhewuzhou.me.simple
 
 fun isUgly(num: Int): Boolean {
     if (num <= 0) return false

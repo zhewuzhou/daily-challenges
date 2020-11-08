@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode280
+package zhewuzhou.me.hashing
 
 fun wordPattern(pattern: String, str: String): Boolean {
     val words = str.split(" ")

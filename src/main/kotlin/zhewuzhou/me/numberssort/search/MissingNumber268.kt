@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode280
+package zhewuzhou.me.numberssort.search
 
 import zhewuzhou.utils.swap
 
