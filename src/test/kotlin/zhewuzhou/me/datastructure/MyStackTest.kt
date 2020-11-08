@@ -3,7 +3,6 @@ package zhewuzhou.me.datastructure
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
-import zhewuzhou.me.datastructure.MyStack
 
 internal class MyStackTest {
     @Test
