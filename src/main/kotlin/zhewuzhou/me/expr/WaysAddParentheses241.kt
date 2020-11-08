@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode260
+package zhewuzhou.me.expr
 
 fun diffWaysToCompute(input: String): List<Int> {
     if (input.isEmpty()) return listOf()
