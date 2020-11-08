@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode260
+package zhewuzhou.me.hashing
 
 fun isAnagram(s: String, t: String): Boolean {
     val charMap = IntArray(26)

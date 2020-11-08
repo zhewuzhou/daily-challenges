@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode260
+package zhewuzhou.me.hashing
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,16 +6,16 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode242KtTest {
+internal class ValidAnagram242KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Triple("anagram", "anagram", true),
-                Triple("rat", "car", false),
-                Triple("", "", true),
-                Triple("a", "", false)
-            )
+                arrayOf(
+                        Triple("anagram", "anagram", true),
+                        Triple("rat", "car", false),
+                        Triple("", "", true),
+                        Triple("a", "", false)
+                )
         )
     }
 
