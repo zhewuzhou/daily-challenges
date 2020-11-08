@@ -1,19 +1,6 @@
-package zhewuzhou.me.leetcode260
+package zhewuzhou.me.tree
 
 import zhewuzhou.utils.TreeNode
-
-fun binaryTreePathsS(root: TreeNode?): List<String> {
-    if (root == null) return listOf()
-    if (root.left == null && root.right == null) return listOf(root.`val`.toString())
-    val path = mutableListOf<String>()
-    if (root.left != null) {
-        path.addAll(binaryTreePaths(root.left).map { "${root.`val`}->$it" })
-    }
-    if (root.right != null) {
-        path.addAll(binaryTreePaths(root.right).map { "${root.`val`}->$it" })
-    }
-    return path
-}
 
 fun binaryTreePaths(root: TreeNode?): List<String> {
     fun searchPaths(node: TreeNode?, cur: String, res: MutableList<String>) {

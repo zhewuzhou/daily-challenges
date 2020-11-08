@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode260
+package zhewuzhou.me.simple.bits
 
 fun singleNumber(nums: IntArray): IntArray {
     if (nums.isEmpty() || nums.size < 2) return intArrayOf()
