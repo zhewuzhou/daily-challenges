@@ -11,14 +11,19 @@ internal class ParsingBooleanExpr1106KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
                 arrayOf(
-                        Pair(1, 1)
+                        Pair("!(f)", true),
+                        Pair("f", false),
+                        Pair("|(f,t)", true),
+                        Pair("|(f,|(f,|(f,t)))", true),
+                        Pair("&(t,f)", false),
+                        Pair("|(&(t,f,t),!(t))", false)
                 )
         )
     }
 
     @ParameterizedTest
     @MethodSource("cases")
-    fun `Should parsing the boolean expr`(case: Pair<Int, Int>) {
-        assertThat(case.first, `is`(case.second))
+    fun `Should parsing the boolean expr`(case: Pair<String, Boolean>) {
+        assertThat(parseBoolExpr(case.first), `is`(case.second))
     }
 }
