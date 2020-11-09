@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.gametheory
 
 import java.util.*
 
@@ -8,24 +8,6 @@ My Broken solution:
 1. How to express the second player will try best to stop me?
 2. How to cache the sub problem?
  */
-fun canIWinBroken(maxChoosableInteger: Int, desiredTotal: Int): Boolean {
-    val pool = TreeSet((1..maxChoosableInteger).toList())
-    fun roundRun(pool: TreeSet<Int>, curSum: Int, isPlay1: Boolean): Boolean {
-        if (pool.ceiling(desiredTotal - curSum) != null) {
-            return isPlay1
-        }
-        val possibles = pool.toTypedArray()
-        for (p in possibles) {
-            pool.remove(p)
-            if (!roundRun(pool, curSum + p, !isPlay1)) {
-                return true
-            }
-            pool.add(p)
-        }
-        return false
-    }
-    return roundRun(pool, 0, true)
-}
 
 fun canIWin(maxChoose: Int, total: Int): Boolean {
     if ((1 + maxChoose) * maxChoose / 2 < total) {

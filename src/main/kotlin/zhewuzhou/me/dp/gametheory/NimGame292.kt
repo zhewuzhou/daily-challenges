@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode300
+package zhewuzhou.me.dp.gametheory
 
 fun canWinNim(n: Int): Boolean {
     if (n <= 0) return true

@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode300
+package zhewuzhou.me.numberssort.sort
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat

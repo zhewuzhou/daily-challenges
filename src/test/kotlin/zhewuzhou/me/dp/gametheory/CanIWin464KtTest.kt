@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.gametheory
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -10,10 +10,10 @@ internal class CanIWin464KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Triple(10, 11, false),
-                Triple(10, 40, false)
-            )
+                arrayOf(
+                        Triple(10, 11, false),
+                        Triple(10, 40, false)
+                )
         )
     }
 

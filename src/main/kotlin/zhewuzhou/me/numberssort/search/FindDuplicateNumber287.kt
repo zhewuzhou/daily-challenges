@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode300
+package zhewuzhou.me.numberssort.search
 
 fun findDuplicate(nums: IntArray): Int {
     if (nums.size < 2) return -1

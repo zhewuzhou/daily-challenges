@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode300
+package zhewuzhou.me.numberssort.matrix
 
 fun gameOfLife(board: Array<IntArray>): Unit {
     if (board.isEmpty() ||

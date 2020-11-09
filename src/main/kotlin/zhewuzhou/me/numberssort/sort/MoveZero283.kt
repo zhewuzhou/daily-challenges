@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode300
+package zhewuzhou.me.numberssort.sort
 
 fun moveZeroes(nums: IntArray) {
     var leftMostZeroIndex = 0
