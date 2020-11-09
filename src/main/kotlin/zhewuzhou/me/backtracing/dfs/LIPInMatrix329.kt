@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.backtracing.dfs
 
 fun longestIncreasingPath(matrix: Array<IntArray>): Int {
     if (matrix.isEmpty() || matrix[0].isEmpty()) return 0

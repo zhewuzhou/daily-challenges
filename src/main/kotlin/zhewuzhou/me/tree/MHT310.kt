@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode320
+package zhewuzhou.me.tree
 
 import java.util.*
 
@@ -31,6 +31,8 @@ fun findMinHeightTreesSlow(n: Int, edges: Array<IntArray>): List<Int> {
     }
     return result[result.keys.first()]!!
 }
+
+//Eat all of leaf circle by circle until root remains
 
 fun findMinHeightTrees(n: Int, edges: Array<IntArray>): List<Int> {
     var total = n

@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode320
+package zhewuzhou.me.hashing
 /*
 If we N*N solution is simple but slow
 If Mapping all the char to pos:

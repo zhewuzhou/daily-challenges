@@ -1,9 +1,10 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.backtracing.dfs
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+import zhewuzhou.me.backtracing.dfs.longestIncreasingPath
 import java.util.*
 
 internal class LIPInMatrix329KtTest {

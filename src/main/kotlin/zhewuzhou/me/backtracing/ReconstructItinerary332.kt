@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.backtracing
 
 data class Ticket(var used: Boolean, val from: String, val to: String)
 
@@ -14,7 +14,7 @@ fun findItinerary(tickets: List<List<String>>): List<String> {
     val ts = tickets.map { Ticket(false, it[0], it[1]) }
 
     fun next(cur: String): List<Ticket> =
-        ts.filter { !it.used && it.from == cur }.sortedBy { it.to }
+            ts.filter { !it.used && it.from == cur }.sortedBy { it.to }
 
     fun doFind(path: MutableList<String>): List<String> {
         if (ts.all { it.used }) {
@@ -32,6 +32,5 @@ fun findItinerary(tickets: List<List<String>>): List<String> {
         return listOf()
     }
 
-    val result = mutableListOf<List<String>>()
     return doFind(mutableListOf("JFK"))
 }
