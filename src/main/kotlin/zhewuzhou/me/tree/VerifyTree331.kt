@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.tree
 
 /*
 Consider the binary tree if count # node:

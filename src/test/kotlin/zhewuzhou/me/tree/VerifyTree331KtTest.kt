@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.tree
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -16,9 +16,9 @@ internal class VerifyTree331KtTest {
         @JvmStatic
         fun cases() = Arrays.stream(
             arrayOf(
-//                Pair("9,3,4,#,#,1,#,#,2,#,6,#,#", true),
-//                Pair("1,#", false),
-//                Pair("9,#,#,1", false),
+                Pair("9,3,4,#,#,1,#,#,2,#,6,#,#", true),
+                Pair("1,#", false),
+                Pair("9,#,#,1", false),
                 Pair("9,#,92,#,#", true)
 
             )

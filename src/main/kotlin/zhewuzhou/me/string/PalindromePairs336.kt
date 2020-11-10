@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.string
 
 /*
 1 <= words.length <= 5000

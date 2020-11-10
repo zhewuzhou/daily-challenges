@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode340
+package zhewuzhou.me.numberssort.search
 
 import java.util.*
 

@@ -6,6 +6,7 @@ import java.util.*
 1. It seems like simple split will not works for !(f,t,(f,t))
 2. Do we need a context?
 3. It can be nested expr such as (f,t,(f,t,f,(t,f)))
+4. Techniques: on-stack replacement
  */
 fun parseBoolExpr(expr: String): Boolean {
     if (expr.length == 1) {
