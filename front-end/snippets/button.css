@@ -1,0 +1,40 @@
+/* 
+This is the bad example of the code due to:
+1. the paddings are fixed
+2. The space are fixed as well
+button {
+    padding: 6px 16px;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(#77a0bb, #58a);
+    border-radius: 4px;
+    box-shadow: 0 1px 5px gray;
+    color: white;
+    text-shadow: 0 -1px 1px #335166;
+    font-size: 20px;
+    line-height: 30px;
+} */
+
+
+/*
+This is realative better version, all of size and the other are all relative
+*/
+
+button {
+    padding: .3em .8em;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(hsla(0, 0%, 100%, .2), transparent);
+    border-radius: .2em;
+    box-shadow: 0 .05em .25em gray;
+    color: white;
+    text-shadow: 0 -.05em .05em #335166;
+    font-size: 125%;
+    line-height: 1.5;
+}
+
+button.cancel {
+    background-color: #c00;
+}
+
+button.ok {
+    background-color: #6b0;
+}
