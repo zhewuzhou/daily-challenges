@@ -28,6 +28,6 @@ internal class WildcardMatching44KtTest {
     @ParameterizedTest
     @MethodSource("cases")
     fun `Should match cases`(case: Triple<String, String, Boolean>) {
-        assertThat(isMatch44(case.first, case.second), `is`(case.third))
+        assertThat(isMatch44Recur(case.first, case.second), `is`(case.third))
     }
 }

@@ -5,7 +5,7 @@ package zhewuzhou.me.dp
 2. Change it to cacheable metrics[][]
  */
 
-fun isMatch44(s: String, p: String): Boolean {
+fun isMatch44Recur(s: String, p: String): Boolean {
     val caches = mutableMapOf<Pair<Int, Int>, Boolean>()
     fun match(s: String, p: String, si: Int, pi: Int): Boolean {
         if (pi == p.length) return si == s.length
