@@ -1,4 +1,4 @@
-package zhewuzhou.me.backtracing.dfs
+package zhewuzhou.me.backtracing.bfs
 
 import java.util.*
 
