@@ -13,7 +13,10 @@ internal class SuperWashingMachines517KtTest {
                 arrayOf(
                         Pair(intArrayOf(1, 0, 5), 3),
                         Pair(intArrayOf(0, 3, 0), 2),
-                        Pair(intArrayOf(0, 2, 0), -1)
+                        Pair(intArrayOf(0, 2, 0), -1),
+                        Pair(intArrayOf(0, 0, 11, 5), 8),
+                        Pair(intArrayOf(0), 0),
+                        Pair(intArrayOf(0, 0, 0), 0)
                 )
         )
     }

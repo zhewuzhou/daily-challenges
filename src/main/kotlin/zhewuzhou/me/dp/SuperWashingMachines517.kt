@@ -15,7 +15,7 @@ package zhewuzhou.me.dp
  */
 fun findMinMoves(machines: IntArray): Int {
     val sum = machines.sum()
-    if (sum < machines.size ||
+    if ((sum < machines.size && sum > 0) ||
             sum % machines.size != 0 ||
             machines.any { it < 0 }) {
         return -1
@@ -26,7 +26,7 @@ fun findMinMoves(machines: IntArray): Int {
     var cnt = 0
     for (n in machines) {
         cnt += n - target
-        res = Math.max(Math.max(cnt, res), n - target)
+        res = Math.max(Math.max(Math.abs(cnt), res), n - target)
     }
 
     return res
