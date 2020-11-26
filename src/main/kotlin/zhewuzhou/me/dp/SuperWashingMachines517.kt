@@ -13,6 +13,12 @@ package zhewuzhou.me.dp
  *   which means if the gain/lose is negative, there could be at most two items moved in because there are only at most two
  *   neighbors. But if gain/lose is positive, only one can be moved out so this sets the lower bound.
  */
+
+/**
+ * Tips:
+ * 1. It's smart to play around some simple but edge cases to get hints
+ * 2. It's very good to explaining to people such that greatly help to understand the problem better
+ */
 fun findMinMoves(machines: IntArray): Int {
     val sum = machines.sum()
     if ((sum < machines.size && sum > 0) ||
