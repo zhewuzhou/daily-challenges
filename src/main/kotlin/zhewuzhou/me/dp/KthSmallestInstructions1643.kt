@@ -21,14 +21,14 @@ fun calcComb(n: Int): Array<IntArray> {
 }
 
 fun kthSmallestPath(destination: IntArray, k: Int): String {
-    val comb = calcComb(destination[0] + destination[1])
-    val sb = StringBuilder()
-    var rem = k
     var numH = destination[1]
     var numV = destination[0]
-    while (k > 0) {
-        val maxIndexOfH = comb[numH - 1 + numV][numV]
-        if (k <= maxIndexOfH) {
+    var rem = k
+    val comb = calcComb(numH + numV)
+    val sb = StringBuilder()
+    while (numH != 0 || numV != 0) {
+        val maxIndexOfH = if (numH == 0) -1 else comb[numH - 1 + numV][numV]
+        if (rem <= maxIndexOfH) {
             sb.append('H')
             numH -= 1
         } else {
