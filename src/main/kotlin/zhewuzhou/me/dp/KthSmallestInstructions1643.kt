@@ -8,6 +8,12 @@ import java.lang.StringBuilder
  * 1 <= k <= nCr(row + column, row), where nCr(a, b) denotes a choose b
  */
 
+/**
+ * 1. Combination/Permutation
+ * 2. Sub Problem
+ * 3. Order: fix H then 24/2*2 = 6
+ */
+
 fun calcComb(n: Int): Array<IntArray> {
     val metrics = Array(n + 1) {
         IntArray(n + 1) { 1 }
