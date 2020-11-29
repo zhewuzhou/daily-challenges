@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.typical
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class CoinChaenge322KtTest {
+internal class CoinChange322KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(

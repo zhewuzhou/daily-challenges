@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.typical
 
 fun coinChange(coins: IntArray, amount: Int): Int {
     val matrix = IntArray(amount + 1) {
