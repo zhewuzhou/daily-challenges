@@ -10,9 +10,9 @@ internal class CombinationSum377KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Triple(intArrayOf(1, 2, 3), 4, 7)
-            )
+                arrayOf(
+                        Triple(intArrayOf(1, 2, 3), 4, 7)
+                )
         )
     }
 
@@ -20,5 +20,6 @@ internal class CombinationSum377KtTest {
     @MethodSource("cases")
     fun `Should calculate all possible combinations`(case: Triple<IntArray, Int, Int>) {
         assertThat(combinationSum4(case.first, case.second), `is`(case.third))
+        assertThat(combinationSum4Recur(case.first, case.second), `is`(case.third))
     }
 }

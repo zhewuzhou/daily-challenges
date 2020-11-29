@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.string
 
 fun numDistinctRecursive(s: String, t: String): Int {
     val cache = mutableMapOf<Pair<Int, Int>, Int>()
