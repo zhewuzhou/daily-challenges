@@ -7,15 +7,15 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCode357KtTest {
+internal class UniqueDigit357KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Pair(1, 10),
-                Pair(2, 91),
-                Pair(3, 739)
-            )
+                arrayOf(
+                        Pair(1, 10),
+                        Pair(2, 91),
+                        Pair(3, 739)
+                )
         )
     }
 

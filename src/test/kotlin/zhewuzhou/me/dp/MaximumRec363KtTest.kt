@@ -6,16 +6,16 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class LeetCodeMaximumRec363KtTest {
+internal class MaximumRec363KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Triple(arrayOf(
-                    intArrayOf(1, 0, 1),
-                    intArrayOf(0, -2, 3)
-                ), 2, 2)
-            )
+                arrayOf(
+                        Triple(arrayOf(
+                                intArrayOf(1, 0, 1),
+                                intArrayOf(0, -2, 3)
+                        ), 2, 2)
+                )
         )
     }
 
