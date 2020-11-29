@@ -14,3 +14,24 @@ fun coinChange(coins: IntArray, amount: Int): Int {
     }
     return if (matrix[amount] == Int.MAX_VALUE) -1 else matrix[amount]
 }
+
+fun coinChangeRecur(coins: IntArray, amount: Int): Int {
+    val cache = mutableMapOf(0 to 0)
+    fun doCoinChange(total: Int): Int {
+        if (cache.containsKey(total)) {
+            return cache[total]!!
+        }
+        var result = Int.MAX_VALUE
+        for (c in coins) {
+            if (total - c >= 0) {
+                val sub = doCoinChange(total - c)
+                if (sub != -1) {
+                    result = Math.min(result, sub + 1)
+                }
+            }
+        }
+        cache[total] = if (result == Int.MAX_VALUE) -1 else result
+        return cache[total]!!
+    }
+    return doCoinChange(amount)
+}
