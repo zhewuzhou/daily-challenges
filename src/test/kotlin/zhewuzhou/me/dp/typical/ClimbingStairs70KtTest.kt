@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.typical
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -33,5 +33,6 @@ internal class ClimbingStairs70KtTest {
     @MethodSource("cases")
     fun `Should calculate all possible combs`(case: Pair<Int, Int>) {
         assertThat(climbStairs(case.first), `is`(case.second))
+        assertThat(climbStairsRecur(case.first), `is`(case.second))
     }
 }

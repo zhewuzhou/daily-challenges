@@ -1,6 +1,6 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.typical
 
-fun climbStairsDP(n: Int): Int {
+fun climbStairsRecur(n: Int): Int {
     // base cases
     if (n <= 0) return 0
     if (n == 1) return 1
