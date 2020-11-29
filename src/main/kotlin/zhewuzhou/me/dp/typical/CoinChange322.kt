@@ -25,7 +25,7 @@ fun coinChangeRecur(coins: IntArray, amount: Int): Int {
         for (c in coins) {
             if (total - c >= 0) {
                 val sub = doCoinChange(total - c)
-                if (sub != -1) {
+                if (sub != -1 && sub < result) {
                     result = Math.min(result, sub + 1)
                 }
             }
