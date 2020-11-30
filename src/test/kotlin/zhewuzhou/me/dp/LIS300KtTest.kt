@@ -24,5 +24,6 @@ internal class LIS300KtTest {
     @MethodSource("cases")
     fun `Should return max increased subsequence`(case: Pair<List<Int>, Int>) {
         assertThat(lengthOfLIS(case.first.toIntArray()), `is`(case.second))
+        assertThat(lengthOfLISDP(case.first.toIntArray()), `is`(case.second))
     }
 }

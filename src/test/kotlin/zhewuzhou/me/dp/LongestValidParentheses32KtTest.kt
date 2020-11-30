@@ -3,25 +3,29 @@ package zhewuzhou.me.dp
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.MethodSource
+import java.util.*
 
 internal class LongestValidParentheses32KtTest {
-    @Test
-    fun `Should return 2 from (()`() {
-        assertThat(longestValidParentheses("(()"), `is`(2))
+    private companion object {
+        @JvmStatic
+        fun cases() = Arrays.stream(
+                arrayOf(
+                        Pair("(()", 2),
+                        Pair(")()())", 4),
+                        Pair("()(())", 6),
+                        Pair("()(()", 2)
+                )
+        )
     }
 
-    @Test
-    fun `Should return 4 from )()())`() {
-        assertThat(longestValidParentheses(")()())"), `is`(4))
-    }
-
-    @Test
-    fun `Should return 6 from ()(())`() {
-        assertThat(longestValidParentheses("()(())"), `is`(6))
-    }
-
-    @Test
-    fun `Should return 2 from ()(()`() {
-        assertThat(longestValidParentheses("()(()"), `is`(2))
+    @ParameterizedTest
+    @MethodSource("cases")
+    fun `Should calculate the LVP`(case: Pair<String, Int>) {
+        assertThat(longestValidParentheses(case.first), `is`(case.second))
+        assertThat(longestValidParenthesesRecur(case.first), `is`(case.second))
     }
 }
