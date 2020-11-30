@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.string
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -29,5 +29,6 @@ internal class WildcardMatching44KtTest {
     @MethodSource("cases")
     fun `Should match cases`(case: Triple<String, String, Boolean>) {
         assertThat(isMatch44Recur(case.first, case.second), `is`(case.third))
+        assertThat(isMatch44DP(case.first, case.second), `is`(case.third))
     }
 }
