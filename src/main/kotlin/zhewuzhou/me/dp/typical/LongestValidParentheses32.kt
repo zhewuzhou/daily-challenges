@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.typical
 
 /*
     TODO: 1. Stack spam
