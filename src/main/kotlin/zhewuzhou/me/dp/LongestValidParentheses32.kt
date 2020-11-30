@@ -39,8 +39,8 @@ fun longestValidParenthesesRecur(s: String): Int {
         }
         val preLVP = doCalcLVP(i - 1)
         var result = 0
-        if (i - preLVP - 1 >= 0 &&
-                s[i - preLVP - 1] == '(') {
+        val prePosition = i - preLVP - 1
+        if (prePosition >= 0 && s[prePosition] == '(') {
             result += preLVP + 2
             if (i - preLVP - 2 >= 0) {
                 result += doCalcLVP(i - preLVP - 2)
