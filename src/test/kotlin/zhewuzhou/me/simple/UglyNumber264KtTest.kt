@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.simple
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -6,22 +6,22 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class UglyNumberKtTest {
+internal class UglyNumber264KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Pair(1, 1),
-                Pair(2, 2),
-                Pair(3, 3),
-                Pair(4, 4),
-                Pair(5, 5),
-                Pair(6, 6),
-                Pair(7, 8),
-                Pair(8, 9),
-                Pair(9, 10),
-                Pair(10, 12)
-            )
+                arrayOf(
+                        Pair(1, 1),
+                        Pair(2, 2),
+                        Pair(3, 3),
+                        Pair(4, 4),
+                        Pair(5, 5),
+                        Pair(6, 6),
+                        Pair(7, 8),
+                        Pair(8, 9),
+                        Pair(9, 10),
+                        Pair(10, 12)
+                )
         )
     }
 

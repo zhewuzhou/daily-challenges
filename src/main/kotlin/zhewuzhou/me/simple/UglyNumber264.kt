@@ -1,8 +1,8 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.simple
 
 fun nthUglyNumber(n: Int): Int {
     if (n < 1) return 0
-    val result = mutableListOf<Int>(1)
+    val result = mutableListOf(1)
     var factor2 = 0
     var factor3 = 0
     var factor5 = 0
