@@ -8,15 +8,21 @@ fun minCut(s: String): Int {
     val l = s.length
     val cut = IntArray(l)
     val pal = Array(l) { BooleanArray(l) }
+
+    //init all [i,i] are true
     for (i in 0 until l) {
-        var min = i
-        for (j in 0..i) {
-            if (s[j] == s[i] && (j + 1 > i - 1 || pal[j + 1][i - 1])) {
+        pal[i][i] = true
+    }
+
+    for (i in 0 until l) {
+        cut[i] = if (i > 0) cut[i - 1] + 1 else 0
+        for (j in 0 until i) {
+            val contiguous = j == i - 1
+            if (s[j] == s[i] && (contiguous || pal[j + 1][i - 1])) {
                 pal[j][i] = true
-                min = if (j == 0) 0 else Math.min(min, cut[j - 1] + 1)
+                cut[i] = if (j == 0) 0 else Math.min(cut[i], cut[j - 1] + 1)
             }
         }
-        cut[i] = min
     }
     return cut[l - 1]
 }
