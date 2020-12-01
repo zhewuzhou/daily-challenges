@@ -1,7 +1,14 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.typical
 /*
 1 ≤ n ≤ 1000
 1 ≤ m ≤ min(50, n)
+ */
+
+/**
+ * 3 Steps to Determine if DP:
+ * 1. Sub optimal structure: s(i, k) -> for(j in k-2 until k) Math.min(sum(j, i), s(j, k-1))
+ * 2. s(i,k) is always fixed
+ * 3. sub problem is repeated
  */
 
 fun splitArray(nums: IntArray, m: Int): Int {
