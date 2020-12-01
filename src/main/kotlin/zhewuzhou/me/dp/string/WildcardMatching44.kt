@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.string
 
 /*
 1. Come up with recursive solution first
