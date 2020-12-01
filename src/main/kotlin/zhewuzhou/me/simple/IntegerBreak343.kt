@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.simple
 
 fun integerBreakSlow(n: Int): Int {
     if (n < 2 || n > 58) return 0
