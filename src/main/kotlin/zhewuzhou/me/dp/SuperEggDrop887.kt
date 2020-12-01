@@ -1,7 +1,11 @@
 package zhewuzhou.me.leetcode140
 
 /**
- * Don't understand why binary search works here
+ * Binary Search Works Perfectly
+ * 1. Although there is a cross
+ * 2. If you just take one line
+ * 3. Actually you searching for the point of cross in between
+ * 4. Basically the problem reduced to binary search
  */
 fun superEggDropRecur(eggs: Int, levels: Int): Int {
     val caches = mutableMapOf<Pair<Int, Int>, Int>()
