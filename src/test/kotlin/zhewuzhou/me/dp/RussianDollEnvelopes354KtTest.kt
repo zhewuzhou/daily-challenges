@@ -6,17 +6,17 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 
-internal class RussianDollEnvelopesKtTest {
+internal class RussianDollEnvelopes354KtTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Pair(arrayOf(
-                    intArrayOf(5, 4),
-                    intArrayOf(6, 4),
-                    intArrayOf(6, 7),
-                    intArrayOf(2, 3)), 3)
-            )
+                arrayOf(
+                        Pair(arrayOf(
+                                intArrayOf(5, 4),
+                                intArrayOf(6, 4),
+                                intArrayOf(6, 7),
+                                intArrayOf(2, 3)), 3)
+                )
         )
     }
 
