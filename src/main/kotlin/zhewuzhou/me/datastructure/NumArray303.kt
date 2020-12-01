@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.datastructure
 
 class NumArray(nums: IntArray) {
     private val matrix = IntArray(nums.size) {

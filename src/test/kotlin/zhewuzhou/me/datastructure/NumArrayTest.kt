@@ -1,4 +1,4 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.datastructure
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -10,12 +10,12 @@ internal class NumArrayTest {
     private companion object {
         @JvmStatic
         fun cases() = Arrays.stream(
-            arrayOf(
-                Triple(intArrayOf(-2, 0, 3, -5, 2, -1), Pair(0, 2), 1),
-                Triple(intArrayOf(-2, 0, 3, -5, 2, -1), Pair(2, 5), -1),
-                Triple(intArrayOf(-2, 0, 3, -5, 2, -1), Pair(0, 5), -3),
-                Triple(intArrayOf(1), Pair(0, 0), 1)
-            )
+                arrayOf(
+                        Triple(intArrayOf(-2, 0, 3, -5, 2, -1), Pair(0, 2), 1),
+                        Triple(intArrayOf(-2, 0, 3, -5, 2, -1), Pair(2, 5), -1),
+                        Triple(intArrayOf(-2, 0, 3, -5, 2, -1), Pair(0, 5), -3),
+                        Triple(intArrayOf(1), Pair(0, 0), 1)
+                )
         )
     }
 
