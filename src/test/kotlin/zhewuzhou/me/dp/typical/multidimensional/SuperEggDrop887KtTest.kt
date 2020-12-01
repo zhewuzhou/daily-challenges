@@ -1,12 +1,12 @@
-package zhewuzhou.me.dp
+package zhewuzhou.me.dp.typical.multidimensional
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhewuzhou.me.leetcode140.superEggDrop
-import zhewuzhou.me.leetcode140.superEggDropMath
-import zhewuzhou.me.leetcode140.superEggDropRecur
+import zhewuzhou.me.dp.typical.multidimensional.superEggDrop
+import zhewuzhou.me.dp.typical.multidimensional.superEggDropMath
+import zhewuzhou.me.dp.typical.multidimensional.superEggDropRecur
 import java.util.*
 
 internal class SuperEggDrop887KtTest {

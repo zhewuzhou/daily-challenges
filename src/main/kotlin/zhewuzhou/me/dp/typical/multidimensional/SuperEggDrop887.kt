@@ -1,4 +1,4 @@
-package zhewuzhou.me.leetcode140
+package zhewuzhou.me.dp.typical.multidimensional
 
 /**
  * Binary Search Works Perfectly
