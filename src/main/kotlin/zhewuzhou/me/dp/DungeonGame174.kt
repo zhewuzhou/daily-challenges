@@ -20,6 +20,15 @@ fun calculateMinimumHP(dungeon: Array<IntArray>): Int {
     return result[0][0]
 }
 
+/**
+ * 1. Play around with all of base/corner cases
+ * 2. Analysis with DP 3 steps approaches
+ * 3. Choose the starting point where the value is determined, in this case
+ *    If you start at D[n-1][m-1] which is the prince location, the min health
+ *    value is determined, thus that should be the start point; start from
+ *    there slowly moved to 0, 0 which is the starting point
+ */
+
 fun calculateMinimumHPRecur(d: Array<IntArray>): Int {
     if (d.isEmpty() || d[0].isEmpty()) return 0
     val row = d.size
