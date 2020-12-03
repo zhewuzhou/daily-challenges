@@ -19,3 +19,15 @@ fun calculateMinimumHP(dungeon: Array<IntArray>): Int {
     }
     return result[0][0]
 }
+
+fun calculateMinimumHPRecur(dungeon: Array<IntArray>): Int {
+    val caches = mutableMapOf<Pair<Int, Int>, Int>(Pair(0, 0) to -dungeon[0][0] + 1)
+    fun doCalculate(r: Int, c: Int): Int {
+        val key = Pair(r, c)
+        if (caches.containsKey(key)) {
+            return caches[key]!!
+        }
+        return 0
+    }
+    return 0
+}
