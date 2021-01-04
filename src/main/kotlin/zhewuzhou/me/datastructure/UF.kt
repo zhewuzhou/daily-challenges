@@ -2,6 +2,13 @@ package zhewuzhou.me.datastructure
 
 class UF(val n: Int) {
     private val parent: IntArray = IntArray(n)
+
+    /**
+     * rank[i] = rank of subtree rooted at i (never more than 31)
+     * But why? Is it because of the tree never taller than 31?
+     * At the begin all of the size is 0
+     * Then some became 1
+     */
     private val rank: ByteArray = ByteArray(n)
     private var count: Int = n
 
@@ -17,6 +24,9 @@ class UF(val n: Int) {
         return count
     }
 
+    /**
+     * Only do merge when sz is the same
+     */
     fun union(p: Int, q: Int) {
         val rootP = find(p)
         val rootQ = find(q)
@@ -40,6 +50,9 @@ class UF(val n: Int) {
 
     private fun find(num: Int): Int {
         var p = num
+        /**
+         * Path compression
+         */
         while (p != parent[p]) {
             parent[p] = parent[parent[p]]
             p = parent[p]
