@@ -1,9 +1,11 @@
+package zhewuzhou.me.daily
+
 fun pacificAtlantic(matrix: Array<IntArray>): List<List<Int>> {
     if (matrix.isEmpty() || matrix[0].isEmpty()) {
         return listOf()
     }
 
-    val result = mutableSetOf<List<Int>>()
+    val result = mutableListOf<List<Int>>()
     val pacificCache = mutableSetOf(
         Pair(0, matrix[0].lastIndex),
         Pair(matrix.lastIndex, 0)
@@ -49,7 +51,7 @@ fun pacificAtlantic(matrix: Array<IntArray>): List<List<Int>> {
     }
 
     fun canMoveToAtlantic(grid: Pair<Int, Int>, visited: MutableList<Pair<Int, Int>>): Boolean {
-        if (pacificCache.contains(grid) ||
+        if (atlanticCache.contains(grid) ||
             grid.first == matrix.lastIndex ||
             grid.second == matrix[0].lastIndex
         ) {
