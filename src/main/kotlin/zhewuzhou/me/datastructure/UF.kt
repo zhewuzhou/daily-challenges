@@ -6,8 +6,8 @@ class UF(val n: Int) {
     /**
      * rank[i] = rank of subtree rooted at i (never more than 31)
      * But why? Is it because of the tree never taller than 31?
-     * At the begin all of the size is 0
-     * Then some became 1
+     * If you always merge the smaller tree to big tree
+     * Then the depth will never more than 31
      */
     private val rank: ByteArray = ByteArray(n)
     private var count: Int = n
