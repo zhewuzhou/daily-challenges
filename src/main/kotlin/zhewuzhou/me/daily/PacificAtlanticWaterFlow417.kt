@@ -1,82 +1,54 @@
 package zhewuzhou.me.daily
 
+/**
+ * Do not try to return value from DFS, it's making things much harder
+ * Reverse or reduce the logic to make it simpler
+ */
 fun pacificAtlantic(matrix: Array<IntArray>): List<List<Int>> {
     if (matrix.isEmpty() || matrix[0].isEmpty()) {
         return listOf()
     }
+    val row = matrix.size
+    val col = matrix[0].size
+    val pacific = Array(row) {
+        (BooleanArray(col))
+    }
+    val atlantic = Array(row) {
+        (BooleanArray(col))
+    }
+
+    fun isValid(r: Int, c: Int): Boolean {
+        return r in (0 until row) && c in (0 until col)
+    }
+
+    fun dfs(r: Int, c: Int, ocean: Array<BooleanArray>, preHeight: Int) {
+        if (!isValid(r, c) || ocean[r][c] || matrix[r][c] < preHeight) {
+            return
+        }
+        ocean[r][c] = true
+        dfs(r + 1, c, ocean, matrix[r][c])
+        dfs(r - 1, c, ocean, matrix[r][c])
+        dfs(r, c + 1, ocean, matrix[r][c])
+        dfs(r, c - 1, ocean, matrix[r][c])
+    }
+
+    for (r in 0 until row) {
+        dfs(r, 0, pacific, matrix[r][0])
+        dfs(r, col - 1, atlantic, matrix[r][col - 1])
+    }
+
+    for (c in 0 until col) {
+        dfs(0, c, pacific, matrix[0][c])
+        dfs(row - 1, c, atlantic, matrix[row - 1][c])
+    }
 
     val result = mutableListOf<List<Int>>()
-    val pacificCache = mutableSetOf(
-        Pair(0, matrix[0].lastIndex),
-        Pair(matrix.lastIndex, 0)
-    )
-
-    val atlanticCache = mutableSetOf(
-        Pair(0, matrix[0].lastIndex),
-        Pair(matrix.lastIndex, 0)
-    )
-
-    fun nextSteps(cur: Pair<Int, Int>, visited: List<Pair<Int, Int>>): List<Pair<Int, Int>> {
-        return listOf(
-            Pair(cur.first + 1, cur.second),
-            Pair(cur.first - 1, cur.second),
-            Pair(cur.first, cur.second + 1),
-            Pair(cur.first, cur.second - 1)
-        ).filter {
-            it.first in (0..matrix.lastIndex) &&
-                    it.second in (0..matrix[0].lastIndex) &&
-                    matrix[cur.first][cur.second] >= matrix[it.first][it.second] &&
-                    !visited.contains(it)
-        }
-    }
-
-    fun canMoveToPacific(grid: Pair<Int, Int>, visited: MutableList<Pair<Int, Int>>): Boolean {
-        if (pacificCache.contains(grid) ||
-            grid.first == 0 ||
-            grid.second == 0
-        ) {
-            visited.add(grid)
-            pacificCache.addAll(visited)
-            return true
-        } else {
-            for (g in nextSteps(grid, visited)) {
-                visited.add(g)
-                if (canMoveToPacific(g, visited)) {
-                    return true
-                }
-                visited.removeAt(visited.lastIndex)
-            }
-        }
-        return false
-    }
-
-    fun canMoveToAtlantic(grid: Pair<Int, Int>, visited: MutableList<Pair<Int, Int>>): Boolean {
-        if (atlanticCache.contains(grid) ||
-            grid.first == matrix.lastIndex ||
-            grid.second == matrix[0].lastIndex
-        ) {
-            visited.add(grid)
-            atlanticCache.addAll(visited)
-            return true
-        } else {
-            for (g in nextSteps(grid, visited)) {
-                visited.add(g)
-                if (canMoveToAtlantic(g, visited)) {
-                    return true
-                }
-                visited.removeAt(visited.lastIndex)
-            }
-        }
-        return false
-    }
-
-    for (r in 0..matrix.lastIndex) {
-        for (c in 0..matrix[0].lastIndex) {
-            val grid = Pair(r, c)
-            if (canMoveToAtlantic(grid, mutableListOf()) && canMoveToPacific(grid, mutableListOf())) {
+    for (r in 0 until row) {
+        for (c in 0 until col) {
+            if (pacific[r][c] && atlantic[r][c]) {
                 result.add(listOf(r, c))
             }
         }
     }
-    return result.toList()
+    return result
 }
